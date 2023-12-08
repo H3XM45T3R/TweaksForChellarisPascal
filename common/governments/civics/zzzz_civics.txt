@@ -1,0 +1,61 @@
+# disallow for servitor (busted unity)
+civic_tec_machine_alpha_directive = {
+	icon = gfx/interface/icons/governments/civics/gestalt_civics/civic_tec_machine_alpha_directive.dds
+	description = "civic_tec_machine_alpha_directive_tooltip"
+
+	potential = {
+		inline_script = governments/conditions/is_machine_intelligence
+	}
+
+	possible = {
+		civics = {
+			NOR = {
+				value = civic_tec_machine_prime_directive
+				#value = civic_tec_machine_alpha_directive
+				value = civic_tec_machine_delta_directive
+				value = civic_tec_machine_epsilon_directive
+				value = civic_tec_machine_zeta_directive
+				value = civic_tec_machine_iota_directive
+				value = civic_tec_machine_lambda_directive
+				value = civic_tec_machine_omicron_directive
+				value = civic_tec_machine_rho_directive
+				value = civic_tec_machine_upsilon_directive
+				value = civic_tec_machine_omega_directive
+				
+				value = civic_machine_servitor
+			}
+		}
+	}
+
+	random_weight = { base = 5 }
+	modifier = {
+		
+	}
+}
+
+civic_tec_corporate_automatation = {
+	icon = gfx/interface/icons/governments/civics/megacorp_civics/civic_tec_corporate_automatation.dds
+	description = "civic_tec_corporate_automatation_tooltip"
+	potential = {
+		inline_script = governments/conditions/is_corporate
+	}
+
+	modification = no
+
+	possible = {
+	
+		ethics = {
+			OR = {
+				text = civic_tooltip_industrialist
+				inline_script = governments/conditions/ethic_industrial
+			}
+
+		}
+
+	}
+	random_weight = { base = 5 }
+	modifier = {
+		planet_jobs_robotic_produces_mult = 0.05
+		planet_pops_robotics_upkeep_mult = -0.1
+	}
+}

@@ -1,0 +1,115 @@
+# allow anyone to become crisis
+ap_become_the_crisis = {
+	potential = {
+		has_nemesis = yes
+		NOR = {
+			has_ascension_perk = ap_become_the_crisis
+			has_origin = origin_slavers
+		}
+	}
+
+	possible = {
+		custom_tooltip = {
+			fail_text = "requires_ascension_perks_2"
+			num_ascension_perks > 1
+		}
+		custom_tooltip = {
+			fail_text = "requires_independence"
+			is_subject = no
+		}
+		custom_tooltip = {
+			fail_text = "must_not_be_custodian"
+			is_galactic_custodian = no
+		}
+		custom_tooltip = {
+			fail_text = "must_not_be_emperor"
+			is_galactic_emperor = no
+		}
+	}
+
+	on_enabled = {
+		hidden_effect = {
+			set_ai_personality = became_the_crisis
+		}
+		activate_crisis_progression = yes
+	}
+
+	ai_weight = {
+		weight = @tec_situational_ap_weight
+		
+		modifier = {
+			add = 10
+			is_homicidal = yes
+		}
+
+		modifier = {
+			add = 3
+			OR = {
+				has_ascension_perk = ap_galactic_force_projection 
+			}
+		}
+
+		modifier = {
+			add = 5
+			has_tradition = tr_supremacy_adopt
+		}
+
+		modifier = {
+			add = 5
+			has_tradition = tr_tec_might_adopt
+		}
+		
+		modifier = {
+			add = 5
+			galaxy_percentage > 0.2
+		}
+
+		modifier = { # driven to madness
+			add = 5
+			OR = { 
+				has_country_flag = eater_covenant_rank_1
+				has_country_flag = eater_covenant_confirmed 
+			}
+		}
+
+		modifier = { # driven even more to end it all and outrun the cycle
+			add = 10
+			has_country_flag = covenant_end_of_the_cycle
+		}
+
+		modifier = {
+			add = 2
+			has_ethic = ethic_xenophobe
+		}
+		modifier = {
+			add = 4
+			has_ethic = ethic_fanatic_xenophobe
+		}
+		modifier = {
+			add = 4
+			has_ethic = ethic_gestalt_apathy
+		}
+
+		# Disablers
+		inline_script = ascension_perks/weights/inline_evolved_force_main_path
+		modifier = {
+			factor = 0
+			galaxy_percentage < 0.1
+		}
+		modifier = {
+			factor = 0
+			is_militarist = no
+			is_xenophobe = no
+			is_gestalt = no
+		}
+		modifier = {
+			factor = 0
+			count_country = {
+				count > 1
+				limit = {
+					has_ascension_perk = ap_become_the_crisis
+				}
+			}
+		}
+	}
+}

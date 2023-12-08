@@ -1,0 +1,10 @@
+tc_has_any_organic_species = {
+	any_owned_species = {
+		OR = {
+			is_archetype = BIOLOGICAL
+			is_archetype = LITHOID
+			is_archetype = REPLICANT
+			is_archetype = BIOSERVANT
+		}
+	}
+}

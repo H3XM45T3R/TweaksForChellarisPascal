@@ -1,0 +1,160 @@
+# Tecnocorp
+building_tec_private_patents_initiative = {
+	base_buildtime = @b2_time
+	base_cap_amount = 1
+
+	owner_type = corporate
+
+	category = research
+
+	potential = {
+		#always = no
+		has_branch_office = yes
+		branch_office_owner = {
+			is_gestalt = no
+			has_valid_civic = civic_tec_corporate_scientific_corp 
+		}
+	}
+
+	allow = {
+		tec_requires_upgraded_branch_capital = yes
+	}
+
+	inline_script = {
+		script = jobs/inline_evolved_job
+		job = tec_hired_researcher
+		count = 1
+		mult = 1
+		display = with_desc
+		trigger = "
+			owner = {
+				is_regular_empire = yes
+			}
+		"
+	}
+
+	inline_script = {
+		script = jobs/inline_evolved_researcher
+		count = 1
+		mult = 1
+		display = with_desc
+		trigger = "
+			owner = {
+				is_gestalt = yes
+			}
+		"
+	}
+
+	resources = {
+		category = planet_branch_office_buildings
+		cost = {
+			minerals = @b3_minerals
+		}
+		inline_script = {
+			script = buildings/resources/inline_evolved_branch_building_resource_cost
+			tier = 3
+		}
+
+		produces = {
+			physics_research = 8
+			engineering_research = 8
+			society_research = 8
+			multiplier = value:scripted_modifier_mult|MODIFIER|tec_branch_building_base_production_mult|
+		}
+	}
+	
+	country_modifier = {
+		all_technology_research_speed = 0.005
+	}
+	
+	inline_script = "buildings/modifiers/inline_researchbureau_trade_value"
+
+	ai_resource_production = {
+		trigger = {
+			always = yes
+		}
+		physics_research = 5
+		engineering_research = 5
+		society_research = 5
+	}
+
+	ai_weight = {
+		weight = 250
+	}
+}
+
+building_private_research_initiative = {
+	base_buildtime = @b2_time
+	base_cap_amount = 1
+
+	owner_type = corporate
+
+	category = research
+
+	potential = {
+		has_branch_office = yes
+		branch_office_owner = {
+			is_gestalt = no
+			is_criminal_syndicate = no 
+		}
+	}
+
+	allow = {
+		tec_requires_branch_capital = yes
+	}
+
+	resources = {
+		category = planet_branch_office_buildings
+		inline_script = {
+			script = buildings/resources/inline_evolved_branch_building_resource_cost
+			tier = 3
+		}
+
+		produces = {
+			physics_research = 6
+			engineering_research = 6
+			society_research = 6
+			multiplier = value:scripted_modifier_mult|MODIFIER|tec_branch_building_base_production_mult|
+		}
+	}
+
+	inline_script = {
+		script = jobs/inline_evolved_job
+		job = tec_hired_researcher
+		count = 1
+		mult = 1
+		display = with_desc
+		trigger = "
+			owner = {
+				is_regular_empire = yes
+			}
+		"
+	}
+
+	inline_script = {
+		script = jobs/inline_evolved_researcher
+		count = 1
+		mult = 1
+		display = with_desc
+		trigger = "
+			owner = {
+				is_gestalt = yes
+			}
+		"
+	}
+	
+	inline_script = "buildings/modifiers/inline_researchbureau_trade_value"
+
+	ai_resource_production = {
+		trigger = {
+			always = yes
+		}
+		physics_research = 2
+		society_research = 2
+		engineering_research = 2
+	}
+
+	ai_weight = {
+		weight = 3
+	}
+}

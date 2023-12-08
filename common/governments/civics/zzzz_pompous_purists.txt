@@ -1,0 +1,139 @@
+origin_scion = {
+	is_origin = yes
+	icon = "gfx/interface/icons/origins/origins_scion_1.dds"
+	picture = GFX_origin_scion
+	max_once_global = yes
+
+	playable = {
+		host_has_dlc = Federations
+	}
+
+	possible = {
+		ethics = {
+			NOR = {
+				value = ethic_gestalt_consciousness
+				#value = ethic_xenophobe
+				#value = ethic_fanatic_xenophobe
+			}
+		}
+		#civics = {
+		#	NOT = { value = civic_pompous_purists }
+		#}
+	}
+
+	description = "origin_tooltip_scion_effects"
+	flags = { custom_start_screen }
+
+	random_weight = {
+		base = 0
+		modifier = {
+			add = 2
+			num_fallen_empires_setting >= 1
+		}
+	}
+}
+
+civic_tec_corporate_pompous = {
+	icon = gfx/interface/icons/governments/civics/megacorp_civics/civic_tec_corporate_pompous.dds
+	description = "civic_tec_corporate_pompous_tooltip"
+	playable = { has_humanoids = yes }
+	ai_playable = { has_humanoids = yes }
+	potential = {
+		inline_script = governments/conditions/is_corporate
+	}
+	possible = {
+		ethics = {
+			OR = {
+				text = civic_tooltip_xenophobe
+				inline_script = governments/conditions/ethic_xenophobe
+			}
+		}
+		civics = {
+			NOR = {
+				value = civic_tec_corporate_competition_purifiers
+				value = civic_tec_corporate_inwards_perfection
+			}
+		}
+		#origin = { NOT = { value = origin_scion } }
+	}
+
+	modifier = {
+		country_trust_growth = 0.30
+		envoys_add = 2
+	}
+}
+	
+civic_pompous_purists = {
+	icon = gfx/interface/icons/governments/civics/civic_pompous_purists.dds
+	description = "civic_tooltip_pompous_purists_effects"
+
+	playable = { has_humanoids = yes }
+	ai_playable = { has_humanoids = yes }
+	potential = {
+		inline_script = governments/conditions/is_regular
+	}
+	possible = {
+		ethics = {
+			OR = {
+				text = civic_tooltip_xenophobe
+				inline_script = governments/conditions/ethic_xenophobe
+			}
+		}
+		civics = {
+			NOR = {
+				text = civic_tooltip_tec_restricted_diplomacy_block
+				value = civic_barbaric_despoilers
+				#value = civic_pompous_purists
+				value = civic_inwards_perfection
+			}
+			NOR = {
+				text = civic_tooltip_tec_genocidal_block
+				value = civic_fanatic_purifiers
+				value = civic_tec_corporate_competition_purifiers
+			}
+		}
+		#origin = { NOT = { value = origin_scion } }
+	}
+
+	modifier = {
+		country_trust_growth = 0.30
+		envoys_add = 2
+	}
+
+	random_weight = {
+		base = @civic_rare_random_weight
+	}
+
+	ai_weight = {
+		base = @ai_civic_uncommon_base_weight
+		modifier = {
+			factor = @ai_civic_personality_match_factor
+			OR = {
+				has_ai_personality = decadent_hierarchy
+				has_ai_personality = xenophobic_isolationists
+				has_ai_personality = fanatic_purifiers
+			}
+		}
+		modifier = {
+			factor = @ai_civic_personality_mismatch_factor
+			OR = {
+				has_ai_personality = honorbound_warriors
+				has_ai_personality = spiritual_seekers
+				has_ai_personality = slaving_despots
+			}
+		}
+		modifier = {
+			factor = @ai_civic_personality_forbid_factor
+			OR = {
+				has_ai_personality = evangelising_zealots
+				has_ai_personality = erudite_explorers
+				has_ai_personality = ruthless_capitalists
+				has_ai_personality = peaceful_traders
+				has_ai_personality = hegemonic_imperialists
+				has_ai_personality = democratic_crusaders
+				has_ai_personality = federation_builders
+				has_ai_personality = fanatic_befrienders
+			}
+		}
+	}
+}

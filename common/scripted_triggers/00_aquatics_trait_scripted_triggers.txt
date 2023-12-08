@@ -1,0 +1,30 @@
+tc_is_dry_world = {
+	has_climate = dry
+	tc_is_ocean_world = no
+}
+
+tc_is_cold_world = {
+	has_climate = cold
+	tc_is_ocean_world = no
+}
+
+tc_is_wet_world = {
+	has_climate = wet
+	tc_is_ocean_world = no
+}
+
+tc_is_ocean_world = {
+	OR = {
+		tec_is_aquatic_planet = yes
+		
+		is_planet_class = pc_floating
+		is_planet_class = pc_pd_hycean
+	}
+}
+
+tc_is_misc_world = {
+	tc_is_dry_world = no
+	tc_is_cold_world = no
+	tc_is_wet_world = no
+	tc_is_ocean_world = no
+}

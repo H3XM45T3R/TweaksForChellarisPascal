@@ -1,0 +1,76 @@
+namespace = voidtech_start
+
+system_event = {
+	id = voidtech_start.1
+	is_triggered_only = yes
+	hide_window = yes
+	
+	immediate = {
+			random_system_planet = {
+				limit = { is_planet_class = pc_wettidallylocked }
+				owner = { give_technology = { 
+							tech = tech_habitat_1 
+									message = no
+									}
+								}
+									
+									
+				}
+			}
+	}
+	
+planet_event = {
+	id = voidtech_start.2
+	is_triggered_only = yes
+	hide_window = yes
+	
+	immediate = {
+				set_deposit = d_minerals_2
+				if = {
+					limit = { exists = orbital_station }
+					delete_fleet = orbital_station
+				}
+			}
+}
+
+planet_event = {
+	id = voidtech_start.3
+	is_triggered_only = yes
+	hide_window = yes
+	
+	immediate = {
+				set_deposit = d_minerals_6
+				if = {
+					limit = { exists = orbital_station }
+					delete_fleet = orbital_station
+				}
+			}
+}
+
+planet_event = {
+	id = voidtech_start.4
+	is_triggered_only = yes
+	hide_window = yes
+	
+	immediate = {
+				add_deposit = d_physics_3
+				if = {
+					limit = { exists = orbital_station }
+					delete_fleet = orbital_station
+				}
+			}
+}
+
+planet_event = {
+	id = voidtech_start.5
+	is_triggered_only = yes
+	hide_window = yes
+	
+	immediate = {
+				set_deposit = d_energy_4
+				if = {
+					limit = { exists = orbital_station }
+					delete_fleet = orbital_station
+				}
+			}
+}

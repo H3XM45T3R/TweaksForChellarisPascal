@@ -1,0 +1,50 @@
+#Auto-Repair Module
+tech_nanite_repair_system = {
+	area = engineering
+	cost = @tier5cost3
+	tier = 5
+	is_rare = yes
+	category = { voidcraft }
+	prerequisites = { tech_tec_naniteproduction }
+	ai_update_type = military
+	weight = @tier5weight1
+
+	weight_modifier = {
+		mult = value:tec_tech_expertise_or_briliant_scientist_weight_negative|CATEGORY|voidcraft|
+		mult = value:tec_tech_weight_bonus|RARE|yes|TECH|tech_tec_naniteproduction|
+	}
+}
+
+# Nanite Autocannon
+tech_nanite_autocannon = {
+	area = engineering
+	cost = @tier5cost3
+	tier = 5
+	is_rare = yes
+	category = { propulsion }
+	prerequisites = { tech_tec_naniteproduction }
+	ai_update_type = military
+	weight = @tier5weight1
+
+	weight_modifier = {
+		mult = value:tec_tech_expertise_or_briliant_scientist_weight_negative|CATEGORY|propulsion|
+		mult = value:tec_tech_weight_bonus|RARE|yes|TECH|tech_tec_naniteproduction|
+	}
+}
+
+# Nanite Flak
+tech_nanite_flak_batteries = {
+	area = engineering
+	cost = @tier5cost3
+	tier = 5
+	is_rare = yes
+	category = { propulsion }
+	prerequisites = { tech_tec_naniteproduction }
+	ai_update_type = military
+	weight = @tier5weight1
+
+	weight_modifier = {
+		mult = value:tec_tech_expertise_or_briliant_scientist_weight_negative|CATEGORY|propulsion|
+		mult = value:tec_tech_weight_bonus|RARE|yes|TECH|tech_tec_naniteproduction|
+	}
+}

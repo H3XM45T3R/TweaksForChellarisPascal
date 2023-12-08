@@ -1,0 +1,103 @@
+# remove notification
+cb_imposed_inclusion = {
+	show_in_diplomacy = no
+	show_notification = no
+	potential = {
+		has_ascension_perk = ap_become_the_crisis
+		is_homicidal = no
+	}
+	is_valid = {
+		always = yes
+	}
+}
+cb_existential_expulsion = {
+	show_in_diplomacy = no
+	show_notification = no
+	potential = {
+		has_ascension_perk = ap_become_the_crisis
+	}
+	is_valid = {
+		always = yes
+	}
+}
+
+# disable assimilation
+cb_sublimation = {
+	show_in_diplomacy = no
+	show_notification = no
+	potential = {
+		always = no
+	}
+	is_valid = {
+		always = no
+	}
+}
+
+# disallow against assimilators
+cb_containment = {
+	show_in_diplomacy = no
+	show_notification = no
+	potential = {
+		from = {
+			OR = {
+				is_country_type = awakened_fallen_empire
+				has_valid_civic = civic_fanatic_purifiers
+				has_valid_civic = civic_hive_devouring_swarm
+				#has_valid_civic = civic_machine_assimilator
+				has_valid_civic = civic_machine_terminator
+			}
+		}
+		is_country_type = default
+		NOR = {
+			has_valid_civic = civic_fanatic_purifiers
+			has_valid_civic = civic_machine_terminator
+			#has_valid_civic = civic_machine_assimilator
+			has_valid_civic = civic_hive_devouring_swarm
+		}
+	}
+	is_valid = {
+		has_total_war_cb = yes
+		OR = {
+			is_subject = no
+			overlord = { NOT = { is_same_value = from } }
+		}
+		NOT = { is_overlord_to = FROM }
+		from = {
+			OR = {
+				is_country_type = awakened_fallen_empire
+				has_valid_civic = civic_fanatic_purifiers
+				has_valid_civic = civic_hive_devouring_swarm
+				#has_valid_civic = civic_machine_assimilator
+				has_valid_civic = civic_machine_terminator
+			}
+		}
+	}
+}
+
+# allow for assimilators
+cb_galatron = {
+	show_in_diplomacy = yes
+	show_notification = yes
+	potential = {
+		is_country_type = default
+		NOR = {
+			is_berserk_fallen_machine_empire = yes
+			has_valid_civic = civic_fanatic_purifiers
+			has_valid_civic = civic_machine_terminator
+			has_valid_civic = civic_hive_devouring_swarm
+		}
+	}
+	is_valid = {
+		from = {
+			OR = {
+				has_modifier = galatron_modifier
+				has_relic = r_galatron
+			}
+		}
+		has_total_war_cb = no
+		NOR = { 
+			is_overlord_to = from 
+			from = { is_overlord_to = root }
+		}
+	}
+}
