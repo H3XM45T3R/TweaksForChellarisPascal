@@ -106,3 +106,21 @@
 ### war_goals
 - zz_war_goals
 	- Disable Assimilation war goals
+
+## events
+- !protoworld_finish
+  - Add Exotic Gas deposits to toxic protoworlds
+- !pd_startgame
+  - Disable PD startup planet change event in MP
+ 
+## gfx
+### interface/icons/buildings
+- building_tec_private_patents_initiative
+  - Building icon for Scientific Corporatism branch building
+
+## localisation
+### replace
+- zzz_replace_aquatics_l_english
+  - New aquatics trait description
+- zz_replace_evolved_l_english
+  - Change Mindflayers description to match new production
