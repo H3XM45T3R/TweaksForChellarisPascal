@@ -59,6 +59,9 @@
 **buildings/modifiers**
   - inline_researchbureau_trade_value
         - Trade value modifiers for Outsourced R&D branch buildings
+### megastructures
+- zz_disable_orbital_rings
+	- Disable orbital rings
 ### policies
 - zzzzzz_policies
 	- Allow aggressive interference for Exploration Protocol
@@ -75,6 +78,8 @@
 - zzzz_pompous_custodian
 	- Allow Pompous Purists to become custodian
 ### technology
+- zz_disable_orbital_rings
+	- Disable orbital rings
 - zzz_nanites
 	- Scavenger bot techs are available as rare techs after reseraching neanite production
 - zzzz_genetics
