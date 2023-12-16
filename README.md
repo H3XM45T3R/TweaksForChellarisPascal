@@ -67,6 +67,8 @@
 - zzzzzz_policies
 	- Allow aggressive interference for Exploration Protocol
 	- Allow animosity diplo stance for subjects
+- zzzzzz_trade
+	- Add pop CG upkeep rreduction to trade league and consumer benefits
 ### pop_categories
 - zzzzzzzzzzzzzzzzzzzzzz_popcats
 	- Compat for species diversity and evolved
@@ -91,9 +93,12 @@
 	- Some stuff from serente
 - !!_lgates
 	- Add nanite words with nanite deposits to L-Gate systems
+### starbase_buildings
+- zzzz_orbital_ring_buildings
+	- Disable orbital ring shipyards, anchorages and habitation modules
 ### starbase_modules
 - zzzz_orbital_ring_modules
-	- Disable orbital ring production modules
+	- Disable orbital ring shipyards, anchorages and habitation modules
 ### technology
 - zzz_nanites
 	- Scavenger bot techs are available as rare techs after reseraching neanite production
@@ -102,6 +107,9 @@
 ### terraform
 - pd_hycean_terraform_links
 	- Change eco cat of hycean terraform to ocean terraforming
+### trade_conversions
+- zzz_trade_conversions
+	- Remove CG production from relevant trade conversions
 ### traits
 - zz_evolved_feature_traits
 	- Disable advanced aquatic trait
