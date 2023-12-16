@@ -70,13 +70,15 @@
 - zzzzzz_trade
 	- Add pop CG upkeep rreduction to trade league and consumer benefits
 ### pop_categories
-- zzzzzzzzzzzzzzzzzzzzzz_popcats
-	- Compat for species diversity and evolved
+- Compat for species diversity and evolved
+- Add additional amenities usage to gestalts
 ### pop_jobs
 - zz_mental_slave_job
 	- Change production for Mental Slaves
 - zzz_lith_anglers
 	- Add Reef Miner production from Anglers councillor
+- zzz maintenance
+	- Add additional upkeep and small unity production to maintenance drones
 ### resolutions
 - zzzz_pompous_custodian
 	- Allow Pompous Purists to become custodian

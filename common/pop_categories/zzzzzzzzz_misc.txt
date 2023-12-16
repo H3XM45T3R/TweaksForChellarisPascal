@@ -1,0 +1,200 @@
+slave = {
+	rank = 0
+	clothes_texture_index = 2
+	display_category = worker
+
+	change_job_threshold = 1.15
+
+	assign_to_pop = {
+		is_enslaved = yes
+	}
+	weight = {
+		weight = 10
+	}
+
+	pop_modifier = {
+		pop_political_power = -0.75
+		pop_housing_usage_base = 0.75
+		pop_amenities_usage_base = 0.75
+	}
+
+	# Resettlement
+		# scope: pop to be resettled
+		allow_resettlement = {
+			always = yes
+		}
+
+		resettlement_cost = {
+			trigger = {
+				NOT = {
+					has_trait = @trait_tec_psionic_teleport
+				}
+			}
+			energy = 50
+		}
+	# /
+
+	# Pop/trait modifiers		
+		# Per pop
+		inline_script = pop_categories/inline_evolved_pop_modifiers
+		inline_script = pop_categories/inline_evolved_pop_regular_modifiers
+		inline_script = pop_categories/inline_evolved_pop_slave_modifiers
+	# /
+	
+	resources = {
+		category = pop_category_slave
+		# Regular food, mineral and energy upkeep.
+			inline_script = "pop_categories/inline_evolved_pop_upkeep"
+		# Additional energy upkeep for cyborgs.
+			# Note : The vanilla ones work diff than evolved so
+			# inline_script = "pop_categories/cyborg_upkeep"
+		# Production traits
+			inline_script = "pop_categories/inline_evolved_pop_production"
+		# Instrument of Desire Upkeep
+			inline_script = "pop_categories/instrument_upkeep"
+			
+		# Bio-Synth Upkeep
+			inline_script = "pop_categories/biosynth_traits"
+			
+		produces = {
+			trigger = {
+				has_trait = trait_shroud_born
+			}
+			sr_zro = @lithoid_trait_resource_production
+		}
+	}
+}
+
+bio_trophy = {
+	rank = 0
+	clothes_texture_index = 1
+
+	change_job_threshold = 1.25
+
+	assign_to_pop = {
+		exists = owner
+		has_citizenship_type = { type = citizenship_organic_trophy country = owner }
+	}
+	weight = {
+		weight = 5
+	}
+
+	pop_modifier = {
+		pop_political_power = 10
+		pop_housing_usage_base = 1
+		pop_amenities_usage_no_happiness_base = 1
+		species_empire_size_mult = -0.5
+	}
+
+	unemployment_penalties = {
+		pop_happiness = -0.80
+	}
+
+	# Resettlement
+		# scope: pop to be resettled
+		allow_resettlement = {
+			always = yes
+		}
+
+		resettlement_cost = {
+			trigger = {
+				NOT = {
+					has_trait = @trait_tec_psionic_teleport
+				}
+			}
+			energy = 100
+			unity = 10
+		}
+	# /
+
+	# Pop/trait modifiers
+		
+		
+		# Per pop
+		inline_script = pop_categories/inline_evolved_pop_modifiers
+		
+		
+		# Galcom
+			triggered_pop_modifier = {
+				potential = {
+					has_global_flag = galactic_community_resolution_divinity_comfort_the_fallen
+					is_unemployed = yes
+					NOR = {
+						has_very_high_living_standard_type = yes
+						has_high_living_standard_type = yes
+						has_shared_burden_living_standard_type = yes
+					}
+					owner = {
+						is_galactic_community_member = yes
+					}
+				}
+				pop_happiness = 0.10
+			}
+		# /
+	# /
+
+	# TRADE MODIFIERS
+		triggered_planet_modifier = {
+			potential = { 
+				can_generate_trade_value = yes
+			}
+			trade_value_add = 1
+			mult = value:tec_pop_lifestyle_trade_value
+		}
+
+		triggered_pop_modifier = {
+			potential = {
+				exists = owner
+				owner = {
+					tec_is_trade_gestalt = yes
+				}
+			}
+			# 0.5 trade as base
+			tec_pop_lifestyle_trade_value_add = @trade_value_very_high
+		}
+		triggered_pop_modifier = {
+			potential = {
+				exists = owner
+				owner = {
+					tec_is_trade_gestalt = yes
+				}
+				happiness > 0.5
+			}
+			# 0.5 trade as base
+			tec_pop_lifestyle_trade_value_add = @trade_value_very_high
+		}
+		triggered_pop_modifier = {
+			potential = {
+				exists = owner
+				owner = {
+					tec_is_trade_gestalt = yes
+				}
+				happiness > 0.8
+			}
+			tec_pop_lifestyle_trade_value_add = 1
+		}
+	# /
+
+	resources = {
+		category = pop_category_bio_trophy
+		# Regular food, mineral and energy upkeep.
+			inline_script = "pop_categories/inline_evolved_pop_upkeep"
+		# Additional energy upkeep for cyborgs.
+			# Note : The vanilla ones work diff than evolved so
+			# inline_script = "pop_categories/cyborg_upkeep"
+		# Production traits
+			inline_script = "pop_categories/inline_evolved_pop_production"
+		# Instrument of Desire Upkeep
+			inline_script = "pop_categories/instrument_upkeep"
+		
+		# Bio-Synth Upkeep
+			inline_script = "pop_categories/biosynth_traits"
+			
+		produces = {
+			trigger = {
+				has_trait = trait_shroud_born
+			}
+			sr_zro = @lithoid_trait_resource_production
+		}
+	}
+}
