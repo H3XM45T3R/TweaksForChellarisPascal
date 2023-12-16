@@ -40,21 +40,21 @@
 	- Allow Assimilators to claim and be claimed
 ### governments
 **authorities**
-- 00_authorities.txt
-  - Add empire size effect to corps
+- 00_authorities
+	- Add empire size effect to corps
 **civics**
 - zzzz_pompous_purists
-  - Allow Pompous Purists to use the Scion origin
+	- Allow Pompous Purists to use the Scion origin
 - zzzz_origins
-  - Allow Infesting Hive for non-Devouring Swarm
-  - Allow 04 Origin for hives
+	- Allow Infesting Hive for non-Devouring Swarm
+	- Allow 04 Origin for hives
 - zzzz_civics
-  - Disallow Alpha Directive for Servitors
-  - Add empire size effect to branch office gestalts
+	- Disallow Alpha Directive for Servitors
+	- Add empire size effect to branch office gestalts
 ### inline_scripts
 **traits**
 - inline_aquatic_trait_effects
-  - Effects for aquatic traits
+	- Effects for aquatic traits
 
 **jobs/resources**
   - inline_evolved_tec_hive_mindflayers
@@ -78,6 +78,22 @@
 ### resolutions
 - zzzz_pompous_custodian
 	- Allow Pompous Purists to become custodian
+### scripted_triggers
+- 00_machine_genetics_scripted_trigger
+	- Check if there’s any organic species for machines
+- 00_aquatics_trait_scripted_triggers
+	- Check Planet Classes for overhauled aquatic trait
+- zzzzzzzzzzzzzzzzz_scripted_triggers
+	- Make Assimilators not be considered a TW country
+	- Allow normal empire necrophages from phaging livestock
+### solar_system_initializers
+- void_visitors_init
+	- Some stuff from serente
+- !!_lgates
+	- Add nanite words with nanite deposits to L-Gate systems
+### starbase_modules
+- zzzz_orbital_ring_modules
+	- Disable orbital ring production modules
 ### technology
 - zzz_nanites
 	- Scavenger bot techs are available as rare techs after reseraching neanite production
@@ -94,19 +110,6 @@
 	- Changed machine aquatics effect
 - 00_species_traits_basic_characteristics
 	- Changed aquatics trait effect
-### scripted_triggers
-- 00_machine_genetics_scripted_trigger
-	- Check if there’s any organic species for machines
-- 00_aquatics_trait_scripted_triggers
-	- Check Planet Classes for overhauled aquatic trait
-- zzzzzzzzzzzzzzzzz_scripted_triggers
-	- Make Assimilators not be considered a TW country
-	- Allow normal empire necrophages from phaging livestock
-### solar_system_initializers
-- void_visitors_init
-	- Some stuff from serente
-- !!_lgates
-	- Add nanite words with nanite deposits to L-Gate systems
 ### war_goals
 - zz_war_goals
 	- Disable Assimilation war goals
