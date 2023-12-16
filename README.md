@@ -101,6 +101,9 @@
 ### starbase_modules
 - zzzz_orbital_ring_modules
 	- Disable orbital ring shipyards, anchorages and habitation modules
+### static_modifiers
+- !!branch_office_value
+	- Reduce energy produced by branch offices
 ### technology
 - zzz_nanites
 	- Scavenger bot techs are available as rare techs after reseraching neanite production
