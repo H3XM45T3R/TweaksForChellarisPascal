@@ -39,6 +39,9 @@
 - zzz_allow_claim
 	- Allow Assimilators to claim and be claimed
 ### governments
+**authorities**
+- 00_authorities.txt
+  - Add empire size effect to corps
 **civics**
 - zzzz_pompous_purists
   - Allow Pompous Purists to use the Scion origin
@@ -47,6 +50,7 @@
   - Allow 04 Origin for hives
 - zzzz_civics
   - Disallow Alpha Directive for Servitors
+  - Add empire size effect to branch office gestalts
 ### inline_scripts
 **traits**
 - inline_aquatic_trait_effects
@@ -59,9 +63,6 @@
 **buildings/modifiers**
   - inline_researchbureau_trade_value
         - Trade value modifiers for Outsourced R&D branch buildings
-### megastructures
-- zz_disable_orbital_rings
-	- Disable orbital rings
 ### policies
 - zzzzzz_policies
 	- Allow aggressive interference for Exploration Protocol
@@ -78,8 +79,6 @@
 - zzzz_pompous_custodian
 	- Allow Pompous Purists to become custodian
 ### technology
-- zz_disable_orbital_rings
-	- Disable orbital rings
 - zzz_nanites
 	- Scavenger bot techs are available as rare techs after reseraching neanite production
 - zzzz_genetics
