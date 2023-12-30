@@ -13,11 +13,15 @@
 ### bypass
 - zz_catapult
 	- Allow use of Quantum Cat if you don’t have the tech yourself
+### bombardment_stances
+- zz_bombardmebnt
+	- Allow raiding for assimilators
 ### casus_belli
 - zzz_cb
 	- Remove notifications for crisis CB
 	- Remove TW CBs for Assimilators
 	- Allow Galatron CB for Assimilators
+	- Allow despoilation for assimilators
 ### defines
 - zzz_defines
 	- Change galcome cooldowns
@@ -126,6 +130,7 @@
 ### war_goals
 - zz_war_goals
 	- Disable Assimilation war goals
+	- Allow plunder for assimilators
 
 ## events
 - !protoworld_finish
