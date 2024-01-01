@@ -97,8 +97,11 @@ wg_plunder = {
 
 	potential = {
 		has_total_war_cb = no
-		has_valid_civic = civic_barbaric_despoilers
-		has_valid_civic = civic_machine_assimilator
+		OR = { 
+			has_valid_civic = civic_barbaric_despoilers
+			has_valid_civic = civic_corporate_despoilers
+			has_valid_civic = civic_machine_assimilator
+		}
 		NOT = { is_in_federation_with = from }
 		NAND = {
 			is_galactic_emperor = yes
