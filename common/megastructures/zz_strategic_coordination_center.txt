@@ -9,16 +9,21 @@ strategic_coordination_center_0 = {
 	resources = {
 		category = megastructures
 		cost = {
-			alloys = 5000
-			unity = 2500
+			alloys = 2500
+			unity = 2000
 		}
 
 		upkeep = {
-			energy = 5
+			energy = 15
 		}
 	}
 
-	prerequisites = { "tech_strategic_coordination" }
+	potential = {
+		OR = {
+			has_technology = tech_strategic_coordination
+			has_ascension_perk = ap_galactic_force_projection
+		}
+	}
 
 	possible = {
 		exists = starbase
@@ -82,6 +87,10 @@ strategic_coordination_center_0 = {
 				is_star = no
 			}
 			custom_tooltip = {
+				fail_text = "requires_not_astral_scar"
+				is_astral_scar = no
+			}
+			custom_tooltip = {
 				fail_text = "requires_not_ring_world"
 				is_ringworld = no
 			}
@@ -136,8 +145,9 @@ strategic_coordination_center_1 = {
 	resources = {
 		category = megastructures
 		cost = {
-			alloys = 15000
-			unity = 2500
+			alloys = 7500
+			volatile_motes = 250
+			unity = 2000
 		}
 
 		upkeep = {
@@ -147,15 +157,6 @@ strategic_coordination_center_1 = {
 	upgrade_from = {
 		strategic_coordination_center_0
 	}
-	
-	possible = {
-		from = {
-			has_technology = tech_starbase_3
-			has_technology = tech_doctrine_navy_size_1
-		}
-	}
-
-	prerequisites = { "tech_strategic_coordination" }
 
 	country_modifier = {
 		country_naval_cap_add = 50
@@ -182,8 +183,9 @@ strategic_coordination_center_2 = {
 	resources = {
 		category = megastructures
 		cost = {
-			alloys = 15000
-			unity = 2500
+			alloys = 10000
+			volatile_motes = 300
+			unity = 3000
 		}
 
 		upkeep = {
@@ -194,15 +196,15 @@ strategic_coordination_center_2 = {
 	upgrade_from = {
 		strategic_coordination_center_1
 	}
-	
+
 	possible = {
 		from = {
-			has_technology = tech_starbase_4
-			has_technology = tech_doctrine_navy_size_2
+			OR = {
+				has_technology = tech_strategic_coordination
+				has_country_flag = has_master_builders
+			}
 		}
 	}
-
-	prerequisites = { "tech_strategic_coordination" }
 
 	country_modifier = {
 		country_naval_cap_add = 100
@@ -213,10 +215,7 @@ strategic_coordination_center_2 = {
 
 	on_build_complete = {
 		set_star_flag = strategic_coordination_center_built
-		from = { 
-			set_country_flag = has_built_or_repaired_megastructure
-			country_event = { id = mega.9004 } 
-		}
+		from = { country_event = { id = mega.9004 } }
 	}
 }
 
@@ -232,7 +231,8 @@ strategic_coordination_center_3 = {
 		category = megastructures
 		cost = {
 			alloys = 15000
-			unity = 2500
+			volatile_motes = 350
+			unity = 5000
 		}
 
 		upkeep = {
@@ -242,12 +242,6 @@ strategic_coordination_center_3 = {
 
 	upgrade_from = {
 		strategic_coordination_center_2
-	}
-	
-	possible = {
-		from = {
-			has_technology = tech_mega_engineering
-		}
 	}
 
 	prerequisites = { "tech_strategic_coordination" }
@@ -267,4 +261,15 @@ strategic_coordination_center_3 = {
 			country_event = { id = mega.9005 }
 		}
 	}
+}
+
+# Ruined Strategic Coordination Center
+strategic_coordination_center_ruined = {
+	entity = "strategic_coordination_center_01_destroyed_entity"
+	construction_entity = "strategic_coordination_center_01_destroyed_entity"
+	portrait = "GFX_megastructure_construction_background"
+	place_entity_on_planet_plane = no
+	entity_offset = { x = -27 y = -27 }
+
+	potential = { always = no }
 }

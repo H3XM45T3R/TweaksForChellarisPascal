@@ -9,16 +9,21 @@ interstellar_assembly_0 = {
 	resources = {
 		category = megastructures
 		cost = {
-			alloys = 5000
-			unity = 2500
+			alloys = 2500
+			unity = 2000
 		}
 
 		upkeep = {
-			energy = 5
+			energy = 10
 		}
 	}
 
-	prerequisites = { "tech_interstellar_assembly" }
+	potential = {
+		OR = {
+			has_technology = tech_interstellar_assembly
+			has_ascension_perk = ap_shared_destiny
+		}
+	}
 
 	possible = {
 		exists = starbase
@@ -90,6 +95,10 @@ interstellar_assembly_0 = {
 				is_star = no
 			}
 			custom_tooltip = {
+				fail_text = "requires_not_astral_scar"
+				is_astral_scar = no
+			}
+			custom_tooltip = {
 				fail_text = "requires_not_ring_world"
 				is_ringworld = no
 			}
@@ -144,8 +153,11 @@ interstellar_assembly_1 = {
 	resources = {
 		category = megastructures
 		cost = {
-			alloys = 10000
-			unity = 2500
+			alloys = 5000
+			exotic_gases = 50
+			rare_crystals = 50
+			volatile_motes = 50
+			unity = 2000
 		}
 
 		upkeep = {
@@ -156,21 +168,9 @@ interstellar_assembly_1 = {
 	upgrade_from = {
 		interstellar_assembly_0
 	}
-	
-	possible = {
-		from = {
-			has_technology = tech_starbase_3
-			OR = {
-				has_technology = tech_xeno_diplomacy
-				has_technology = tech_autonomous_agents
-			}
-		}
-	}
-
-	prerequisites = { "tech_interstellar_assembly" }
 
 	country_modifier = {
-		diplo_weight_mult = 0.10
+		diplo_weight_mult = 0.15
 		# enables triggered_opinion_of_interstellar_assembly_1
 	}
 
@@ -190,7 +190,10 @@ interstellar_assembly_2 = {
 	resources = {
 		category = megastructures
 		cost = {
-			alloys = 10000
+			alloys = 7500
+			exotic_gases = 100
+			rare_crystals = 100
+			volatile_motes = 100
 			unity = 2500
 		}
 
@@ -202,30 +205,24 @@ interstellar_assembly_2 = {
 	upgrade_from = {
 		interstellar_assembly_1
 	}
-	
+
 	possible = {
 		from = {
-			has_technology = tech_starbase_4
 			OR = {
-				has_technology = tech_xeno_relations
-				has_technology = tech_embodied_dynamism
+				has_technology = tech_interstellar_assembly
+				has_country_flag = has_master_builders
 			}
 		}
 	}
 
-	prerequisites = { "tech_interstellar_assembly" }
-
 	country_modifier = {
-		diplo_weight_mult = 0.20
+		diplo_weight_mult = 0.30
 		envoys_add = 1
 		# enables triggered_opinion_of_interstellar_assembly_2
 	}
 
 	on_build_complete = {
-		from = { 
-			set_country_flag = has_built_or_repaired_megastructure
-			country_event = { id = mega.9007 }
-		}
+		from = { country_event = { id = mega.9007 } }
 	}
 }
 
@@ -241,6 +238,9 @@ interstellar_assembly_3 = {
 		category = megastructures
 		cost = {
 			alloys = 10000
+			exotic_gases = 150
+			rare_crystals = 150
+			volatile_motes = 150
 			unity = 2500
 		}
 
@@ -252,17 +252,11 @@ interstellar_assembly_3 = {
 	upgrade_from = {
 		interstellar_assembly_2
 	}
-	
-	possible = {
-		from = {
-			has_technology = tech_mega_engineering
-		}
-	}
 
 	prerequisites = { "tech_interstellar_assembly" }
 
 	country_modifier = {
-		diplo_weight_mult = 0.30
+		diplo_weight_mult = 0.45
 		envoys_add = 1
 		# enables triggered_opinion_of_interstellar_assembly_3
 	}
@@ -284,6 +278,9 @@ interstellar_assembly_4 = {
 		category = megastructures
 		cost = {
 			alloys = 10000
+			exotic_gases = 200
+			rare_crystals = 200
+			volatile_motes = 200
 			unity = 2500
 		}
 
@@ -295,18 +292,12 @@ interstellar_assembly_4 = {
 	upgrade_from = {
 		interstellar_assembly_3
 	}
-	
-	possible = {
-		from = {
-			has_technology = tech_mega_engineering
-		}
-	}
 
 	prerequisites = { "tech_interstellar_assembly" }
 	show_prereqs = yes
 
 	country_modifier = {
-		diplo_weight_mult = 0.40
+		diplo_weight_mult = 0.60
 		envoys_add = 2
 		# enables triggered_opinion_of_interstellar_assembly_4
 	}
@@ -316,6 +307,80 @@ interstellar_assembly_4 = {
 		from = {
 			set_country_flag = has_built_or_repaired_megastructure
 			country_event = { id = mega.9009 }
+		}
+	}
+}
+
+# Ruined Interstellar Assembly
+interstellar_assembly_ruined = {
+	entity = "interstellar_assembly_01_destroyed_entity"
+	construction_entity = "interstellar_assembly_01_destroyed_entity"
+	portrait = "GFX_megastructure_construction_background"
+	place_entity_on_planet_plane = no
+	entity_offset = { x = -27 y = -27 }
+	upgrade_from = {
+	}
+
+	potential = {
+		always = no
+	}
+}
+
+# Restored Interstellar Assembly
+interstellar_assembly_restored = {
+	entity = "interstellar_assembly_stage_4_entity"
+	construction_entity = "interstellar_assembly_stage_4_entity"
+	portrait = "GFX_megastructure_interstellar_assembly_background"
+	place_entity_on_planet_plane = no
+	entity_offset = { x = -27 y = -27 }
+	build_time = 3600
+	resources = {
+		category = megastructures
+		cost = {
+			alloys = 10000
+			unity = 3200
+		}
+
+		upkeep = {
+			energy = 40
+		}
+	}
+
+	upgrade_from = {
+		interstellar_assembly_ruined
+	}
+
+	possible = {
+		from = { has_technology = tech_mega_engineering }
+	}
+
+	country_modifier = {
+		diplo_weight_mult = 0.60
+		envoys_add = 2
+		# enables triggered_opinion_of_interstellar_assembly_4
+	}
+
+	on_build_start = {
+		fromfrom = {
+			set_graphical_culture = root.from
+		}
+	}
+
+	on_build_complete = {
+		set_star_flag = interstellar_assembly_built
+		every_system_ambient_object = {
+			limit = {
+				OR = {
+					is_ambient_object_type = large_debris_object
+					is_ambient_object_type = medium_debris_01_object
+					is_ambient_object_type = medium_debris_02_object
+				}
+			}
+			destroy_ambient_object = this
+		}
+		from = {
+			set_country_flag = has_built_or_repaired_megastructure
+			country_event = { id = mega.9131 }
 		}
 	}
 }

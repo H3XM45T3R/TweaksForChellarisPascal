@@ -375,16 +375,6 @@ ap_interstellar_dominion = {
 			has_ascension_perk = ap_interstellar_dominion
 		}
 	}
-	
-	on_enabled = {
-		if = {
-			limit = {
-				NOT = { has_technology = tech_quantum_catapult }
-			}
-			add_research_option = tech_quantum_catapult
-			add_tech_progress = { tech = tech_quantum_catapult progress = 0.75 }
-		}
-	}
 
 	ai_weight = {
 		# Fairly useless
@@ -559,23 +549,8 @@ ap_eternal_vigilance = {
 	}
 
 	on_enabled = {
-		if = {
-			limit = {
-				NOT = { has_technology = tech_sentry_array }
-			}
-			add_research_option = tech_sentry_array
-			add_tech_progress = { tech = tech_sentry_array progress = 0.75 }
-		}
 		custom_tooltip = tec_ap_eternal_vigilance_bonus_effects
 		custom_tooltip = tec_ap_starbases_2_steps
-		if = {
-			limit = {
-				NOT = {
-					has_ascension_perk = ap_eternal_vigilance
-				}
-			}
-			custom_tooltip = tec_ap_block_others
-		}
 		if = {	# Gigas compat
 			limit = {
 				has_global_flag = giga_game_started
@@ -677,13 +652,6 @@ ap_technological_ascendancy = {
 	}
 
 	on_enabled = {
-		if = {
-			limit = {
-				NOT = { has_technology = tech_science_nexus }
-			}
-			add_research_option = tech_science_nexus
-			add_tech_progress = { tech = tech_science_nexus progress = 0.75 }
-		}
 		hidden_effect = {
 			country_event = {
 				id = tec_tradition.1011
@@ -782,13 +750,6 @@ ap_one_vision = {
 	}
 
 	on_enabled = {
-		if = {
-			limit = {
-				NOT = { has_technology = tech_mega_art }
-			}
-			add_research_option = tech_mega_art
-			add_tech_progress = { tech = tech_mega_art = 0.75 }
-		}
 		hidden_effect = {
 			country_event = {
 				id = tec_tradition.1021
@@ -1071,20 +1032,6 @@ ap_shared_destiny = {
 		}
 	}
 
-	on_enabled = {
-		custom_tooltip = "ap_shared_destiny_effect"
-		hidden_effect = {
-			country_event = { id = action.446 }
-		}
-		if = {
-			limit = {
-				NOT = { has_technology = tech_interstellar_assembly }
-			}
-			add_research_option = tech_interstellar_assembly
-			add_tech_progress = { tech = tech_interstellar_assembly progress = 0.75 }
-		}
-	}
-
 	ai_weight = {
 		weight = @tec_situational_ap_weight
 		complex_trigger_modifier = {
@@ -1151,16 +1098,6 @@ ap_galactic_force_projection = {
 			has_ascension_perk = ap_galactic_force_projection
 		}
 	}
-	
-	on_enabled = {
-		if = {
-			limit = {
-				NOT = { has_technology = tech_strategic_coordination }
-			}
-			add_research_option = tech_strategic_coordination
-			add_tech_progress = { tech = tech_strategic_coordination progress = 0.75 }
-		}
-	}
 
 	ai_weight = {
 		#Less common
@@ -1220,18 +1157,13 @@ ap_galactic_force_projection = {
 ap_master_builders = {
 	possible = {
 		custom_tooltip = {
-			fail_text = "requires_ascension_perks_2"
-			num_ascension_perks > 1
-		}
-		custom_tooltip = {
-			fail_text = "requires_mega_engineering"
-			has_technology = tech_mega_engineering
+			fail_text = "requires_ascension_perks_3"
+			num_ascension_perks > 2
 		}
 	}
 	modifier = {
 		megastructure_build_speed_mult = 0.5
 		country_megastructure_build_cap_add = 1
-		category_voidcraft_research_speed_mult = 0.2
 	}
 
 	potential = {
@@ -1239,6 +1171,10 @@ ap_master_builders = {
 		NOT = {
 			has_ascension_perk = ap_master_builders
 		}
+	}
+	
+	on_enabled = {
+		set_country_flag = has_master_builders
 	}
 
 	ai_weight = {

@@ -150,6 +150,8 @@
 ## events
 - esti_civic_slot_unlock
 	- Event for civic slots from ascension
+- !interstellar_favors
+	- Switch favor farming to interstellar assembly
 - !protoworld_finish
 	- Add Exotic Gas deposits to toxic protoworlds
 - !pd_startgame

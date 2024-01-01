@@ -9,16 +9,22 @@ mega_art_installation_0 = {
 	resources = {
 		category = megastructures
 		cost = {
-			alloys = 5000
-			unity = 2500
+			alloys = 1000
+			influence = 50
 		}
 
 		upkeep = {
-			energy = 5
+			energy = 10
 		}
 	}
 
-	prerequisites = { "tech_mega_art" }
+	potential = {
+		OR = {
+			has_technology = tech_mega_art
+			has_ascension_perk = ap_one_vision
+			has_ascension_perk = ap_tec_one_mind
+		}
+	}
 
 	possible = {
 		exists = starbase
@@ -83,6 +89,10 @@ mega_art_installation_0 = {
 				is_star = no
 			}
 			custom_tooltip = {
+				fail_text = "requires_not_astral_scar"
+				is_astral_scar = no
+			}
+			custom_tooltip = {
 				fail_text = "requires_not_ring_world"
 				is_ringworld = no
 			}
@@ -137,31 +147,23 @@ mega_art_installation_1 = {
 	resources = {
 		category = megastructures
 		cost = {
-			alloys = 15000
-			unity = 2500
+			alloys = 3500
+			minor_artifacts = 50
+			influence = 100
 		}
 
 		produces = {
-			unity = 100
+			unity = 150
 		}
 
 		upkeep = {
-			energy = 10
+			energy = 20
 		}
 	}
 
 	upgrade_from = {
 		mega_art_installation_0
 	}
-	
-	possible = {
-		from = {
-			has_technology = tech_starbase_3
-			has_technology = tech_heritage_site
-		}
-	}
-
-	prerequisites = { tech_mega_art }
 
 	country_modifier = {
 		planet_amenities_mult = 0.05
@@ -183,41 +185,39 @@ mega_art_installation_2 = {
 	resources = {
 		category = megastructures
 		cost = {
-			alloys = 15000
-			unity = 2500
+			alloys = 5000
+			minor_artifacts = 200
+			influence = 200
 		}
 
 		produces = {
-			unity = 200
+			unity = 300
 		}
 
 		upkeep = {
-			energy = 20
+			energy = 30
 		}
 	}
 
 	upgrade_from = {
 		mega_art_installation_1
 	}
-	
+
 	possible = {
 		from = {
-			has_technology = tech_starbase_4
-			has_technology = tech_hypercomms_forum
+			OR = {
+				has_technology = tech_mega_art
+				has_country_flag = has_master_builders
+			}
 		}
 	}
-
-	prerequisites = { "tech_mega_art" }
 
 	country_modifier = {
 		planet_amenities_mult = 0.10
 	}
 
 	on_build_complete = {
-		from = { 
-			country_event = { id = mega.9001 } 
-			set_country_flag = has_built_or_repaired_megastructure
-		}
+		from = { country_event = { id = mega.9001 } }
 	}
 }
 
@@ -232,27 +232,22 @@ mega_art_installation_3 = {
 	resources = {
 		category = megastructures
 		cost = {
-			alloys = 15000
-			unity = 2500
+			alloys = 10000
+			minor_artifacts = 350
+			influence = 300
 		}
 
 		produces = {
-			unity = 300
+			unity = 600
 		}
 
 		upkeep = {
-			energy = 30
+			energy = 40
 		}
 	}
 
 	upgrade_from = {
 		mega_art_installation_2
-	}
-	
-	possible = {
-		from = {
-			has_technology = tech_mega_engineering
-		}
 	}
 
 	prerequisites = { "tech_mega_art" }
@@ -281,27 +276,22 @@ mega_art_installation_4 = {
 	resources = {
 		category = megastructures
 		cost = {
-			minor_artifacts = 2000
-			unity = 2500
+			alloys = 15000
+			minor_artifacts = 500
+			influence = 500
 		}
 
 		produces = {
-			unity = 400
+			unity = 1200
 		}
 
 		upkeep = {
-			energy = 30
+			energy = 50
 		}
 	}
 
 	upgrade_from = {
 		mega_art_installation_3
-	}
-	
-	possible = {
-		from = {
-			has_technology = tech_mega_engineering
-		}
 	}
 
 	prerequisites = { "tech_mega_art" }
@@ -322,6 +312,142 @@ mega_art_installation_4 = {
 
 	country_modifier = {
 		planet_amenities_mult = 0.2
+	}
+
+	on_build_complete = {
+		set_star_flag = mega_art_installation_built
+		from = {
+			set_country_flag = has_built_or_repaired_megastructure
+			country_event = { id = ancrel.10030 }
+		}
+	}
+}
+
+# Ruined Mega Art Installation
+mega_art_installation_ruined = {
+	entity = mega_art_institution_01_destroyed_entity
+	construction_entity = "mega_art_institution_01_destroyed_entity"
+	portrait = "GFX_megastructure_construction_background"
+	place_entity_on_planet_plane = no
+	entity_offset = { x = -27 y = -27 }
+
+	potential = {
+		always = no
+	}
+}
+
+# Mega Art Installation
+mega_art_installation_restored = {
+	entity = "mega_art_institution_stage_3_entity"
+	construction_entity = "mega_art_institution_stage_3_entity"
+	portrait = "GFX_mega_art_installation_background"
+	place_entity_on_planet_plane = no
+	entity_offset = { x = -27 y = -27 }
+	build_time = 4800
+	resources = {
+		category = megastructures
+		cost = {
+			alloys = 10000
+			influence = 200
+		}
+
+		produces = {
+			unity = 600
+		}
+
+		upkeep = {
+			energy = 40
+		}
+	}
+
+	upgrade_from = {
+		mega_art_installation_ruined
+	}
+
+	possible = {
+		from = { has_technology = tech_mega_engineering }
+	}
+
+	country_modifier = {
+		planet_amenities_mult = 0.15
+	}
+
+	on_build_complete = {
+		set_star_flag = mega_art_installation_built
+		every_system_ambient_object = {
+			limit = {
+				OR = {
+					is_ambient_object_type = large_debris_object
+					is_ambient_object_type = medium_debris_01_object
+					is_ambient_object_type = medium_debris_02_object
+					is_ambient_object_type = small_debris_object
+				}
+			}
+			destroy_ambient_object = this
+		}
+		from = {
+			set_country_flag = has_built_or_repaired_megastructure
+			country_event = { id = mega.9121 }
+		}
+	}
+
+	on_build_start = {
+		fromfrom = {
+			set_graphical_culture = root.from
+		}
+	}
+
+	potential = {
+		has_ancrel = yes
+	}
+}
+
+mega_art_installation_restored_2 = {
+	entity = "mega_art_institution_stage_3_entity"
+	construction_entity = "mega_art_institution_stage_3_entity"
+	portrait = "GFX_mega_art_installation_background"
+	place_entity_on_planet_plane = no
+	entity_offset = { x = -27 y = -27 }
+	build_time = 3600
+	resources = {
+		category = megastructures
+		cost = {
+			alloys = 15000
+			minor_artifacts = 500
+			influence = 500
+		}
+
+		produces = {
+			unity = 1200
+		}
+
+		upkeep = {
+			energy = 50
+		}
+	}
+
+	upgrade_from = {
+		mega_art_installation_restored
+	}
+
+	prerequisites = { "tech_mega_art" }
+	show_prereqs = no
+
+	country_modifier = {
+		planet_amenities_mult = 0.2
+	}
+
+	possible = {
+		from = {
+			has_ancrel = yes
+			if = { #otherwise, it will pause building any multitier megas
+				limit = { is_ai = yes }
+				resource_stockpile_compare = {
+					resource = minor_artifacts
+					value >= 2000
+				}
+			}
+		}
 	}
 
 	on_build_complete = {

@@ -9,18 +9,34 @@ quantum_catapult_0 = {
 	resources = {
 		category = megastructures
 		cost = {
-			alloys = 5000
+			alloys = 2000
 			influence = 300
 		}
 
 		upkeep = {
-			energy = 5
+			energy = 25
 		}
 	}
 
-	prerequisites = { "tech_quantum_catapult" }
+	potential = {
+		OR = {
+			AND = {
+				has_technology = tech_quantum_catapult
+				has_technology = tech_mega_engineering
+			}
+			has_ascension_perk = ap_interstellar_dominion
+		}
+	}
 
 	possible = {
+		from = {
+			if = {
+				limit = {
+					NOT = { has_country_flag = has_quantum_catapult_insight	}
+				}
+				has_technology = tech_mega_engineering
+			}
+		}
 		exists = starbase
 		custom_tooltip = {
 			fail_text = "requires_inside_border"
@@ -40,19 +56,6 @@ quantum_catapult_0 = {
 					}
 				}
 			}
-		}
-		custom_tooltip = {
-			fail_text = "requires_no_existing_megastructure"
-			from = {
-				OR = {
-					has_relic = r_contingency_core
-					NOT = { has_country_flag = built_quantum_catapult_site }
-				}
-			}
-		}
-		custom_tooltip = {
-			fail_text = "requires_no_existing_megastructure"
-			from = { NOT = { has_country_flag = built_quantum_catapult_site_contingency } }
 		}
 	}
 
@@ -149,11 +152,11 @@ quantum_catapult_1 = {
 	resources = {
 		category = megastructures
 		cost = {
-			alloys = 10000
+			alloys = 3000
 		}
 
 		upkeep = {
-			energy = 10
+			energy = 50
 		}
 	}
 
@@ -161,14 +164,6 @@ quantum_catapult_1 = {
 		quantum_catapult_0
 	}
 
-	possible = {
-		from = {
-			has_technology = tech_starbase_3
-			has_technology = tech_experimental_subspace_navigation
-		}
-	}
-
-	prerequisites = { "tech_quantum_catapult" }
 	bypass_type = quantum_catapult
 
 	country_modifier = {
@@ -176,8 +171,8 @@ quantum_catapult_1 = {
 	}
 
 	station_modifier = {
-		catapult_spread_base = 60
-		catapult_range_base = 200
+		catapult_spread_base = 50
+		catapult_range_base = 300
 		quantum_catapult_megastructure_bypass_windup_mult = 0
 	}
 
@@ -199,11 +194,11 @@ quantum_catapult_2 = {
 	resources = {
 		category = megastructures
 		cost = {
-			alloys = 10000
+			alloys = 3000
 		}
 
 		upkeep = {
-			energy = 20
+			energy = 60
 		}
 	}
 
@@ -212,29 +207,35 @@ quantum_catapult_2 = {
 	}
 
 	possible = {
-		from = {
-			has_technology = tech_starbase_4
-			has_technology = tech_physics_3
-		}
-	}
 
-	prerequisites = { "tech_quantum_catapult" }
+		OR = {
+			from = {
+				if = {
+					limit = {
+						NOT = { has_country_flag = has_quantum_catapult_insight	}
+					}
+					has_technology = tech_mega_engineering
+					has_technology = tech_quantum_catapult
+				}
+			}
+
+			from = { has_country_flag = has_master_builders }
+		}
+
+	}
 
 	country_modifier = {
 		fleet_mia_time_mult = -0.2
 	}
 
 	station_modifier = {
-		catapult_spread_base = 45
-		catapult_range_base = 350
+		catapult_spread_base = 35
+		catapult_range_base = 450
 		quantum_catapult_megastructure_bypass_windup_mult = -0.25
 	}
 
 	on_build_complete = {
-		from = { 
-			country_event = { id = over.5 } 
-			set_country_flag = has_built_or_repaired_megastructure
-		}
+		from = { country_event = { id = over.5 } }
 	}
 	bypass_type = quantum_catapult
 }
@@ -256,17 +257,22 @@ quantum_catapult_3 = {
 		}
 
 		upkeep = {
-			energy = 30
+			energy = 75
 		}
 	}
 
 	upgrade_from = {
 		quantum_catapult_2
 	}
-	
+
 	possible = {
 		from = {
-			has_technology = tech_mega_engineering
+			if = {
+				limit = {
+					NOT = { has_country_flag = has_quantum_catapult_insight	}
+				}
+				has_technology = tech_mega_engineering
+			}
 		}
 	}
 
@@ -278,8 +284,8 @@ quantum_catapult_3 = {
 	}
 
 	station_modifier = {
-		catapult_spread_base = 30
-		catapult_range_base = 500
+		catapult_spread_base = 25
+		catapult_range_base = 750
 		quantum_catapult_megastructure_bypass_windup_mult = -0.5
 	}
 
@@ -290,4 +296,19 @@ quantum_catapult_3 = {
 		}
 	}
 	bypass_type = quantum_catapult
+}
+
+# Ruined Quantum Catapult
+quantum_catapult_ruined = {
+	entity = "quantum_catapult_01_destroyed_entity"
+	construction_entity = "quantum_catapult_01_destroyed_entity"
+	portrait = "GFX_megastructure_construction_background"
+	place_entity_on_planet_plane = yes
+	entity_offset = { x = 0 y = 0 }
+	upgrade_from = {
+	}
+
+	potential = {
+		always = no
+	}
 }

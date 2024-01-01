@@ -20,3 +20,17 @@ tech_mega_shipyard = {
 		
 	}
 }
+
+tech_master_builders = {
+	area = society
+
+	category = { voidcraft }
+
+	cost = 1
+	tier = 1
+	weight = 0
+
+	weight_modifier = {
+		factor = 0
+	}	
+}

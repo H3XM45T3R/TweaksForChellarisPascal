@@ -42,13 +42,6 @@ ap_tec_one_mind = {
 	}
 
 	on_enabled = {
-		if = {
-			limit = {
-				NOT = { has_technology = tech_mega_art }
-			}
-			add_research_option = tech_mega_art
-			add_tech_progress = { tech = tech_mega_art = 0.75 }
-		}
 		hidden_effect = {
 			country_event = {
 				id = tec_tradition.1031
