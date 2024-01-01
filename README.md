@@ -4,6 +4,10 @@
 ### ascension_perks
 - zzzzzzzzzzz_crisis
 	- Allow Become The Crisis for anyone
+- zzz_evolved_ascension_perks
+	- Ascension Perk balance changes
+- zzz_vanilla_ascension_perks
+	- Ascension Perk balance changes
 ### buildings
 - zzzz_ancient_refinery
 	- Limit Ancient Refinery to 3 per empire
@@ -67,6 +71,11 @@
 **buildings/modifiers**
   - inline_researchbureau_trade_value
         - Trade value modifiers for Outsourced R&D branch buildings
+### megastructures
+- Megastructure Balance Changes
+### on_actions
+- esti_on_actions
+	- On action for civic slots from ascension perks
 ### policies
 - zzzzzz_policies
 	- Allow aggressive interference for Exploration Protocol
@@ -91,6 +100,8 @@
 	- Check if there’s any organic species for machines
 - 00_aquatics_trait_scripted_triggers
 	- Check Planet Classes for overhauled aquatic trait
+- zzzzz_no_breeding
+	- Disable xeno compatibility
 - zzzzzzzzzzzzzzzzz_scripted_triggers
 	- Make Assimilators not be considered a TW country
 	- Allow normal empire necrophages from phaging livestock
@@ -106,6 +117,8 @@
 - zzzz_orbital_ring_modules
 	- Disable orbital ring shipyards, anchorages and habitation modules
 ### static_modifiers
+- esti_modifiers
+	- Civic slot modifiers
 - !!branch_office_value
 	- Reduce energy produced by branch offices
 ### technology
@@ -113,6 +126,8 @@
 	- Scavenger bot techs are available as rare techs after reseraching neanite production
 - zzzz_genetics
 	- Allow genetics and cloning techs for machine empires with any organic pop
+- zzzzzz_mega_shipyard
+	- Mega shipyard require galactic wonders
 ### terraform
 - pd_hycean_terraform_links
 	- Change eco cat of hycean terraform to ocean terraforming
@@ -133,10 +148,12 @@
 	- Allow plunder for assimilators
 
 ## events
+- esti_civic_slot_unlock
+	- Event for civic slots from ascension
 - !protoworld_finish
-  - Add Exotic Gas deposits to toxic protoworlds
+	- Add Exotic Gas deposits to toxic protoworlds
 - !pd_startgame
-  - Disable PD startup planet change event in MP
+	- Disable PD startup planet change event in MP
  
 ## gfx
 ### interface/icons/buildings
@@ -146,6 +163,8 @@
 ## localisation
 ### replace
 - zzz_replace_aquatics_l_english
-  - New aquatics trait description
+	- New aquatics trait description
 - zz_replace_evolved_l_english
-  - Change Mindflayers description to match new production
+	- Change Mindflayers description to match new production
+- esti_l_english
+	- Loc for ascension perk changes
