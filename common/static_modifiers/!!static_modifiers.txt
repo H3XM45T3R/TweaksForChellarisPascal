@@ -1,0 +1,5 @@
+pick_transfer_fleet_return_mia = {
+fleet_mia_time_mult = -0.5
+icon = "gfx/interface/icons/planet_modifiers/pm_unknown.dds"
+icon_frame = 1
+}

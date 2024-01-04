@@ -1,0 +1,1126 @@
+namespace = pick_transfer_leader
+
+country_event = {
+	id = pick_transfer_leader.1	#Directs to the actual selection because Stellaris doesn't have dynamic event target generation
+	title = "ptl_class"
+	desc = ptl_class
+	picture = GFX_evt_diplomatic_visit
+	is_triggered_only = yes
+	
+	
+		option = {
+				name = Offical_ptl
+				
+					hidden_effect = {
+						country_event = {
+							id = pick_transfer_leader.2 #Officials
+						}
+					}
+		}
+		
+		option = {
+			name = Commander_ptl
+					country_event = {
+					id	= pick_transfer_leader.3	#Commanders
+					}
+		}
+		
+		option = {
+			name = Scientist_ptl
+			
+				hidden_effect = {
+					country_event = {
+						id = pick_transfer_leader.4	#Scientists
+					}
+				}
+		}
+}
+
+country_event = {
+	id = pick_transfer_leader.2	#Officials, Iterate and save leaders as event targets
+	title = "pick_transfer_leader.official"
+	desc = ptl_class_official
+	picture = GFX_evt_diplomatic_visit
+	is_triggered_only = yes
+	
+	immediate = {
+	
+		ruler = {set_leader_flag = leader_transfer_selection} #Prevent Ruler from being traded, in part because it bugs out
+	
+		random_owned_leader = {
+			limit = {
+					NOR = {
+					leader_class = commander
+					leader_class = scientist
+					has_leader_flag = leader_transfer_selection
+					}
+			}
+						save_event_target_as = transfer_leader_1
+						set_leader_flag = leader_transfer_selection
+						
+		}
+		
+		random_owned_leader = {
+			limit = {
+					NOR = {
+					leader_class = commander
+					leader_class = scientist
+					has_leader_flag = leader_transfer_selection
+					}
+			}
+						save_event_target_as = transfer_leader_2
+						set_leader_flag = leader_transfer_selection
+						
+		}
+	
+		random_owned_leader = {
+			limit = {
+					NOR = {
+					leader_class = commander
+					leader_class = scientist
+					has_leader_flag = leader_transfer_selection
+					}
+			}
+						save_event_target_as = transfer_leader_3
+						set_leader_flag = leader_transfer_selection
+						
+		}
+		
+		random_owned_leader = {
+			limit = {
+					NOR = {
+					leader_class = commander
+					leader_class = scientist
+					has_leader_flag = leader_transfer_selection
+					}
+			}
+						save_event_target_as = transfer_leader_4
+						set_leader_flag = leader_transfer_selection
+						
+		}
+
+		random_owned_leader = {
+			limit = {
+					NOR = {
+					leader_class = commander
+					leader_class = scientist
+					has_leader_flag = leader_transfer_selection
+					}
+			}
+						save_event_target_as = transfer_leader_5
+						set_leader_flag = leader_transfer_selection
+						
+		}
+		
+		random_owned_leader = {
+			limit = {
+					NOR = {
+					leader_class = commander
+					leader_class = scientist
+					has_leader_flag = leader_transfer_selection
+					}
+			}
+						save_event_target_as = transfer_leader_6
+						set_leader_flag = leader_transfer_selection
+						
+		}
+
+		random_owned_leader = {
+			limit = {
+					NOR = {
+					leader_class = commander
+					leader_class = scientist
+					has_leader_flag = leader_transfer_selection
+					}
+			}
+						save_event_target_as = transfer_leader_7
+						set_leader_flag = leader_transfer_selection
+						
+		}
+
+		random_owned_leader = {
+			limit = {
+					NOR = {
+					leader_class = commander
+					leader_class = scientist
+					has_leader_flag = leader_transfer_selection
+					}
+			}
+						save_event_target_as = transfer_leader_8
+						set_leader_flag = leader_transfer_selection
+						
+		}
+
+		random_owned_leader = {
+			limit = {
+					NOR = {
+					leader_class = commander
+					leader_class = scientist
+					has_leader_flag = leader_transfer_selection
+					}
+			}
+						save_event_target_as = transfer_leader_9
+						set_leader_flag = leader_transfer_selection
+						
+		}
+
+		random_owned_leader = {
+			limit = {
+					NOR = {
+					leader_class = commander
+					leader_class = scientist
+					has_leader_flag = leader_transfer_selection
+					}
+			}
+						save_event_target_as = transfer_leader_10
+						set_leader_flag = leader_transfer_selection
+						
+		}
+	}
+		
+	option = {
+ 		name =  name_of_transfer_leader_1
+		trigger = {
+			exists = event_target:transfer_leader_1
+		}
+		
+		event_target:transfer_leader_1 = {
+			hidden_effect = {
+			save_event_target_as = transfer_this_leader
+			
+				ROOT = {
+					country_event = {
+						id = pick_transfer_leader.5
+					}
+				}
+			}
+		}
+	}
+	
+	option = {
+			name =  name_of_transfer_leader_2
+			trigger = {
+				exists = event_target:transfer_leader_2
+			}
+			
+			event_target:transfer_leader_2 = {
+				hidden_effect = {
+				save_event_target_as = transfer_this_leader
+				
+					ROOT = {
+						country_event = {
+							id = pick_transfer_leader.5
+						}
+					}
+				}
+			}
+	}
+	
+	option = {
+			name =  name_of_transfer_leader_3
+			trigger = {
+				exists = event_target:transfer_leader_3
+			}
+			
+			event_target:transfer_leader_3 = {
+				hidden_effect = {
+				save_event_target_as = transfer_this_leader
+				
+					ROOT = {
+						country_event = {
+							id = pick_transfer_leader.5
+						}
+					}
+				}
+			}
+	}
+		
+	option = {
+			name =  name_of_transfer_leader_4
+			trigger = {
+				exists = event_target:transfer_leader_4
+			}
+			
+			event_target:transfer_leader_4 = {
+				hidden_effect = {
+				save_event_target_as = transfer_this_leader
+				
+					ROOT = {
+						country_event = {
+						id = pick_transfer_leader.5
+						}
+					}
+				}
+			}
+	}
+	
+	option = {
+			name =  name_of_transfer_leader_5
+			trigger = {
+				exists = event_target:transfer_leader_5
+			}
+			
+			event_target:transfer_leader_5 = {
+				hidden_effect = {
+				save_event_target_as = transfer_this_leader
+				
+					ROOT = {
+						country_event = {
+							id = pick_transfer_leader.5
+						}
+					}
+				}
+			}
+	}
+		
+	option = {
+			name =  name_of_transfer_leader_6
+			trigger = {
+				exists = event_target:transfer_leader_6
+			}
+			
+			event_target:transfer_leader_6 = {
+				hidden_effect = {
+				save_event_target_as = transfer_this_leader
+				
+					ROOT = {
+						country_event = {
+							id = pick_transfer_leader.5
+						}
+					}
+				}
+			}
+	}
+		
+	option = {
+			name =  name_of_transfer_leader_7
+			trigger = {
+				exists = event_target:transfer_leader_7
+			}
+			
+			event_target:transfer_leader_7 = {
+				hidden_effect = {
+				save_event_target_as = transfer_this_leader
+				
+					ROOT = {
+						country_event = {
+							id = pick_transfer_leader.5
+						}
+					}
+				}
+			}
+	}
+		
+	option = {
+			name =  name_of_transfer_leader_8
+			trigger = {
+				exists = event_target:transfer_leader_8
+			}
+			
+			event_target:transfer_leader_8 = {
+				hidden_effect = {
+				save_event_target_as = transfer_this_leader
+				
+					ROOT = {
+						country_event = {
+							id = pick_transfer_leader.5
+						}
+					}
+				}
+			}
+	}
+		
+	option = {
+			name =  name_of_transfer_leader_9
+			trigger = {
+				exists = event_target:transfer_leader_9
+			}
+			
+			event_target:transfer_leader_9 = {
+				hidden_effect = {
+				save_event_target_as = transfer_this_leader
+				
+					ROOT = {
+						country_event = {
+							id = pick_transfer_leader.5
+						}
+					}
+				}
+			}
+	}
+		
+	option = {
+			name =  name_of_transfer_leader_10
+			trigger = {
+				exists = event_target:transfer_leader_10
+			}
+			
+			event_target:transfer_leader_10 = {
+				hidden_effect = {
+				save_event_target_as = transfer_this_leader
+				
+					ROOT = {
+						country_event = {
+							id = pick_transfer_leader.5
+						}
+					}
+				}
+			}
+	}
+	
+	option = {
+ 		name = changed_mind_ptl
+		default_hide_option = yes
+		trigger = {
+		always = yes
+		}
+	}
+		
+	after = {
+		
+		hidden_effect = {
+			every_owned_leader = {
+				remove_leader_flag = leader_transfer_selection
+			}
+		}
+	}
+}
+
+country_event = {
+	id = pick_transfer_leader.3	#Commanders, Iterate and save leaders as event targets
+	title = "pick_transfer_leader.commanders"
+	desc = ptl_class_commander
+	picture = GFX_evt_diplomatic_visit
+	is_triggered_only = yes
+	
+	immediate = {
+	
+		ruler = {set_leader_flag = leader_transfer_selection} #Prevent Ruler from being traded
+		
+		random_owned_leader = {
+			limit = {
+					NOR = {
+					leader_class = official
+					leader_class = scientist
+					has_leader_flag = leader_transfer_selection
+					}
+			}
+						save_event_target_as = transfer_leader_1
+						set_leader_flag = leader_transfer_selection
+						
+		}
+		
+		random_owned_leader = {
+			limit = {
+					NOR = {
+					leader_class = official
+					leader_class = scientist
+					has_leader_flag = leader_transfer_selection
+					}
+			}
+						save_event_target_as = transfer_leader_2
+						set_leader_flag = leader_transfer_selection
+						
+		}
+		
+		random_owned_leader = {
+			limit = {
+					NOR = {
+					leader_class = official
+					leader_class = scientist
+					has_leader_flag = leader_transfer_selection
+					}
+			}
+						save_event_target_as = transfer_leader_3
+						set_leader_flag = leader_transfer_selection
+						
+		}
+
+		random_owned_leader = {
+			limit = {
+					NOR = {
+					leader_class = official
+					leader_class = scientist
+					has_leader_flag = leader_transfer_selection
+					}
+			}
+						save_event_target_as = transfer_leader_4
+						set_leader_flag = leader_transfer_selection
+						
+		}
+		
+		random_owned_leader = {
+			limit = {
+					NOR = {
+					leader_class = official
+					leader_class = scientist
+					has_leader_flag = leader_transfer_selection
+					}
+			}
+						save_event_target_as = transfer_leader_5
+						set_leader_flag = leader_transfer_selection
+						
+		}
+
+		random_owned_leader = {
+			limit = {
+					NOR = {
+					leader_class = official
+					leader_class = scientist
+					has_leader_flag = leader_transfer_selection
+					}
+			}
+						save_event_target_as = transfer_leader_6
+						set_leader_flag = leader_transfer_selection
+						
+		}
+
+		random_owned_leader = {
+			limit = {
+					NOR = {
+					leader_class = official
+					leader_class = scientist
+					has_leader_flag = leader_transfer_selection
+					}
+			}
+						save_event_target_as = transfer_leader_7
+						set_leader_flag = leader_transfer_selection
+						
+		}
+
+		random_owned_leader = {
+			limit = {
+					NOR = {
+					leader_class = official
+					leader_class = scientist
+					has_leader_flag = leader_transfer_selection
+					}
+			}
+						save_event_target_as = transfer_leader_8
+						set_leader_flag = leader_transfer_selection
+						
+		}
+
+		random_owned_leader = {
+			limit = {
+					NOR = {
+					leader_class = official
+					leader_class = scientist
+					has_leader_flag = leader_transfer_selection
+					}
+			}
+						save_event_target_as = transfer_leader_9
+						set_leader_flag = leader_transfer_selection
+						
+		}
+		
+		random_owned_leader = {
+			limit = {
+					NOR = {
+					leader_class = official
+					leader_class = scientist
+					has_leader_flag = leader_transfer_selection
+					}
+			}
+						save_event_target_as = transfer_leader_10
+						set_leader_flag = leader_transfer_selection
+						
+		}
+	}
+		
+	option = {
+ 		name =  name_of_transfer_leader_1
+		trigger = {
+			exists = event_target:transfer_leader_1
+		}
+		
+		event_target:transfer_leader_1 = {
+			hidden_effect = {
+			save_event_target_as = transfer_this_leader
+			
+				ROOT = {
+					country_event = {
+						id = pick_transfer_leader.5
+					}
+				}
+			}
+		}
+	}
+	
+	option = {
+			name =  name_of_transfer_leader_2
+			trigger = {
+				exists = event_target:transfer_leader_2
+			}
+			
+			event_target:transfer_leader_2 = {
+				hidden_effect = {
+				save_event_target_as = transfer_this_leader
+				
+					ROOT = {
+						country_event = {
+							id = pick_transfer_leader.5
+						}
+					}
+				}
+			}
+	}
+	
+	option = {
+			name =  name_of_transfer_leader_3
+			trigger = {
+				exists = event_target:transfer_leader_3
+			}
+			
+			event_target:transfer_leader_3 = {
+				hidden_effect = {
+				save_event_target_as = transfer_this_leader
+				
+					ROOT = {
+						country_event = {
+							id = pick_transfer_leader.5
+						}
+					}
+				}
+			}
+	}
+		
+	option = {
+			name =  name_of_transfer_leader_4
+			trigger = {
+				exists = event_target:transfer_leader_4
+			}
+			
+			event_target:transfer_leader_4 = {
+				hidden_effect = {
+				save_event_target_as = transfer_this_leader
+				
+					ROOT = {
+						country_event = {
+						id = pick_transfer_leader.5
+						}
+					}
+				}
+			}
+	}
+	
+	option = {
+			name =  name_of_transfer_leader_5
+			trigger = {
+				exists = event_target:transfer_leader_5
+			}
+			
+			event_target:transfer_leader_5 = {
+				hidden_effect = {
+				save_event_target_as = transfer_this_leader
+				
+					ROOT = {
+						country_event = {
+							id = pick_transfer_leader.5
+						}
+					}
+				}
+			}
+	}
+		
+	option = {
+			name =  name_of_transfer_leader_6
+			trigger = {
+				exists = event_target:transfer_leader_6
+			}
+			
+			event_target:transfer_leader_6 = {
+				hidden_effect = {
+				save_event_target_as = transfer_this_leader
+				
+					ROOT = {
+						country_event = {
+							id = pick_transfer_leader.5
+						}
+					}
+				}
+			}
+	}
+		
+	option = {
+			name =  name_of_transfer_leader_7
+			trigger = {
+				exists = event_target:transfer_leader_7
+			}
+			
+			event_target:transfer_leader_7 = {
+				hidden_effect = {
+				save_event_target_as = transfer_this_leader
+				
+					ROOT = {
+						country_event = {
+							id = pick_transfer_leader.5
+						}
+					}
+				}
+			}
+	}
+		
+	option = {
+			name =  name_of_transfer_leader_8
+			trigger = {
+				exists = event_target:transfer_leader_8
+			}
+			
+			event_target:transfer_leader_8 = {
+				hidden_effect = {
+				save_event_target_as = transfer_this_leader
+				
+					ROOT = {
+						country_event = {
+							id = pick_transfer_leader.5
+						}
+					}
+				}
+			}
+	}
+		
+	option = {
+			name =  name_of_transfer_leader_9
+			trigger = {
+				exists = event_target:transfer_leader_9
+			}
+			
+			event_target:transfer_leader_9 = {
+				hidden_effect = {
+				save_event_target_as = transfer_this_leader
+				
+					ROOT = {
+						country_event = {
+							id = pick_transfer_leader.5
+						}
+					}
+				}
+			}
+	}
+		
+	option = {
+			name =  name_of_transfer_leader_10
+			trigger = {
+				exists = event_target:transfer_leader_10
+			}
+			
+			event_target:transfer_leader_10 = {
+				hidden_effect = {
+				save_event_target_as = transfer_this_leader
+				
+					ROOT = {
+						country_event = {
+							id = pick_transfer_leader.5
+						}
+					}
+				}
+			}
+	}
+	
+	option = {
+ 		name = changed_mind_ptl
+		default_hide_option = yes
+		trigger = {
+		always = yes
+		}
+	}
+		
+	after = {
+		
+		hidden_effect = {
+			every_owned_leader = {
+				remove_leader_flag = leader_transfer_selection
+			}
+		}
+	}
+}
+
+country_event = {
+	id = pick_transfer_leader.4	#Scientists, Iterate and save leaders as event targets
+	title = "pick_transfer_leader.scientist"
+	desc = ptl_class_scientist
+	picture = GFX_evt_diplomatic_visit
+	is_triggered_only = yes
+	
+	immediate = {
+	
+	ruler = {set_leader_flag = leader_transfer_selection} #Prevent Ruler from being traded
+	
+		random_owned_leader = {
+			limit = {
+					NOR = {
+					leader_class = official
+					leader_class = commander
+					has_leader_flag = leader_transfer_selection
+					}
+			}
+						save_event_target_as = transfer_leader_1
+						set_leader_flag = leader_transfer_selection
+						
+		}
+		
+		random_owned_leader = {
+			limit = {
+					NOR = {
+					leader_class = official
+					leader_class = commander
+					has_leader_flag = leader_transfer_selection
+					}
+			}
+						save_event_target_as = transfer_leader_2
+						set_leader_flag = leader_transfer_selection
+						
+		}
+	
+		random_owned_leader = {
+			limit = {
+					NOR = {
+					leader_class = official
+					leader_class = commander
+					has_leader_flag = leader_transfer_selection
+					}
+			}
+						save_event_target_as = transfer_leader_1
+						set_leader_flag = leader_transfer_selection
+						
+		}
+		
+		random_owned_leader = {
+			limit = {
+					NOR = {
+					leader_class = official
+					leader_class = commander
+					has_leader_flag = leader_transfer_selection
+					}
+			}
+						save_event_target_as = transfer_leader_1
+						set_leader_flag = leader_transfer_selection
+						
+		}
+
+		random_owned_leader = {
+			limit = {
+					NOR = {
+					leader_class = official
+					leader_class = commander
+					has_leader_flag = leader_transfer_selection
+					}
+			}
+						save_event_target_as = transfer_leader_1
+						set_leader_flag = leader_transfer_selection
+						
+		}
+		
+		random_owned_leader = {
+			limit = {
+					NOR = {
+					leader_class = official
+					leader_class = commander
+					has_leader_flag = leader_transfer_selection
+					}
+			}
+						save_event_target_as = transfer_leader_1
+						set_leader_flag = leader_transfer_selection
+						
+		}
+
+		random_owned_leader = {
+			limit = {
+					NOR = {
+					leader_class = official
+					leader_class = commander
+					has_leader_flag = leader_transfer_selection
+					}
+			}
+						save_event_target_as = transfer_leader_1
+						set_leader_flag = leader_transfer_selection
+						
+		}
+
+		random_owned_leader = {
+			limit = {
+					NOR = {
+					leader_class = official
+					leader_class = commander
+					has_leader_flag = leader_transfer_selection
+					}
+			}
+						save_event_target_as = transfer_leader_1
+						set_leader_flag = leader_transfer_selection
+						
+		}
+
+		random_owned_leader = {
+			limit = {
+					NOR = {
+					leader_class = official
+					leader_class = commander
+					has_leader_flag = leader_transfer_selection
+					}
+			}
+						save_event_target_as = transfer_leader_1
+						set_leader_flag = leader_transfer_selection
+						
+		}
+
+		random_owned_leader = {
+			limit = {
+					NOR = {
+					leader_class = official
+					leader_class = commander
+					has_leader_flag = leader_transfer_selection
+					}
+			}
+					THIS = {
+						save_event_target_as = transfer_leader_10
+						set_leader_flag = leader_transfer_selection
+						
+					}
+		}
+	}
+	
+		option = {
+ 		name =  name_of_transfer_leader_1
+		trigger = {
+			exists = event_target:transfer_leader_1
+		}
+		
+		event_target:transfer_leader_1 = {
+			hidden_effect = {
+			save_event_target_as = transfer_this_leader
+			
+				ROOT = {
+					country_event = {
+						id = pick_transfer_leader.5
+					}
+				}
+			}
+		}
+	}
+	
+	option = {
+			name =  name_of_transfer_leader_2
+			trigger = {
+				exists = event_target:transfer_leader_2
+			}
+			
+			event_target:transfer_leader_2 = {
+				hidden_effect = {
+				save_event_target_as = transfer_this_leader
+				
+					ROOT = {
+						country_event = {
+							id = pick_transfer_leader.5
+						}
+					}
+				}
+			}
+	}
+	
+	option = {
+			name =  name_of_transfer_leader_3
+			trigger = {
+				exists = event_target:transfer_leader_3
+			}
+			
+			event_target:transfer_leader_3 = {
+				hidden_effect = {
+				save_event_target_as = transfer_this_leader
+				
+					ROOT = {
+						country_event = {
+							id = pick_transfer_leader.5
+						}
+					}
+				}
+			}
+	}
+		
+	option = {
+			name =  name_of_transfer_leader_4
+			trigger = {
+				exists = event_target:transfer_leader_4
+			}
+			
+			event_target:transfer_leader_4 = {
+				hidden_effect = {
+				save_event_target_as = transfer_this_leader
+				
+					ROOT = {
+						country_event = {
+						id = pick_transfer_leader.5
+						}
+					}
+				}
+			}
+	}
+	
+	option = {
+			name =  name_of_transfer_leader_5
+			trigger = {
+				exists = event_target:transfer_leader_5
+			}
+			
+			event_target:transfer_leader_5 = {
+				hidden_effect = {
+				save_event_target_as = transfer_this_leader
+				
+					ROOT = {
+						country_event = {
+							id = pick_transfer_leader.5
+						}
+					}
+				}
+			}
+	}
+		
+	option = {
+			name =  name_of_transfer_leader_6
+			trigger = {
+				exists = event_target:transfer_leader_6
+			}
+			
+			event_target:transfer_leader_6 = {
+				hidden_effect = {
+				save_event_target_as = transfer_this_leader
+				
+					ROOT = {
+						country_event = {
+							id = pick_transfer_leader.5
+						}
+					}
+				}
+			}
+	}
+		
+	option = {
+			name =  name_of_transfer_leader_7
+			trigger = {
+				exists = event_target:transfer_leader_7
+			}
+			
+			event_target:transfer_leader_7 = {
+				hidden_effect = {
+				save_event_target_as = transfer_this_leader
+				
+					ROOT = {
+						country_event = {
+							id = pick_transfer_leader.5
+						}
+					}
+				}
+			}
+	}
+		
+	option = {
+			name =  name_of_transfer_leader_8
+			trigger = {
+				exists = event_target:transfer_leader_8
+			}
+			
+			event_target:transfer_leader_8 = {
+				hidden_effect = {
+				save_event_target_as = transfer_this_leader
+				
+					ROOT = {
+						country_event = {
+							id = pick_transfer_leader.5
+						}
+					}
+				}
+			}
+	}
+		
+	option = {
+			name =  name_of_transfer_leader_9
+			trigger = {
+				exists = event_target:transfer_leader_9
+			}
+			
+			event_target:transfer_leader_9 = {
+				hidden_effect = {
+				save_event_target_as = transfer_this_leader
+				
+					ROOT = {
+						country_event = {
+							id = pick_transfer_leader.5
+						}
+					}
+				}
+			}
+	}
+		
+	option = {
+			name =  name_of_transfer_leader_10
+			trigger = {
+				exists = event_target:transfer_leader_10
+			}
+			
+			event_target:transfer_leader_10 = {
+				hidden_effect = {
+				save_event_target_as = transfer_this_leader
+				
+					ROOT = {
+						country_event = {
+							id = pick_transfer_leader.5
+						}
+					}
+				}
+			}
+	}
+	
+	option = {
+ 		name = changed_mind_ptl
+		default_hide_option = yes
+		trigger = {
+		always = yes
+		}
+	}
+		
+	after = {
+		
+		hidden_effect = {
+			every_owned_leader = {
+				remove_leader_flag = leader_transfer_selection
+			}
+		}
+	}
+}
+
+country_event = {
+	id = pick_transfer_leader.5 #Confirmation Event
+	title = "Are you sure about trading this leader?"
+	desc = u_sure_about_this_leader
+	picture = GFX_evt_diplomatic_visit
+	is_triggered_only = yes
+	
+	
+	option = {
+		name = sure_about_this_leader
+			event_target:transfer_this_leader = {
+				set_owner = event_target:transfer_leader_here
+			}
+	}
+			
+	option = {
+		name = not_sure_about_this_leader
+		
+		ROOT = {
+			hidden_effect = {
+					country_event = {
+						id = pick_transfer_leader.2
+					}
+				}
+			}
+		}
+	
+	after = {
+	
+		hidden_effect = {
+			every_owned_leader = {
+			remove_leader_flag = leader_transfer_selection
+			}
+		}
+	}
+}

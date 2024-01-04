@@ -20,7 +20,7 @@ NGameplay = {
 	VETO_COOLDOWN =	1440 					#default: 1800							
 		# time before a country can enact another veto
 		
-	EMERGENCY_MEASURES_COOLDOWN = 3600		#default: 7200				
+	EMERGENCY_MEASURES_COOLDOWN = 4800		#default: 7200				
 		# time before a country can propose another emergency measure
 		
 	LEFT_COMMUNITY_MODIFIER_TIMER = 1800	#default: 7200			
@@ -45,5 +45,6 @@ NGameplay = {
 }
 
 NEconomy = {
-	MIN_ECONOMIC_MODIFIER_MULT = -0.4
+	MIN_ECONOMIC_MODIFIER_MULT = -0.4 #Cost, upkeep and production modifiers generated through the economic system (common/economic_categories) cannot go beyond this point
+	MARKET_TRADE_FEE_BASE = 0.5	# Base procentage for market trade fee
 }

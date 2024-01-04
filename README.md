@@ -105,11 +105,12 @@
 - zzzzzzzzzzzzzzzzz_scripted_triggers
 	- Make Assimilators not be considered a TW country
 	- Allow normal empire necrophages from phaging livestock
+
 ### solar_system_initializers
 - void_visitors_init
 	- Some stuff from serente
 - !!_lgates
-	- Add nanite words with nanite deposits to L-Gate systems
+	- Add nanite worlds with nanite deposits to L-Gate systems
 ### starbase_buildings
 - zzzz_orbital_ring_buildings
 	- Disable orbital ring shipyards, anchorages and habitation modules
@@ -121,9 +122,12 @@
 	- Civic slot modifiers
 - !!branch_office_value
 	- Reduce energy produced by branch offices
+###	strategic resources**
+- !!_strategic_resources
+	-Removed Alloys, Strategic and Rare resources from the Galactic Market. Made research tradeable. 
 ### technology
 - zzz_nanites
-	- Scavenger bot techs are available as rare techs after reseraching neanite production
+	- Scavenger bot techs are available as rare techs after reseraching nanite production
 - zzzz_genetics
 	- Allow genetics and cloning techs for machine empires with any organic pop
 - zzzzzz_mega_shipyard
@@ -131,6 +135,12 @@
 ### terraform
 - pd_hycean_terraform_links
 	- Change eco cat of hycean terraform to ocean terraforming
+
+### tradeable actions
+ - added leader transfer (Legendary Paragons like the scientist do not work.. yet because of their baggage)
+ - added fleet leasing 
+ - added seperate peace (Causes giving person to drop out of all wars with the other person, as long as they themselves aren't war leader)
+
 ### trade_conversions
 - zzz_trade_conversions
 	- Remove CG production from relevant trade conversions
@@ -142,6 +152,9 @@
 	- Changed machine aquatics effect
 - 00_species_traits_basic_characteristics
 	- Changed aquatics trait effect
+- zzzz_species_traits_basic_characteristics
+		changed some things for the clone traits to allow clones to be genemodded
+
 ### war_goals
 - zz_war_goals
 	- Disable Assimilation war goals
@@ -155,7 +168,9 @@
 - !protoworld_finish
 	- Add Exotic Gas deposits to toxic protoworlds
 - !pd_startgame
-	- Disable PD startup planet change event in MP
+  - Disable PD startup planet change event in MP
+- !!_clone_army_events
+	- Made Clone Army Gene-moddable if you have the Clone Army Origin
  
 ## gfx
 ### interface/icons/buildings

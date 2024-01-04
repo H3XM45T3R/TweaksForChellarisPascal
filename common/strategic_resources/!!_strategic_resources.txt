@@ -1,0 +1,198 @@
+### System Resources
+
+# allow_deficit = no				# default yes // only implemented for tech resources
+# market_amount = 100			# default -1, if non-positive, resource cannot be traded in the Market
+# market_price = 100				# default -1, if non-positive, resource cannot be traded in the Market
+# fixed_max_amount = yes/no		# default no, if yes maximum storage capacity of the resource is fixed to the amount specified in max = INT
+# special_max_amount = yes/no	# default no, if yes maximum storage capacity of the resource is fixed to the amount specified in max = INT + country_resource_max_RESOURCE_NAME_add modifiers + dynamic_capacity
+#								This explicitly ignores MOD_COUNTRY_RESOURCE_MAX_ADD modifiers.
+
+time = {
+	# Must be present here, but really: do not add a Deficit situation for Time.
+}
+
+
+### Basic Resources
+
+physics_research = {
+	tradable = yes
+	category = other
+	allow_deficit = no
+	ai_weight = {
+		weight = 1
+	}
+	intangible_weight = 0.33
+}
+
+society_research = {
+	tradable = yes
+	category = other
+	allow_deficit = no
+	ai_weight = {
+		weight = 1
+	}
+	intangible_weight = 0.33
+}
+
+engineering_research = {
+	tradable = yes
+	category = other
+	allow_deficit = no
+	ai_weight = {
+		weight = 1
+	}
+	intangible_weight = 0.33
+}
+
+influence = {
+	category = other
+	max = 1000
+	tooltip_decimals = 1
+	fixed_max_amount = yes
+
+	deficit_modifier = influence_deficit #found in static modifiers
+
+	ai_weight = {
+		weight = 1
+	}
+}
+
+##########################
+### Advanced Resources ###
+##########################
+
+alloys = {
+	tradable = yes
+	category = advanced
+	max = 15000
+
+	deficit_situation = situation_alloys_deficit
+
+	ai_weight = {
+		weight = 5
+	}
+
+	ai_wants = {
+		base = 500
+	}
+}
+
+###########################
+### Strategic Resources ###
+###########################
+
+volatile_motes = {
+	tradable = yes
+	category = strategic
+	max = 15000
+
+	prerequisites = { "tech_mine_volatile_motes" }
+
+	deficit_situation = situation_volatile_motes_deficit
+
+	ai_weight = {
+		weight = 10
+	}
+
+	ai_wants = {
+		base = 10
+	}
+}
+
+exotic_gases = {
+	tradable = yes
+	category = strategic
+	max = 15000
+
+	prerequisites = { "tech_mine_exotic_gases" }
+
+	deficit_situation = situation_exotic_gases_deficit
+
+	ai_weight = {
+		weight = 10
+	}
+
+	ai_wants = {
+		base = 10
+	}
+}
+
+rare_crystals = {
+	tradable = yes
+	category = strategic
+	max = 15000
+
+	prerequisites = { "tech_mine_rare_crystals" }
+
+	deficit_situation = situation_rare_crystals_deficit
+
+	ai_weight = {
+		weight = 10
+	}
+
+	ai_wants = {
+		base = 10
+	}
+}
+
+
+#######################
+###	Rare Resources	###
+#######################
+
+# Living Metal
+sr_living_metal = {
+	tradable = yes
+	category = rare
+	max = 15000
+
+	prerequisites = { "tech_mine_living_metal" }
+	visibility_prerequisite = { always = yes }
+	deficit_modifier = sr_living_metal_deficit
+
+	ai_weight = {
+		weight = 100
+	}
+
+	ai_wants = {
+		base = 5
+	}
+}
+
+# Zro
+sr_zro = {
+	tradable = yes
+	category = rare
+	max = 15000
+
+	prerequisites = { "tech_mine_zro" }
+	visibility_prerequisite = { always = yes }
+	deficit_modifier = sr_zro_deficit
+
+	ai_weight = {
+		weight = 100
+	}
+
+	ai_wants = {
+		base = 5
+	}
+}
+
+# Dark Matter
+sr_dark_matter = {
+	tradable = yes
+	category = rare
+	max = 15000
+
+	prerequisites = { "tech_mine_dark_matter" }
+	visibility_prerequisite = { always = yes }
+
+	ai_weight = {
+		weight = 100
+	}
+	deficit_modifier = dark_matter_deficit #found in static modifiers
+
+	ai_wants = {
+		base = 5
+	}
+}

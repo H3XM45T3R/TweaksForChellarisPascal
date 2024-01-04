@@ -1,0 +1,391 @@
+namespace = pick_transfer_fleet
+
+country_event = {
+	id = pick_transfer_fleet.1	#Iterate and save fleets as event targets
+	title = "pick_transfer_fleet"
+	desc = ftm_pick_fleet
+	picture = GFX_evt_federation_fleet
+	is_triggered_only = yes
+	
+	immediate = {
+		every_owned_fleet = {
+			limit = {
+					OR = {
+						has_fleet_flag = armada_of_the_voidborn
+						has_fleet_flag = star_rider_flotilla
+						has_fleet_flag = first_storm_wing
+						has_fleet_flag = dwamak_bashers
+						has_fleet_flag = unhinged_screamer_flotilla
+						has_fleet_flag = frenzied_volunteer_squadron
+						has_fleet_flag = her_chosen_champions
+						has_fleet_flag = order_of_eternal_night
+						has_fleet_flag = twilight_congreation
+						has_fleet_flag = borrowed_fleet
+					}
+						set_fleet_flag = fleet_transfer_selection
+		}
+	}
+		random_owned_fleet = {
+			limit = {
+				is_ship_class = shipclass_military	#pick only fleets that contain military ships (Stations and Starbases also count as fleets)
+					NOT = {
+					has_fleet_flag = fleet_transfer_selection
+					}
+			}
+						save_event_target_as = transfer_fleet_1
+						set_fleet_flag = fleet_transfer_selection
+						
+		}
+		
+		random_owned_fleet = {
+			limit = {
+				is_ship_class = shipclass_military
+					NOT = {
+					has_fleet_flag = fleet_transfer_selection
+					}
+			}
+						save_event_target_as = transfer_fleet_2
+						set_fleet_flag = fleet_transfer_selection
+						
+		}
+	
+		random_owned_fleet = {
+			limit = {
+			is_ship_class = shipclass_military
+					NOT = {
+					has_fleet_flag = fleet_transfer_selection
+					}
+			}
+						save_event_target_as = transfer_fleet_3
+						set_fleet_flag = fleet_transfer_selection
+						
+		}
+		
+		random_owned_fleet = {
+			limit = {
+			is_ship_class = shipclass_military
+					NOT = {
+					has_fleet_flag = fleet_transfer_selection
+					}
+			}
+						save_event_target_as = transfer_fleet_4
+						set_fleet_flag = fleet_transfer_selection
+						
+		}
+
+		random_owned_fleet = {
+			limit = {
+			is_ship_class = shipclass_military
+					NOT = {
+					has_fleet_flag = fleet_transfer_selection
+					}
+			}
+						save_event_target_as = transfer_fleet_5
+						set_fleet_flag = fleet_transfer_selection
+						
+		}
+		
+		random_owned_fleet = {
+			limit = {
+			is_ship_class = shipclass_military
+					NOT = {
+					has_fleet_flag = fleet_transfer_selection
+					}
+			}
+						save_event_target_as = transfer_fleet_6
+						set_fleet_flag = fleet_transfer_selection
+						
+		}
+
+		random_owned_fleet = {
+			limit = {
+			is_ship_class = shipclass_military
+					NOT = {
+					has_fleet_flag = fleet_transfer_selection
+					}
+			}
+						save_event_target_as = transfer_fleet_7
+						set_fleet_flag = fleet_transfer_selection
+						
+		}
+
+		random_owned_fleet = {
+			limit = {
+			is_ship_class = shipclass_military
+					NOT = {
+					has_fleet_flag = fleet_transfer_selection
+					}
+			}
+						save_event_target_as = transfer_fleet_8
+						set_fleet_flag = fleet_transfer_selection
+						
+		}
+
+		random_owned_fleet = {
+			limit = {
+			is_ship_class = shipclass_military
+					NOT = {
+					has_fleet_flag = fleet_transfer_selection
+					}
+			}
+						save_event_target_as = transfer_fleet_9
+						set_fleet_flag = fleet_transfer_selection
+						
+		}
+
+		random_owned_fleet = {
+			limit = {
+			is_ship_class = shipclass_military
+					NOT = {
+					has_fleet_flag = fleet_transfer_selection
+					}
+			}
+						save_event_target_as = transfer_fleet_10
+						set_fleet_flag = fleet_transfer_selection
+						
+		}
+	}
+		
+	option = {
+ 		name =  name_of_transfer_fleet_1
+		trigger = {
+			exists = event_target:transfer_fleet_1
+		}
+		
+		event_target:transfer_fleet_1 = {
+			hidden_effect = {
+			save_event_target_as = transfer_this_fleet
+			
+				ROOT = {
+					country_event = {
+						id = pick_transfer_fleet.2
+					}
+				}
+			}
+		}
+	}
+	
+	option = {
+			name =  name_of_transfer_fleet_2
+			trigger = {
+				exists = event_target:transfer_fleet_2
+			}
+			
+			event_target:transfer_fleet_2 = {
+				hidden_effect = {
+				save_event_target_as = transfer_this_fleet
+				
+					ROOT = {
+						country_event = {
+							id = pick_transfer_fleet.2
+						}
+					}
+				}
+			}
+	}
+	
+	option = {
+			name =  name_of_transfer_fleet_3
+			trigger = {
+				exists = event_target:transfer_fleet_3
+			}
+			
+			event_target:transfer_fleet_3 = {
+				hidden_effect = {
+				save_event_target_as = transfer_this_fleet
+				
+					ROOT = {
+						country_event = {
+							id = pick_transfer_fleet.2
+						}
+					}
+				}
+			}
+	}
+		
+	option = {
+			name =  name_of_transfer_fleet_4
+			trigger = {
+				exists = event_target:transfer_fleet_4
+			}
+			
+			event_target:transfer_fleet_4 = {
+				hidden_effect = {
+				save_event_target_as = transfer_this_fleet
+				
+					ROOT = {
+						country_event = {
+						id = pick_transfer_fleet.2
+						}
+					}
+				}
+			}
+	}
+	
+	option = {
+			name =  name_of_transfer_fleet_5
+			trigger = {
+				exists = event_target:transfer_fleet_5
+			}
+			
+			event_target:transfer_fleet_5 = {
+				hidden_effect = {
+				save_event_target_as = transfer_this_fleet
+				
+					ROOT = {
+						country_event = {
+							id = pick_transfer_fleet.2
+						}
+					}
+				}
+			}
+	}
+		
+	option = {
+			name =  name_of_transfer_fleet_6
+			trigger = {
+				exists = event_target:transfer_fleet_6
+			}
+			
+			event_target:transfer_fleet_6 = {
+				hidden_effect = {
+				save_event_target_as = transfer_this_fleet
+				
+					ROOT = {
+						country_event = {
+							id = pick_transfer_fleet.2
+						}
+					}
+				}
+			}
+	}
+		
+	option = {
+			name =  name_of_transfer_fleet_7
+			trigger = {
+				exists = event_target:transfer_fleet_7
+			}
+			
+			event_target:transfer_fleet_7 = {
+				hidden_effect = {
+				save_event_target_as = transfer_this_fleet
+				
+					ROOT = {
+						country_event = {
+							id = pick_transfer_fleet.2
+						}
+					}
+				}
+			}
+	}
+		
+	option = {
+			name =  name_of_transfer_fleet_8
+			trigger = {
+				exists = event_target:transfer_fleet_8
+			}
+			
+			event_target:transfer_fleet_8 = {
+				hidden_effect = {
+				save_event_target_as = transfer_this_fleet
+				
+					ROOT = {
+						country_event = {
+							id = pick_transfer_fleet.2
+						}
+					}
+				}
+			}
+	}
+		
+	option = {
+			name =  name_of_transfer_fleet_9
+			trigger = {
+				exists = event_target:transfer_fleet_9
+			}
+			
+			event_target:transfer_fleet_9 = {
+				hidden_effect = {
+				save_event_target_as = transfer_this_fleet
+				
+					ROOT = {
+						country_event = {
+							id = pick_transfer_fleet.2
+						}
+					}
+				}
+			}
+	}
+		
+	option = {
+			name =  name_of_transfer_fleet_10
+			trigger = {
+				exists = event_target:transfer_fleet_10
+			}
+			
+			event_target:transfer_fleet_10 = {
+				hidden_effect = {
+				save_event_target_as = transfer_this_fleet
+				
+					ROOT = {
+						country_event = {
+							id = pick_transfer_fleet.2
+						}
+					}
+				}
+			}
+	}
+		
+	after = {
+		every_owned_fleet = {
+			limit = {
+				is_ship_class = shipclass_military
+			}
+				remove_fleet_flag = fleet_transfer_selection
+		}
+	}
+}
+
+country_event = {
+	id = pick_transfer_fleet.2 #Confirmation Event
+	title = "Are you sure ?"
+	desc = u_sure_about_this_fleet
+	picture = GFX_evt_federation_fleet
+	is_triggered_only = yes
+	
+	
+	option = {
+		name = sure_about_this_fleet
+			event_target:transfer_this_fleet = {
+				set_fleet_flag = borrowed_fleet
+				give_fleet = {
+					controller = event_target:transfer_fleet_here
+					days = 18000 #50 years because this is our max trade deal duration and the fleet gets turned over back to us if the trade deal gets cancelled or expires
+				}
+			}
+	}
+			
+	option = {
+		name = not_sure_about_this_fleet
+		
+		ROOT = {
+			hidden_effect = {
+					country_event = {
+						id = pick_transfer_leader.1
+					}
+				}
+			}
+		}
+	
+	after = {
+	
+		hidden_effect = {
+			every_owned_fleet = {
+				limit = {
+					is_ship_class = shipclass_military
+				}
+					remove_fleet_flag = fleet_transfer_selection
+			}
+		}
+	}
+}
