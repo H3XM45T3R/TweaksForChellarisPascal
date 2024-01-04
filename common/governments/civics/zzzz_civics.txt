@@ -115,3 +115,47 @@ civic_tec_machine_cooperators = {
 
 	random_weight = { base = 2 }
 }
+#Todo: Bake cookies for Kes, and tell them they did a great job with the mod, and look stunning today
+civic_machine_assimilator = {
+	potential = { authority = { value = auth_machine_intelligence } }
+	possible = {
+		civics = {
+			NOR = {
+				value = civic_machine_servitor
+				value = civic_machine_terminator
+				value = civic_machine_memorialist
+				value = civic_machine_exploration_protocol
+			}
+		}
+	}
+	modification = no
+	random_weight = {
+		base = @civic_default_random_weight
+		modifier = {
+			factor = 0
+			NOT = { host_has_dlc = "Synthetic Dawn Story Pack" }
+		}
+		modifier = {
+			# civic has no effect after galaxy generation, disable for random generation
+			factor = 0
+			has_global_flag = game_started
+		}
+		modifier = {
+			factor = 0
+			blocks_disruptive_gameplay = yes
+		}
+	}
+	description = civic_tooltip_machine_assimilator_effects
+	has_secondary_species = {	# see game_start.11
+		title = civic_machine_assimilator_secondary_species
+		traits = {
+			trait = trait_cybernetic
+		}
+	}
+	modifier = {
+		country_minerals_produces_mult = 0.2
+		country_energy_produces_mult = 0.2
+		country_alloys_produces_mult = 0.2
+		councilor_gestalt_growth_exp_gain = @gestalt_civic_node_xp_rate
+	}
+}
