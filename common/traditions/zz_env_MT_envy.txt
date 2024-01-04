@@ -1,0 +1,95 @@
+tr_mt_envy_adopt = {
+	unlocks_agenda = agenda_MT_ambitious_promises
+	custom_tooltip = tr_mt_envy_opener_desc # gain 1 month worth of unity when scavenging debris ( and one month worth of research when researching debris? )
+}
+# 
+tr_mt_envy_finish = {
+	custom_tooltip = tr_mt_envy_finish_desc
+	modifier = {
+		ascension_perks_add = 1
+	}
+}
+
+# 5% research for each technologically superior empire
+tr_mt_envy_shiny_gadgets = {
+
+	custom_tooltip = tr_mt_envy_shiny_gadgets_modifier_desc # Bonuses for each technologically superior empire
+	
+	triggered_modifier = {
+		potential = { always = yes }
+		all_technology_research_speed = 0.025
+		mult = value:MT_envy_value
+	}
+
+	ai_weight = {
+		factor = 1000
+	}
+}
+
+# 
+tr_mt_envy_debris_collectors = {
+	modifier = {
+		scavenge_debris_mult = 0.25
+	}
+
+	ai_weight = {
+		factor = 1000
+	}
+}
+
+# 
+tr_mt_envy_debris_creators = {
+	possible = {
+		has_tradition = tr_mt_envy_debris_collectors
+	}
+	modifier = {
+		create_debris_chance = 0.20
+	}
+
+	ai_weight = {
+		factor = 1000
+	}
+}
+
+# 
+tr_mt_envy_expanded_workforce = {
+	possible = {
+		has_tradition = tr_mt_envy_highways
+		has_tradition = tr_mt_envy_debris_creators
+	}
+	custom_tooltip = tr_mt_envy_expanded_workforce_desc # 
+
+	tradition_swap = {
+		name = tr_mt_envy_expanded_workforce_purifiers
+		inherit_icon = yes
+		trigger = {
+			has_civic = civic_fanatic_purifiers
+		}
+		custom_tooltip = tr_mt_envy_expanded_workforce_purifiers_desc
+		weight = {
+			factor = 10
+		}
+	}
+
+	ai_weight = {
+		factor = 1000
+	}
+}
+
+# 
+tr_mt_envy_highways = {
+	possible = {
+		has_tradition = tr_mt_envy_shiny_gadgets
+	}
+	
+	custom_tooltip = tr_mt_envy_highways_modifier_desc # Bonuses for each spy network
+	triggered_modifier = {
+		potential = { always = yes }
+		all_technology_research_speed = 0.025
+		mult = value:MT_num_spy_networks
+	}
+
+	ai_weight = {
+		factor = 1000
+	}
+}

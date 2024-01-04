@@ -1,0 +1,10 @@
+namespace = MT_gamestart
+
+event = {
+    id = MT_gamestart.9999
+    hide_window = yes
+    is_triggered_only = yes
+    immediate = {
+		set_global_flag = HydrasMoreTradtions_installed
+	}
+}

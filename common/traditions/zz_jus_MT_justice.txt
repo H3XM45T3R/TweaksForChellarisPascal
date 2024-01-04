@@ -1,0 +1,131 @@
+tr_mt_justice_adopt = { # Justice loves its enforcers
+	unlocks_agenda = agenda_MT_justice # When finished, gives a bonus, with crime deducting from said bonus? Or evict all criminal pops
+	modifier = {
+		planet_crime_mult = -0.15
+	}
+}
+
+# 
+tr_mt_justice_finish = {
+	#custom_tooltip = tr_justice_finish_desc
+	modifier = {
+		damage_vs_country_type_pirate_mult = 0.5
+		damage_vs_country_type_dormant_marauders_mult = 0.33
+		damage_vs_country_type_awakened_marauders_mult = 0.33
+		ascension_perks_add = 1
+	}
+}
+
+# Vote strength to pas those laws
+tr_mt_justice_punishment = {
+
+	possible = {
+		has_tradition = tr_mt_justice_order
+	}
+
+	modifier = {
+		resolution_category_sanctions_defense_war_vote_strength_mult = 0.5
+		resolution_category_sanctions_commerce_industry_vote_strength_mult = 0.5
+		resolution_category_sanctions_politics_culture_vote_strength_mult = 0.5
+		resolution_category_sanctions_environment_technology_vote_strength_mult = 0.5
+	}
+	
+	custom_tooltip = tr_mt_justice_punishment_desc
+	
+	tradition_swap = {
+		name = tr_mt_justice_punishment_purifiers
+		inherit_icon = yes
+		trigger = {
+			is_homicidal = yes
+		}
+		modifier = {
+			damage_vs_superior_empires_mult = 0.1 # Change to something else
+		}
+		weight = {
+			factor = 1
+		}
+	}
+
+	ai_weight = {
+		factor = 1000
+	}
+}
+
+# Influence to pass those laws
+tr_mt_justice_law = {
+	
+	modifier = {
+		country_influence_produces_mult = 0.1
+	}
+
+	ai_weight = {
+		factor = 1000
+	}
+}
+
+# as long as this empire is not in breach of galactic law, gain bonuses to happiness and unity
+tr_mt_justice_order = {
+	
+	possible = {
+		has_tradition = tr_mt_justice_law
+	}
+	
+	triggered_modifier = {
+		potential = { is_in_breach_of_any = no }
+		country_unity_produces_mult = 0.1
+		pop_happiness = 0.05
+	}
+	
+	tradition_swap = {
+		name = tr_mt_justice_order_purifiers
+		inherit_icon = yes
+		inherit_effects = no
+		trigger = {
+			is_homicidal = yes
+		}
+		modifier = {
+			damage_vs_country_type_pirate_mult = 0.5 # Change to something else
+			damage_vs_country_type_dormant_marauders_mult = 0.25
+			damage_vs_country_type_awakened_marauders_mult = 0.25
+		}
+		weight = {
+			factor = 1
+		}
+	}
+	
+	custom_tooltip = tr_mt_justice_order_effects
+
+	ai_weight = {
+		factor = 1000
+	}
+}
+
+# -1 negative traits
+tr_mt_justice_leader_conditioning = {
+	custom_tooltip = BLANK_STRING	# Since the Modifier uses only a scripted modifier, we'll get an error without a custom tooltip.
+	modifier = {
+		negative_traits_country = -1
+		hostile_op_cat_infiltration_difficulty_add = 3
+	}
+
+	ai_weight = {
+		factor = 1000
+	}
+}
+
+# Bonuses to enforcers
+tr_mt_justice_enforcer_celebration = {
+
+	possible = {
+		has_tradition = tr_mt_justice_leader_conditioning
+	}
+
+	modifier = {
+		planet_enforcers_unity_produces_add = 1
+		local_trade_protection_add = 10
+	}
+
+	ai_weight = {
+		factor = 1000
+	}
+}
