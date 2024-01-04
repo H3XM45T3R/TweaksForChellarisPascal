@@ -1,0 +1,157 @@
+tr_mt_urban_adopt = {
+	unlocks_agenda = agenda_MT_construction_efforts # +50% blocker clear speed. End effect: +50% district and building build speed #End effect: all planets with all districts filled get a bonus.
+	#custom_tooltip = tr_mt_urban_opener_desc # district and building build cost -10%
+	modifier = {
+		planet_housing_mult = 0.15
+	}
+}
+# +10% resource output on capital # use on_action when moving capital to move modifier. Set modifier to remove on owner change
+tr_mt_urban_finish = {
+	custom_tooltip = tr_mt_urban_finish_desc
+	on_enabled = {
+		hidden_effect = {
+			capital_scope = {
+				add_modifier = { modifier = MT_urban_finish_modifier days = -1 }
+			}
+		}
+	}
+	modifier = {
+		ascension_perks_add = 1
+	}
+}
+
+# +1 politician job for each 25 pops
+tr_mt_urban_oversight = {
+	
+	modifier = {
+		job_politician_per_pop = 0.04
+	}
+	
+	tradition_swap = {
+		inherit_name = yes
+		inherit_icon = yes
+		trigger = {
+			is_spiritualist = yes
+		}
+		modifier = {
+			job_priest_per_pop = 0.04
+		}
+		weight = {
+			factor = 10
+		}
+	}
+	
+	tradition_swap = {
+		inherit_name = yes
+		inherit_icon = yes
+		trigger = {
+			has_corporate_government = yes
+		}
+		modifier = {
+			job_manager_per_pop = 0.04
+		}
+		weight = {
+			factor = 100
+		}
+	}
+	
+	tradition_swap = {
+		name = tr_mt_urban_oversight_hive
+		inherit_icon = yes
+		trigger = {
+			is_hive_empire = yes
+		}
+		modifier = {
+			job_evaluator_per_pop = 0.02
+		}
+		weight = {
+			factor = 100
+		}
+	}
+	
+	tradition_swap = {
+		name = tr_mt_urban_oversight_machine
+		inherit_icon = yes
+		trigger = {
+			is_machine_empire = yes
+		}
+		modifier = {
+			job_patrol_drone_per_pop = 0.02
+		}
+		weight = {
+			factor = 100
+		}
+	}
+
+	ai_weight = {
+		factor = 1000
+	}
+}
+
+# 
+tr_mt_urban_effective_planning = {
+	modifier = {
+		empire_size_districts_mult = -0.15
+		planet_districts_upkeep_mult = -0.1
+	}
+
+	ai_weight = {
+		factor = 1000
+	}
+}
+
+# 
+tr_mt_urban_compression = {
+	possible = {
+		has_tradition = tr_mt_urban_effective_planning
+		has_tradition = tr_mt_urban_highways
+	}
+	modifier = {
+		planet_max_districts_mult = 0.1
+	}
+
+	ai_weight = {
+		factor = 1000
+	}
+}
+
+# 
+tr_mt_urban_trusted_caretakers = {
+	possible = {
+		has_tradition = tr_mt_urban_oversight
+	}
+	custom_tooltip = BLANK_STRING
+	modifier = {
+		country_official_cap_add = 1
+		official_exp_gain = 0.25
+	}
+
+	ai_weight = {
+		factor = 1000
+	}
+}
+
+# 
+tr_mt_urban_highways = {
+	
+	modifier = {
+		planet_amenities_mult = 0.1
+	}
+	
+	tradition_swap = {
+		name = tr_mt_urban_highways_gestalt
+		inherit_effects = yes
+		inherit_icon = yes
+		trigger = {
+			is_gestalt = yes
+		}
+
+		weight = {
+			factor = 1
+		}
+	}
+
+	ai_weight = {
+		factor = 1000
+	}
+}

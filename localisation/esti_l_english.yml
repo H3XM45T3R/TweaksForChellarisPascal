@@ -1,0 +1,15 @@
+﻿l_english:
+  esti_civic_1: "Administrative Ascension"
+  esti_civic_2: "Administrative Ascension"
+  
+  subterranean_nation_modifier: "Subterranean Nation"
+  mod_damage_vs_country_type_ruined_marauders_mult: "Damage to Ruined Marauders"
+  mod_damage_vs_country_type_marauder_raiders_mult: "Damage to Marauder Raiders"
+ 
+  mod_country_minor_artifacts_produces_mult: "Minor Artifacts Produced"
+  mod_starbase_buildings_minor_artifacts_cost_mult: "Starbase Buildings Artifacts Cost"
+  mod_starbase_modules_minor_artifacts_cost_mult: "Starbase Modules Artifacts Cost"
+ 
+  mod_planet_priests_consumer_goods_upkeep_mult: "Priests Goods Upkeep"
+ 
+  ap_grasp_the_void_hypergates_tooltip: "Hyper Relays will cost less to build and will have no upkeep"

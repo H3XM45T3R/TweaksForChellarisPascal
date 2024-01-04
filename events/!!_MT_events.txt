@@ -1,0 +1,1860 @@
+#########################################
+#
+# MT events by Metallichydra
+#
+#########################################
+
+namespace = MT_events
+
+#########################################
+
+# AAA.17
+# Small Artifact Offer
+country_event = {
+	id = MT_events.1
+	title = MT_events.1.name
+	desc = MT_events.1.desc
+	picture = GFX_evt_tradedeal
+	trigger = {
+		owner = {
+			has_tradition = tr_mt_archeology_private_collector_appropriation
+			NOT = { has_ethic = ethic_gestalt_consciousness }
+		}
+	}
+
+	is_triggered_only = yes
+
+	option = {
+		name = REJECT_ARTIFACT_OFFER
+	}
+	option = {
+		name = BUY_FEW_ARTIFACTS
+		allow = {
+			owner = {
+				resource_stockpile_compare = {
+					resource = energy
+					value >= 1000
+				}
+			}
+		}
+		owner = {
+			add_resource = { energy = -1000 }
+			add_resource = { minor_artifacts = 25 }	
+		}
+	}
+	option = {
+		name = BUY_ALL_ARTIFACTS
+		allow = {
+			owner = {
+				resource_stockpile_compare = {
+					resource = energy
+					value >= 3000
+				}
+			}
+		}
+		owner = {
+			add_resource = { energy = -3000 }
+			add_resource = { minor_artifacts = 75 }	
+		}
+	}
+}
+
+# AAA.18
+# Medium Artifact Offer
+country_event = {
+	id = MT_events.2
+	title = MT_events.2.name
+	desc = MT_events.2.desc
+	picture = GFX_evt_tradedeal
+	trigger = {
+		owner = {
+			has_tradition = tr_mt_archeology_private_collector_appropriation
+			NOT = { has_ethic = ethic_gestalt_consciousness }
+		}
+	}
+
+	is_triggered_only = yes
+
+	option = {
+		name = REJECT_ARTIFACT_OFFER
+	}
+	option = {
+		name = BUY_FEW_ARTIFACTS
+		allow = {
+			owner = {
+				resource_stockpile_compare = {
+					resource = energy
+					value >= 2000
+				}
+			}
+		}
+		owner = {
+			add_resource = { energy = -2000 }
+			add_resource = { minor_artifacts = 50 }	
+		}
+	}
+	option = {
+		name = BUY_ALL_ARTIFACTS
+		allow = {
+			owner = {
+				resource_stockpile_compare = {
+					resource = energy
+					value >= 5000
+				}
+			}
+		}
+		owner = {
+			add_resource = { energy = -5000 }
+			add_resource = { minor_artifacts = 125 }	
+		}
+	}
+}
+
+# AAA.19
+# Large Artifact Offer
+country_event = {
+	id = MT_events.3
+	title = MT_events.3.name
+	desc = MT_events.3.desc
+	picture = GFX_evt_tradedeal
+	trigger = {
+		owner = {
+			has_tradition = tr_mt_archeology_private_collector_appropriation
+			NOT = { has_ethic = ethic_gestalt_consciousness }
+		}
+	}
+
+	is_triggered_only = yes
+
+	option = {
+		name = REJECT_ARTIFACT_OFFER
+	}
+	option = {
+		name = BUY_FEW_ARTIFACTS
+		allow = {
+			owner = {
+				resource_stockpile_compare = {
+					resource = energy
+					value >= 4000
+				}
+			}
+		}
+		owner = {
+			add_resource = { energy = -4000 }
+			add_resource = { minor_artifacts = 100 }	
+		}
+	}
+	option = {
+		name = BUY_SOME_ARTIFACTS
+		allow = {
+			owner = {
+				resource_stockpile_compare = {
+					resource = energy
+					value >= 6000
+				}
+			}
+		}
+		owner = {
+			add_resource = { energy = -6000 }
+			add_resource = { minor_artifacts = 150 }	
+		}
+	}
+	option = {
+		name = BUY_ALL_ARTIFACTS
+		allow = {
+			owner = {
+				resource_stockpile_compare = {
+					resource = energy
+					value >= 10000
+				}
+			}
+		}
+		owner = {
+			add_resource = { energy = -10000 }
+			add_resource = { minor_artifacts = 250 }	
+		}
+	}
+}
+
+# AAA.22
+# random archeology site from archeology finisher
+country_event = {
+	id = MT_events.4
+	hide_window = yes
+
+	is_triggered_only = yes
+
+	trigger = {
+		has_tradition = tr_mt_archeology_finish
+	}
+
+	immediate = {
+		random_planet_within_border = {
+			limit = {
+				habitable_planet = no
+				is_artificial = no
+				NOR = {
+					is_planet_class = pc_ringworld_habitable_damaged
+					is_planet_class = pc_ringworld_tech_damaged
+					is_planet_class = pc_ringworld_tech
+					is_planet_class = pc_ringworld_seam
+					is_planet_class = pc_ringworld_seam_damaged
+					exists = archaeological_site
+					has_planet_flag = suppress_archaeological_sites
+					solar_system = {
+						has_star_flag = suppress_archaeological_sites
+					}
+				}
+			}
+			save_event_target_as = chosen_planet
+			event_target:chosen_planet = { 
+				prevent_anomaly = yes
+				create_archaeological_site = random
+			}
+		}
+	}
+}
+
+# AAA.28
+# archeology tradition arcsite finish extra reward
+fleet_event = {
+	id = MT_events.5
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		owner = {
+			has_tradition = tr_mt_archeology_respect_the_dead
+		}
+	}
+
+	immediate = {
+		owner = {
+			add_monthly_resource_mult = {
+				resource = unity
+				value = 8 #12
+				min = 150
+				max = 100000
+			}
+		}
+	}
+}
+
+# AAA.31
+# Artifact Offers Random List
+country_event = {
+	id = MT_events.6
+	hide_window = yes
+	is_triggered_only = yes
+	
+	trigger = {
+		owner = {
+			has_tradition = tr_mt_archeology_private_collector_appropriation
+			OR = {
+				NOT = { has_ethic = ethic_gestalt_consciousness }
+			}
+		}
+	}
+
+	immediate = {
+		# Random List
+		random_list = {
+			75 = { country_event = { id = MT_events.1 } } # Small offer
+			50 = { country_event = { id = MT_events.2 } } # Medium Offer
+			25 = { country_event = { id = MT_events.3 } } # Large Offer
+		}
+	}
+}
+
+# AAA.34
+### Desecration finished
+planet_event = {
+	id = MT_events.7
+	title = MT_events.7.name
+	desc = MT_events.7.desc
+	picture = GFX_evt_big_landing_ship
+	show_sound = event_default
+	location = FROM
+	trackable = yes
+
+	is_triggered_only = yes
+
+	immediate = {
+		add_modifier = { modifier = "MT_desecrated_planet" days = -1 }
+		if = {
+			limit = {
+				is_planet_class = pc_nuked
+			}
+			while = {
+				count = trigger:planet_size
+				random_list = {
+					1 = {
+						add_deposit = d_city_ruins
+					}
+					1 = {
+						add_deposit = d_ruined_district
+					}
+					8 = {}
+				}
+			}
+		}
+		if = {
+			limit = {
+				is_planet_class = pc_relic
+			}
+			while = {
+				count = trigger:planet_size
+				random_list = {
+					2 = {
+						add_deposit = d_ruined_arcology
+					}
+					1 = {
+						add_deposit = d_city_ruins
+					}
+					6 = {}
+				}
+			}
+		}
+	}
+
+	option = {
+		name = MT_events.7.a
+		owner = {
+			medium_artifact_reward = yes
+			#add_resource = { minor_artifacts = 100 }	
+		}
+	}
+}
+
+# AAA.35
+### Desecration Gatekeeper
+planet_event = {
+	id = MT_events.8
+	hide_window = yes
+
+	is_triggered_only = yes
+	
+	trigger = {
+		exists = owner
+		OR = {
+			is_planet_class = pc_nuked
+			is_planet_class = pc_relic
+		}
+	}
+
+	immediate = {
+		random_list = {
+
+			# Minor artifacts found
+			20 = {
+				planet_event = { id = MT_events.9 }
+			}
+			# Digsite Found
+			2 = {
+				planet_event = { id = MT_events.10 }
+				modifier = {
+					factor = 0
+					NOT = { is_planet_class = pc_nuked }
+					OR = {
+						exists = archaeological_site
+						has_planet_flag = suppress_archaeological_sites
+						solar_system = {
+							has_star_flag = suppress_archaeological_sites
+						}
+					}
+				}
+			}
+			# Peculiar Technology Found
+			8 = {
+				planet_event = { id = MT_events.11 }
+			}
+			# Nothing
+			70 = {
+				modifier = {
+					factor = 0.5
+					is_planet_class = pc_relic
+				}
+			}
+		}
+	}
+}
+
+# AAA.36
+### Minor Artifacts Found
+planet_event = {
+	id = MT_events.9
+	title = MT_events.9.name
+	desc = MT_events.9.desc
+	picture = GFX_evt_big_landing_ship
+	show_sound = event_default
+	location = FROM
+	trackable = yes
+
+	is_triggered_only = yes
+
+	option = {
+		name = MT_events.9.a
+		owner = {
+			small_artifact_reward = yes
+			# add_resource = { minor_artifacts = 50 }	
+		}
+	}
+}
+
+# AAA.37
+### Digsite Found
+planet_event = {
+	id = MT_events.10
+	title = MT_events.10.name
+	desc = MT_events.10.desc
+	picture = GFX_evt_big_landing_ship
+	show_sound = event_default
+	location = FROM
+	trackable = yes
+
+	is_triggered_only = yes
+
+	# Create archeological site
+	option = {
+		name = MT_events.10.a
+		create_archaeological_site = random # Make specific arcsites
+	}
+	# Can't waste time
+	option = {
+		name = MT_events.10.b
+	}
+}
+
+# AAA.38
+### Technology Found
+planet_event = {
+	id = MT_events.11
+	title = MT_events.11.name
+	desc = MT_events.11.desc
+	picture = GFX_evt_big_landing_ship
+	show_sound = event_default
+	location = FROM
+	trackable = yes
+
+	is_triggered_only = yes
+
+	# Get Technology
+	option = {
+		name = MT_events.11.a
+		owner = {
+			add_random_research_option = {
+				add_progress = 0.8
+				ignore_prereqs = no
+				ignore_rare = yes
+			}
+		}
+	}
+}
+
+# AAA.40
+### Unity from destroying fallen empire ships
+# on_debris_scavenged: Fired when a science ship succesfully analyzed or scavenged debris
+# this = country
+# from = debris
+# fromfrom = controller of destroyed ship
+country_event = {
+	id = MT_events.12
+	is_triggered_only = yes
+	hide_window = yes
+
+	trigger = {
+		has_tradition = tr_mt_history_grave_robbers
+	}
+
+	immediate = {
+		while = {
+			count = value:ships_of_size_in_fromscoped_debris|SIZE|small_ship_fallen_empire|
+			random = {
+				chance = 20
+				add_resource = { minor_artifacts = 10 }
+			}
+		}
+		while = {
+			count = value:ships_of_size_in_fromscoped_debris|SIZE|large_ship_fallen_empire|
+			random = {
+				chance = 50
+				add_resource = { minor_artifacts = 10 }
+			}
+		}
+		while = {
+			count = value:ships_of_size_in_fromscoped_debris|SIZE|massive_ship_fallen_empire|
+			add_resource = { minor_artifacts = 10 }
+		}
+	}
+}
+
+fleet_event = {
+	# on_crossing_border
+	# Scope = Fleet
+	# From = Origin System
+	# FromFrom = Destination System
+	id = MT_events.13
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		fromfrom = {
+			exists = space_owner
+			space_owner = {
+				is_country_type = default
+				has_tradition = tr_mt_movement_constant_tracking
+			}
+		}
+		from = {
+			OR = {
+				NOT = { exists = space_owner }
+				AND = {
+					exists = space_owner
+					space_owner = { NOT = { is_same_value = root.fromfrom.space_owner } }
+					# technically redundant
+				}
+			}
+		}
+	}
+
+	immediate = {
+		# Return message
+		if = {
+			limit = {
+				fromfrom.space_owner = {
+					has_communications = root.owner
+				}
+			}
+			root.owner = {
+				save_event_target_as = mt_offending_country
+			}
+			fromfrom.space_owner = {
+				add_intel = { amount = 10 who = event_target:mt_offending_country }
+			}
+		}
+	}
+}
+
+country_event = {
+	id = MT_events.14
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		OR = {
+			has_agenda_selected = agenda_MT_ambitious_promises
+			has_agenda_selected = agenda_MT_insurgency_shadow_strike
+		}
+	}
+
+	immediate = {
+		add_council_agenda_progress_percent = 1
+	}
+}
+
+planet_event = {
+	id = MT_events.15
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		owner = {
+			has_tradition = tr_mt_urban_finish
+		}
+	}
+
+	immediate = {
+		add_modifier = { modifier = MT_urban_finish_modifier days = -1 }
+		from = {
+			remove_modifier = MT_urban_finish_modifier
+		}
+	}
+}
+
+### Unity from scavenging debris
+# on_debris_scavenged: Fired when a science ship succesfully analyzed or scavenged debris
+# this = country
+# from = debris
+# fromfrom = controller of destroyed ship
+country_event = {
+	id = MT_events.16
+	is_triggered_only = yes
+	hide_window = yes
+
+	trigger = {
+		has_tradition = tr_mt_envy_adopt
+	}
+
+	immediate = {
+		add_monthly_resource_mult = {
+			resource = unity
+			value = 1 #12
+			min = 150
+			max = 100000
+		}
+	}
+}
+
+# On winning a ground battle.
+# (Before controller is switched)
+# This = country, leader attacker
+# From = country, planet owner
+# FromFrom = planet
+country_event = {
+	id = MT_events.17
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		has_tradition = tr_mt_envy_expanded_workforce
+	}
+
+	immediate = {
+		while = {
+			count = value:MT_perc_of_planet_pop
+			random_owned_pop = { # Pick a pop
+				limit = {
+					planet = { is_same_value = ROOT.FROMFROM }
+				}
+				save_event_target_as = kidnapped_pop
+			}
+			ROOT = { # Pick a planet
+				reroll_random = yes
+				random_owned_planet = {
+					save_event_target_as = target_planet
+				}
+			}
+			resettle_pop = { # Kidnap pop
+				pop = event_target:kidnapped_pop
+				planet = event_target:target_planet
+			}
+			event_target:kidnapped_pop = {
+				set_citizenship_type = {
+					country = ROOT
+					type = citizenship_slavery
+				}
+			}
+		}
+	}
+}
+
+# Fanatic Purifiers Envy Final Gift
+planet_event = {
+	id = MT_events.18
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		FROM = {
+			has_active_tradition = tr_mt_envy_expanded_workforce_purifiers
+		}
+		exists = fromfrom #crisis.202 can remove the last pop
+		FROMFROM = {
+			is_robot_pop = no
+			NOT = {
+				is_same_species = owner_species
+			}
+		}
+		is_controlled_by = FROM
+	}
+
+	immediate = {
+		FROM = {
+			add_monthly_resource_mult = {
+				resource = unity
+				value = 1.5
+				min = 5
+				max = 100
+			}
+		}
+	}
+}
+
+country_event = { # Envy Material Liberator / FROM = Leader
+	id = MT_events.19
+	hide_window = yes
+
+	is_triggered_only = yes
+
+	trigger = {
+		NOT = { has_country_flag = spawning_renowned_leader }
+		exists = owner
+		has_tradition = tr_mt_envy_finish
+		is_country_type = default
+		FROM = {
+			leader_class = commander
+		}
+	}
+
+	immediate = {
+		FROM = {
+			if = {
+				limit = {
+					leader_class = commander
+				}
+				add_trait_no_notify = leader_trait_corsair
+			}
+		}
+	}
+}
+
+# award XP to all leaders if country has the history lessons tradition
+country_event = {
+	id = MT_events.20
+	hide_window = yes
+	is_triggered_only = yes
+
+	immediate = {
+		if = {
+			limit = {
+				has_tradition = tr_mt_archeology_history_lessons
+			}
+			every_owned_leader = {
+				add_experience = 300
+			}
+			create_message = {
+				type = TRADITION_EFFECT
+				localization =  message_tradition_effect_MT_history_lessons_effect_desc
+				days = @toast_message_days
+				custom_toast_content_text = tr_mt_archeology_history_lessons_toast_text
+				custom_toast_content_icon = GFX_topbar_leaders_button
+			}
+		}
+	}
+}
+
+# On winning a ground battle.
+# (Before controller is switched)
+# This = country, leader attacker
+# From = country, planet owner
+# FromFrom = planet
+country_event = {
+	id = MT_events.21
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		has_tradition = tr_mt_annihilation_malevolence
+		is_homicidal = no
+	}
+
+	immediate = {
+		while = {
+			count = value:MT_perc_of_planet_pop
+			random_owned_pop = { # Pick a pop
+				limit = {
+					planet = { is_same_value = ROOT.FROMFROM }
+				}
+				kill_pop = yes
+			}
+		}
+	}
+}
+
+country_event = {
+	id = MT_events.23
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		has_tradition = tr_mt_annihilation_final_strike
+	}
+
+	immediate = {
+		from = {
+			country_event = { id = MT_events.24 }
+		}
+	}
+}
+
+# Execute leader upon defeat
+# A war has been lost
+# This = Loser Warleader
+# From = Winner Warleader
+country_event = {
+	id = MT_events.24
+	title = MT_events.24.name
+	desc = {
+		trigger = { NOT = { has_country_flag = MT_annihilation_malevolence_triggered@from } }
+		text = MT_events.24.desc
+	}
+	desc = {
+		trigger = {
+			has_country_flag = MT_annihilation_malevolence_triggered@from
+		}
+		text = MT_events.24.desc.again
+	}
+	picture = GFX_evt_surrender
+	show_sound = event_planetary_riot
+	location = root
+
+	is_triggered_only = yes
+
+	trigger = {
+		NOT = { has_ethic = ethic_gestalt_consciousness
+				has_authority = auth_tec_ai
+		}
+		exists = ruler
+	}
+
+	immediate = {
+		ruler = {
+			save_event_target_as = rulername
+			kill_leader = {
+				ruler = yes
+				show_notification = no
+			}
+		}
+	}
+
+	option = {
+		name = MT_events.24.a
+		custom_tooltip = MT_events.24.a.tooltip
+		hidden_effect = {
+			set_country_flag = MT_annihilation_malevolence_triggered@from
+		}
+	}
+}
+
+# on_pop_purged
+# This = Planet scope
+# From = Country
+# FromFrom = Pop
+# Tradition: Beauty of annihilation necromancers
+planet_event = {
+	id = MT_events.25
+	is_triggered_only = yes
+	hide_window = yes
+
+	trigger = {
+		from = {
+			has_active_tradition = tr_mt_annihilation_beauty_of_annihilation_necromancers
+		}
+		exists = fromfrom #crisis.202 can remove the last pop
+		fromfrom = {
+			NOT = {
+				has_purge_type = {
+					type = purge_displacement
+				}
+			}
+			is_robotic_species = no
+			NAND = {
+				is_archetype = PRESAPIENT
+				has_trait = trait_zombie
+			}
+		}
+	}
+
+	immediate = {
+		random_list = {
+		#	80 = {	}
+			# 20% Chance to create a zombie
+			20 = {
+				create_pop = {
+					species = fromfrom.species
+				}
+				last_created_pop = {
+					modify_species = {
+						species = this
+						add_trait = trait_zombie
+						add_traits_at_start_of_list = yes
+						remove_trait = trait_self_modified
+						remove_trait = trait_latent_psionic
+						remove_trait = trait_psionic
+					}
+					set_citizenship_type = {
+						country = root.owner
+						type = citizenship_slavery
+					}
+				}
+			}
+		}
+	}
+}
+
+# This = Planet where the pop was bombed to death
+# From = Country which is raining down fire and brimstone
+planet_event = {
+	id = MT_events.26
+	hide_window = yes
+
+	is_triggered_only = yes
+
+	trigger = {
+		from = {
+			exists = this
+			has_tradition = tr_mt_annihilation_beauty_of_annihilation
+			NOT = { has_active_tradition = tr_mt_annihilation_beauty_of_annihilation_necromancers }
+		}
+		owner = {
+			exists = this
+			# is_country_type = default
+		}
+	}
+
+	immediate = {
+		from = {
+			add_monthly_resource_mult = {
+				resource = unity
+				value = 1
+				min = 10
+				max = 1000000
+			}
+		}
+	}
+}
+
+#country_event = { # Mysticism Mystic Messengers / FROM = Leader
+#	id = MT_events.27
+#	hide_window = yes
+#
+#	is_triggered_only = yes
+#
+#	trigger = {
+#		NOT = { has_country_flag = spawning_renowned_leader }
+#		exists = owner
+#		has_tradition = tr_mt_mysticism_messenger
+#		#is_country_type = default
+#		#FROM = {
+#		#	leader_class = scientist
+#		#}
+#	}
+#
+#	immediate = {
+#		FROM = {
+#			random_list = {
+#				20 = { add_trait_no_notify = mt_mystic_leader }
+#				80 = { }
+#			}
+#		}
+#	}
+#}
+
+#country_event = { # FROM = Leader
+#	id = MT_events.28
+#	hide_window = yes
+#
+#	is_triggered_only = yes
+#
+#	trigger = {
+#		FROM = {
+#			has_trait = mt_mystic_leader
+#			has_skill = 10
+#		}
+#	}
+#
+#	immediate = {
+#		FROM = {
+#			kill_leader = yes
+#		}
+#		change_variable = {
+#			which = mt_mystics_ascended
+#			value = 1
+#		}
+#	}
+#}
+
+fleet_event = {
+	id = MT_events.29
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		owner = {
+			has_tradition = tr_mt_mysticism_synthesis
+		}
+	}
+
+	immediate = {
+		add_modifier = {
+			modifier = mt_surprise_attack_modifier
+			days = 180
+		}
+	}
+}
+
+# On own ship destroyed
+country_event = {
+	id = MT_events.30
+	hide_window = yes
+	is_triggered_only = yes
+	
+	trigger = {
+		has_tradition = tr_mt_swarm_always_more
+	}
+	
+	immediate = {
+		FROMFROM = { # Destroyed Ship
+			if = {
+				limit = { exists = fleet }
+				fleet = {
+					random_owned_ship = {
+						repair_percentage = 10
+					}
+				}
+			}
+		}
+	}
+}
+
+# On destroying enemy ship.
+country_event = {
+	id = MT_events.31
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		has_tradition = tr_mt_swarm_feast
+	}
+
+	immediate = {
+		FROMFROM = { # Winning ship.
+			add_modifier = {
+				modifier = mt_feast_modifier
+				days = 45
+			}
+		}
+	}
+}
+
+# On Detection
+#country_event = {
+#	id = MT_events.32
+#	title = MT_events.32.name
+#	desc = MT_events.32.desc
+#	is_triggered_only = yes
+#
+#	#trigger = {
+#	#	has_tradition = tr_mt_swarm_feast
+#	#}
+#
+#	immediate = {
+#		add_modifier = {
+#			modifier = spurred_by_the_past
+#			years = 10
+#			}
+#		}
+#	}
+#}
+
+# Uncloaking fleet 
+fleet_event = {
+	id = MT_events.32
+	hide_window = yes
+
+	is_triggered_only = yes
+
+	trigger = {
+		has_first_contact_dlc = yes
+		owner = { has_tradition = tr_mt_swarm_ambush }
+	}
+
+	immediate = {
+		owner = { save_event_target_as = mt_swarm_owner }
+		solar_system = {
+			every_fleet_in_system = {
+				limit = {
+					owner = {
+						is_at_war_with = mt_swarm_owner
+					}
+				}
+				add_modifier = {
+					modifier = mt_ambush_modifier
+					days = 180
+				}
+			}
+		}
+	}
+}
+
+# Purifiers Final Strike
+# Event for destroyed country
+country_event = {
+	id = MT_events.33
+	hide_window = yes
+	is_triggered_only = yes
+
+	# This = destroyed country
+	# From = optional, destroyer (country)
+
+	trigger = {
+		OR = {
+			is_country_type = default
+			is_country_type = fallen_empire
+			is_country_type = awakened_fallen_empire
+		}
+		exists = from
+		from = { has_active_tradition = tr_mt_annihilation_final_strike_purifiers }
+	}
+
+	immediate = {
+		from = {
+			add_monthly_resource_mult = {
+				resource = unity
+				value = 60
+				min = 1
+			}
+		}
+	}
+}
+
+# Purifiers Relic Theft
+# Event for destroyed country
+country_event = {
+	id = MT_events.34
+	hide_window = yes
+	is_triggered_only = yes
+
+	# This = destroyed country
+	# From = optional, destroyer (country)
+
+	trigger = {
+		OR = {
+			is_country_type = fallen_empire
+			is_country_type = awakened_fallen_empire
+		}
+		exists = from
+		from = { has_active_tradition = tr_mt_history_repurposed_relics_purifiers }
+	}
+
+	immediate = {
+		from = {
+			add_monthly_resource_mult = {
+				resource = unity
+				value = 120
+				min = 1
+			}
+		}
+	}
+}
+
+# Black Hole Boost - fleet entered system
+fleet_event = {
+	id = MT_events.35
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		owner = {
+			has_tradition = tr_mt_chaos_event_horizon
+		}
+	}
+
+	immediate = {
+		MT_event_horizon_check = yes
+	}
+}
+
+# Black Hole Boost - ship created
+ship_event = {
+	id = MT_events.36
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		owner = {
+			has_tradition = tr_mt_chaos_event_horizon
+		}
+	}
+
+	immediate = {
+		fleet = {
+			remove_modifier = mt_event_horizon_modifier # to re-assign modifier to take new ship into account
+			MT_event_horizon_check = yes
+		}
+	}
+}
+
+# Insurgency Overlord Destroyed
+# Event for destroyed country
+country_event = {
+	id = MT_events.37
+	hide_window = yes
+	is_triggered_only = yes
+
+	# This = destroyed country
+	# From = optional, destroyer (country)
+
+	trigger = {
+		has_country_flag = MT_insurgent_overlord
+		OR = {
+			is_country_type = default
+			is_country_type = fallen_empire
+			is_country_type = awakened_fallen_empire
+		}
+	}
+
+	immediate = {
+		save_event_target_as = mt_dead_overlord
+		every_country = {
+			limit = {
+				has_tradition = tr_mt_insurgency_adopt
+				event_target:mt_dead_overlord = {
+					has_country_flag = MT_overlord@prev
+				}
+			}
+			set_country_flag = mt_insurgent_victory
+		}
+	}
+}
+
+# Loyalty: Overlord researches Technology (Scholarium)
+country_event = {
+	id = MT_events.38
+	hide_window = yes
+	is_triggered_only = yes
+
+	# This = destroyed country
+	# From = optional, destroyer (country)
+
+	trigger = {
+		is_overlord = yes
+		any_subject = {
+			has_active_tradition = tr_mt_loyalty_speciality_scholarium
+		}
+	}
+
+	immediate = {
+		every_subject = {
+			limit = {
+				has_active_tradition = tr_mt_loyalty_speciality_scholarium
+			}
+			add_monthly_resource_mult = {
+				resource = unity
+				value = 1
+				min = 150
+				max = 100000
+			}
+		}
+	}
+}
+
+# On destroying enemy ship.
+country_event = {
+	id = MT_events.39
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		has_active_tradition = tr_mt_loyalty_speciality_bulwark
+		FROM = {
+			has_rival = Prev.Overlord
+		}
+	}
+
+	immediate = {
+		add_monthly_resource_mult = {
+			resource = unity
+			value = 0.1 #12
+			min = 15
+			max = 100000
+		}
+	}
+}
+
+leader_event = {
+	id = MT_events.40
+	hide_window = yes
+	is_triggered_only = yes
+	
+	trigger = {
+		owner = {
+			is_overlord = yes
+			any_subject = {
+				has_active_tradition = tr_mt_loyalty_representitives
+			}
+		}
+	}
+	
+	immediate = {
+		species = {
+			save_event_target_as = MT_leader_species
+		}
+		owner = {
+			every_subject = {
+				limit = {
+					has_active_tradition = tr_mt_loyalty_representitives
+					species = {
+						is_same_species_class = event_target:MT_leader_species
+					}
+				}
+				add_monthly_resource_mult = {
+					resource = unity
+					value = 24
+					min = 150
+					max = 100000
+				}
+			}
+		}
+	}
+}
+
+country_event = {
+	id = MT_events.41
+	hide_window = yes
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		from = {
+			has_tradition = tr_mt_chaos_horrific_visions
+		}
+		fromfrom = {
+			exists = leader
+		}
+	}
+	
+	immediate = {
+		fromfrom = {
+			leader = {
+				if = {
+					limit = {
+						NOT = { has_trait = leader_trait_MT_traumatized }
+					}
+					# add trait
+					add_trait = leader_trait_MT_traumatized
+				}
+			}
+		}
+	}
+}
+
+# On own ship destroyed
+country_event = {
+	id = MT_events.42
+	hide_window = yes
+	is_triggered_only = yes
+	
+	trigger = {
+		has_tradition = tr_mt_chaos_last_gift
+	}
+	
+	immediate = {
+		FROMFROMFROM = { # Ship that destroyed our ship
+			if = {
+				limit = {
+					NOT = { has_modifier = MT_chaotic_scar }
+				}
+				add_modifier = {
+					modifier = MT_chaotic_scar
+					days = -1
+				}
+			}
+		}
+	}
+}
+
+country_event = {
+	id = MT_events.43
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		has_tradition = tr_mt_valor_charge
+	}
+
+	immediate = {
+		FROMFROM = {
+			add_modifier = {
+				modifier = MT_valor_charge_modifier
+				days = 30
+			}
+		}
+	}
+}
+
+# Heroic Symbols Apply Flags
+country_event = {
+	id = MT_events.44
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		has_tradition = tr_mt_valor_heroic_symbols
+	}
+
+	immediate = {
+		FROMFROM = {
+			set_timed_fleet_flag = {
+				flag = MT_valor_fast_battle
+				days = 30
+			}
+		}
+		if = {
+			limit = {
+				FROMFROM = {
+					has_fleet_flag = MT_valor_recently_catapulted
+				}
+			}
+			FROMFROM = {
+				set_fleet_flag = MT_valor_recently_catapulted_into_fight
+			}
+		}
+		#if = {
+		#	limit = {
+		#		FROMFROM.value:MT_valor_force_disparity < 0.5
+		#	}
+		#	set_fleet_flag = MT_valor_overwhelming_odds
+		#}
+	}
+}
+
+# Valor Uncloaking fleet 
+fleet_event = {
+	id = MT_events.45
+	hide_window = yes
+
+	is_triggered_only = yes
+
+	trigger = {
+		has_first_contact_dlc = yes
+		owner = { has_tradition = tr_mt_valor_heroic_symbols }
+	}
+
+	immediate = {
+		set_timed_fleet_flag = {
+			flag = MT_valor_recently_uncloaked
+			days = 180
+		}
+	}
+}
+
+# Heroic Symbols Apply Traits
+country_event = {
+	id = MT_events.46
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		has_tradition = tr_mt_valor_heroic_symbols
+		FROMFROM = {
+			exists = leader
+		}
+		leader = {
+			NOT = {
+				has_leader_flag = MT_obtained_valor_trait
+			}
+		}
+	}
+
+	immediate = {
+		FROMFROM = {
+			if = {
+				limit = {
+					solar_system = {
+						is_same_value = root.capital_scope
+					}
+				}
+				set_fleet_flag = MT_valor_capital_defender
+			}
+			if = {
+				limit = {
+					solar_system = {
+						is_same_value = root.from.capital_scope
+					}
+				}
+				set_fleet_flag = MT_valor_capital_invader
+			}
+		}
+		FROMFROM = {
+			switch = {
+				trigger = has_fleet_flag
+				MT_valor_overwhelming_odds = {
+					leader = {
+						add_trait = leader_trait_MT_valor_lucky
+						set_leader_flag = MT_obtained_valor_trait
+					}
+				}
+				MT_valor_recently_uncloaked = {
+					leader = {
+						add_trait = leader_trait_MT_valor_ambusher
+						set_leader_flag = MT_obtained_valor_trait
+					}
+				}
+				MT_valor_fast_battle = {
+					leader = {
+						add_trait = leader_trait_MT_valor_quick_victory
+						set_leader_flag = MT_obtained_valor_trait
+					}
+				}
+				MT_valor_capital_defender = {
+					leader = {
+						add_trait = leader_trait_MT_valor_capital_defender
+						set_leader_flag = MT_obtained_valor_trait
+					}
+				}
+				MT_valor_capital_invader = {
+					leader = {
+						add_trait = leader_trait_MT_valor_capital_invader
+						set_leader_flag = MT_obtained_valor_trait
+					}
+				}
+				MT_valor_recently_catapulted_into_fight = {
+					leader = {
+						add_trait = leader_trait_MT_valor_slingshot
+						set_leader_flag = MT_obtained_valor_trait
+					}
+				}
+				default = {
+					leader = {
+						add_trait = leader_trait_MT_valor_hero
+						set_leader_flag = MT_obtained_valor_trait
+					}
+				}
+			}
+		}
+	}
+}
+
+# Heroic Symbols remove flags
+country_event = {
+	id = MT_events.47
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		has_tradition = tr_mt_valor_heroic_symbols
+	}
+
+	immediate = {
+		FROMFROM = {
+			remove_fleet_flag = MT_valor_recently_uncloaked
+			remove_fleet_flag = MT_valor_overwhelming_odds
+			remove_fleet_flag = MT_valor_fast_battle
+			remove_fleet_flag = MT_valor_recently_catapulted_into_fight
+		}
+	}
+}
+
+# Heroism
+country_event = {
+	id = MT_events.48
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		has_tradition = tr_mt_valor_heroism
+		FROMFROM = {
+			exists = leader
+		}
+	}
+
+	immediate = {
+		FROMFROM = {
+			leader = {
+				add_experience = 1000
+			}
+		}
+	}
+}
+
+# Valor Catapult fleet 
+fleet_event = {
+	id = MT_events.49
+	hide_window = yes
+
+	is_triggered_only = yes
+
+	trigger = {
+		owner = { has_tradition = tr_mt_valor_heroic_symbols }
+	}
+
+	immediate = {
+		set_timed_fleet_flag = {
+			flag = MT_valor_recently_catapulted
+			days = 30
+		}
+	}
+}
+
+# Valor ambusher effect
+fleet_event = {
+	id = MT_events.50
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		exists = leader
+		leader = {
+			has_trait = leader_trait_MT_valor_ambusher
+		}
+	}
+
+	immediate = {
+		add_modifier = {
+			modifier = mt_valor_surprise_attack_modifier
+			days = 60
+		}
+	}
+}
+
+country_event = {
+	id = MT_events.51
+	title = MT_events.51.name
+	desc = MT_events.51.desc
+	picture = GFX_evt_alien_propaganda
+
+	is_triggered_only = yes
+
+	option = {
+		name = MT_events.51.egalitarian
+		add_modifier = {
+			modifier = mt_manipulation_egalitarian
+			days = 1
+			time_multiplier = value:mt_manipulation_agenda_duration
+		}
+	}
+	
+	option = {
+		name = MT_events.51.authoritarian
+		add_modifier = {
+			modifier = mt_manipulation_authoritarian
+			days = 1
+			time_multiplier = value:mt_manipulation_agenda_duration
+		}
+	}
+	
+	option = {
+		name = MT_events.51.materialist
+		add_modifier = {
+			modifier = mt_manipulation_materialist
+			days = 1
+			time_multiplier = value:mt_manipulation_agenda_duration
+		}
+	}
+	
+	option = {
+		name = MT_events.51.spiritualist
+		add_modifier = {
+			modifier = mt_manipulation_spiritualist
+			days = 1
+			time_multiplier = value:mt_manipulation_agenda_duration
+		}
+	}
+	
+	option = {
+		name = MT_events.51.xenophile
+		add_modifier = {
+			modifier = mt_manipulation_xenophile
+			days = 1
+			time_multiplier = value:mt_manipulation_agenda_duration
+		}
+	}
+	
+	option = {
+		name = MT_events.51.xenophobe
+		add_modifier = {
+			modifier = mt_manipulation_xenophobe
+			days = 1
+			time_multiplier = value:mt_manipulation_agenda_duration
+		}
+	}
+	
+	option = {
+		name = MT_events.51.pacifist
+		add_modifier = {
+			modifier = mt_manipulation_pacifist
+			days = 1
+			time_multiplier = value:mt_manipulation_agenda_duration
+		}
+	}
+	
+	option = {
+		name = MT_events.51.militarist
+		add_modifier = {
+			modifier = mt_manipulation_militarist
+			days = 1
+			time_multiplier = value:mt_manipulation_agenda_duration
+		}
+	}
+}
+
+# Diligence
+# On own ship destroyed
+country_event = {
+	id = MT_events.52
+	hide_window = yes
+	is_triggered_only = yes
+	
+	trigger = {
+		has_tradition = tr_mt_diligence_never_surrender
+	}
+	
+	immediate = {
+		FROMFROM = { # Destroyed Ship
+			if = {
+				limit = { exists = fleet }
+				fleet = {
+					random_owned_ship = {
+						add_modifier = {
+							modifier = mt_diligence_never_surrender_modifier
+							days = 30
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+# Manipulation Planted Evidence
+espionage_operation_event = {
+	id = MT_events.53
+	hide_window = yes
+	is_triggered_only = yes
+	
+	trigger = {
+		owner = {
+			has_tradition = tr_mt_manipulation_planted_evidence
+		}
+	}
+	
+	immediate = {
+		spynetwork = {
+			if = {
+				limit = { target = { has_authority = auth_hive_mind } }
+				espionage_create_asset_hive = yes
+			}
+			else_if = {
+				limit = { target = { has_authority = auth_machine_intelligence } }
+				espionage_create_asset_machine = yes
+			}
+			else = {
+				espionage_create_asset_regular = yes
+			}
+		}
+	}
+}
+
+# Scope = Astral Rift
+event = {
+	id = MT_events.54
+	hide_window = yes
+
+	is_triggered_only = yes
+
+	trigger = {
+		solar_system = {
+			exists = owner
+			owner = {
+				has_tradition = tr_mt_curiosity_call_of_the_unknown
+			}
+		}
+	}
+
+	immediate = {
+		solar_system.owner = {
+			add_monthly_resource_mult = {
+				resource = physics_research
+				value = 12
+				min = 150
+				max = 1000000
+			}
+		}
+	}
+}
+
+country_event = {
+	id = MT_events.55
+	hide_window = yes
+
+	is_triggered_only = yes
+
+	trigger = {
+		has_tradition = tr_mt_curiosity_gravity
+	}
+
+	immediate = {
+		from = {
+			add_monthly_resource_mult = {
+				resource = unity
+				value = 18
+				min = 10
+				max = 1000000
+			}
+		}
+	}
+}
+
+planet_event = { # Broodmother Machine
+	id = MT_events.56
+	is_triggered_only = yes
+	hide_window = yes
+
+	trigger = {
+		fromfrom = { 
+			is_robot_pop = yes
+			NOT = { has_trait = trait_MT_special_care }
+		}
+		owner = { has_active_tradition = tr_mt_royalty_broodmother_machine }
+		is_homeworld = yes
+	}
+
+	immediate = {
+		fromfrom = {
+			modify_species = {
+				species = this
+				add_trait = trait_MT_special_care
+				add_traits_at_start_of_list = yes
+			}
+		}
+	}
+	after = {
+		fromfrom = {
+			clear_pop_category = yes #To make sure that the new pop does not spawn as a non worker strata. Not sure if this is important
+		}
+	}
+}
+
+planet_event = { # Broodmother Machine Remove trait if wrong planet
+	id = MT_events.57
+	is_triggered_only = yes
+	hide_window = yes
+
+	trigger = {
+		fromfrom = { 
+			is_robot_pop = yes
+			has_trait = trait_MT_special_care
+		}
+		OR = {
+			owner = { NOT = { has_active_tradition = tr_mt_royalty_broodmother_machine } }
+			is_homeworld = no
+		}
+	}
+
+	immediate = {
+		fromfrom = {
+			modify_species = {
+				species = this
+				remove_trait = trait_MT_special_care
+			}
+		}
+	}
+	after = {
+		fromfrom = {
+			clear_pop_category = yes #To make sure that the new pop does not spawn as a non worker strata
+		}
+	}
+}
+
+country_event = {
+	id = MT_events.58
+	hide_window = yes
+
+	is_triggered_only = yes
+
+	trigger = {
+		has_tradition = tr_mt_royalty_grand_entrance
+	}
+
+	immediate = {
+		if = {
+			limit = { has_modifier = MT_grand_entrance_modifier }
+			remove_modifier = MT_grand_entrance_modifier
+		}
+		add_modifier = {
+			modifier = MT_grand_entrance_modifier
+			days = 1800
+		}
+	}
+}

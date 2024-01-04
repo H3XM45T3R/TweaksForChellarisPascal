@@ -1,0 +1,36 @@
+tech_mega_shipyard = {
+	area = society
+	cost = @tier5cost3
+	tier = 5
+	category = { military_theory }
+	ai_update_type = all
+	prerequisites = { "tech_mega_engineering" }
+	weight = @tier5weight3
+	is_rare = yes
+
+	potential = {
+		host_has_dlc = "Federations"
+	}
+
+	weight_modifier = {
+		factor = 0
+	}
+
+	ai_weight = {
+		
+	}
+}
+
+tech_master_builders = {
+	area = society
+
+	category = { voidcraft }
+
+	cost = 1
+	tier = 1
+	weight = 0
+
+	weight_modifier = {
+		factor = 0
+	}	
+}
