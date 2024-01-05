@@ -1,3 +1,11 @@
+is_despoiler = {
+	OR = {
+		has_valid_civic = civic_barbaric_despoilers
+		has_valid_civic = civic_corporate_despoilers
+		has_valid_civic = civic_machine_assimilator
+	}
+}
+
 has_total_war_cb = {
 	OR = {
 		#attacker checks
