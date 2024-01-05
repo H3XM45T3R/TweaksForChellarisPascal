@@ -101,25 +101,3 @@ cb_galatron = {
 		}
 	}
 }
-
-# allow for asses
-cb_despoliation = {
-	show_in_diplomacy = no
-	show_notification = no
-	potential = {
-		is_country_type = default
-		OR = { 
-			has_valid_civic = civic_barbaric_despoilers
-			has_valid_civic = civic_corporate_despoilers
-			has_valid_civic = civic_machine_assimilator
-		}
-	}
-	is_valid = {
-		has_total_war_cb = no
-		NOT = { is_overlord_to = FROM }
-		OR = {
-			is_subject = no
-			overlord = { NOT = { is_same_value = from } }
-		}
-	}
-}

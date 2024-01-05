@@ -17,15 +17,11 @@
 ### bypass
 - zz_catapult
 	- Allow use of Quantum Cat if you don’t have the tech yourself
-### bombardment_stances
-- zz_bombardmebnt
-	- Allow raiding for assimilators
 ### casus_belli
 - zzz_cb
 	- Remove notifications for crisis CB
 	- Remove TW CBs for Assimilators
 	- Allow Galatron CB for Assimilators
-	- Allow despoilation for assimilators
 ### defines
 - zzz_defines
 	- Change galcome cooldowns
@@ -59,6 +55,7 @@
 - zzzz_civics
 	- Disallow Alpha Directive for Servitors
 	- Add empire size effect to branch office gestalts
+	- Enable hoarders
 ### inline_scripts
 **traits**
 - inline_aquatic_trait_effects
@@ -103,6 +100,7 @@
 - zzzzz_no_breeding
 	- Disable xeno compatibility
 - zzzzzzzzzzzzzzzzz_scripted_triggers
+	- Allow raiding bombardment and cb for assimilators
 	- Make Assimilators not be considered a TW country
 	- Allow normal empire necrophages from phaging livestock
 
@@ -117,6 +115,8 @@
 ### starbase_modules
 - zzzz_orbital_ring_modules
 	- Disable orbital ring shipyards, anchorages and habitation modules
+- zz_starbase_modules
+	- Resource silo module
 ### static_modifiers
 - esti_modifiers
 	- Civic slot modifiers
@@ -158,7 +158,6 @@
 ### war_goals
 - zz_war_goals
 	- Disable Assimilation war goals
-	- Allow plunder for assimilators
 
 ## events
 - esti_civic_slot_unlock

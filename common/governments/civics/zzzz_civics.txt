@@ -159,3 +159,23 @@ civic_machine_assimilator = {
 		councilor_gestalt_growth_exp_gain = @gestalt_civic_node_xp_rate
 	}
 }
+
+civic_tec_regular_hoarder = {	# NOT DONE
+	icon = gfx/interface/icons/governments/civics/regular_civics/civic_tec_regular_hoarder.dds
+	description = "civic_tec_regular_hoarder_tooltip"
+
+	modification = no
+
+	potential = {
+		inline_script = governments/conditions/is_regular
+	}
+
+	possible = {
+		always = yes
+	}
+
+	modifier = {
+		starbase_defense_platform_capacity_add = 2
+		country_trust_growth = -0.2
+	}
+}
