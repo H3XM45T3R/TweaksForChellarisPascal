@@ -2,7 +2,7 @@ namespace = pick_transfer_leader
 
 country_event = {
 	id = pick_transfer_leader.1	#Directs to the actual selection because Stellaris doesn't have dynamic event target generation
-	title = "ptl_class"
+	title = "Pick a class"
 	desc = ptl_class
 	picture = GFX_evt_diplomatic_visit
 	is_triggered_only = yes
@@ -38,7 +38,7 @@ country_event = {
 
 country_event = {
 	id = pick_transfer_leader.2	#Officials, Iterate and save leaders as event targets
-	title = "pick_transfer_leader.official"
+	title = "Pick a leader"
 	desc = ptl_class_official
 	picture = GFX_evt_diplomatic_visit
 	is_triggered_only = yes
@@ -388,7 +388,7 @@ country_event = {
 
 country_event = {
 	id = pick_transfer_leader.3	#Commanders, Iterate and save leaders as event targets
-	title = "pick_transfer_leader.commanders"
+	title = "Pick a leader"
 	desc = ptl_class_commander
 	picture = GFX_evt_diplomatic_visit
 	is_triggered_only = yes
@@ -738,7 +738,7 @@ country_event = {
 
 country_event = {
 	id = pick_transfer_leader.4	#Scientists, Iterate and save leaders as event targets
-	title = "pick_transfer_leader.scientist"
+	title = "Pick a leader"
 	desc = ptl_class_scientist
 	picture = GFX_evt_diplomatic_visit
 	is_triggered_only = yes
