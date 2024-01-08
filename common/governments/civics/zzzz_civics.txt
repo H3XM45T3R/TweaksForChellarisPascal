@@ -153,9 +153,6 @@ civic_machine_assimilator = {
 		}
 	}
 	modifier = {
-		country_minerals_produces_mult = 0.2
-		country_energy_produces_mult = 0.2
-		country_alloys_produces_mult = 0.2
 		councilor_gestalt_growth_exp_gain = @gestalt_civic_node_xp_rate
 	}
 }
