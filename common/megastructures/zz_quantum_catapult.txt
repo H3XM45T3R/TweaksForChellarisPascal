@@ -14,7 +14,7 @@ quantum_catapult_0 = {
 		}
 
 		upkeep = {
-			energy = 25
+			energy = 5
 		}
 	}
 
@@ -156,7 +156,7 @@ quantum_catapult_1 = {
 		}
 
 		upkeep = {
-			energy = 50
+			energy = 10
 		}
 	}
 
@@ -198,7 +198,7 @@ quantum_catapult_2 = {
 		}
 
 		upkeep = {
-			energy = 60
+			energy = 15
 		}
 	}
 
@@ -257,7 +257,7 @@ quantum_catapult_3 = {
 		}
 
 		upkeep = {
-			energy = 75
+			energy = 25
 		}
 	}
 
