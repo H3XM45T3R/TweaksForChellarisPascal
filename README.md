@@ -57,6 +57,11 @@
 	- Add empire size effect to branch office gestalts
 	- Enable hoarders
 ### inline_scripts
+**governments**/**conditions**
+- inline_evolved_autocratic_not_blocked
+- inline_evolved_democratic_not_blocked
+- inline_evolved_oligarchic_not_blocked
+
 **traits**
 - inline_aquatic_trait_effects
 	- Effects for aquatic traits
@@ -122,7 +127,7 @@
 	- Civic slot modifiers
 - !!branch_office_value
 	- Reduce energy produced by branch offices
-###	strategic resources**
+###	strategic resources
 - !!_strategic_resources
 	-Removed Alloys, Strategic and Rare resources from the Galactic Market. Made research tradeable. 
 ### technology
@@ -141,6 +146,9 @@
  - added fleet leasing 
  - added seperate peace (Causes giving person to drop out of all wars with the other person, as long as they themselves aren't war leader)
 
+### traditions
+- zzzzzz_diplomacy
+	- Add different modifier to diplo tradition
 ### trade_conversions
 - zzz_trade_conversions
 	- Remove CG production from relevant trade conversions
