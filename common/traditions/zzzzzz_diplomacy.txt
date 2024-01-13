@@ -1,0 +1,26 @@
+tr_diplomacy_eminent_diplomats = {
+	possible = {
+		has_tradition = tr_diplomacy_diplomatic_networking
+	}
+
+	modifier = {    
+        resolution_category_galacticreforms_vote_strength_mult = 0.20
+	}
+
+	tradition_swap = {
+		name = tr_diplomacy_eminent_diplomats_gestalt
+		inherit_effects = yes
+		inherit_icon = yes
+		trigger = {
+			is_gestalt = yes
+		}
+
+		weight = {
+			factor = 1
+		}
+	}
+
+	ai_weight = {
+		factor = 5000
+	}
+}
