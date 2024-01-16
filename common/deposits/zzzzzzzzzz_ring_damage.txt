@@ -1,0 +1,103 @@
+d_tec_rw_minor_structural_damage = {
+	is_for_colonizable = yes
+	category = deposit_cat_rare_blocker
+
+	potential = { always = no }
+	time = 900
+
+	planet_modifier = {
+		planet_max_buildings_add = -3
+	}
+
+	can_be_cleared = {
+		#custom_tooltip = {
+		#	fail_text = tec_rw_requires_clearing_minor_tech
+		#	exists = owner
+		#	owner = {
+		#		has_technology = tech_housing_2
+		#	}
+		#}
+	}
+
+	on_cleared = {
+		if = {
+			limit = {
+				owner = {
+					has_origin = origin_shattered_ring
+				}
+			}
+			hidden_effect = {
+				planet_event = {
+					id = tec_rebalance.10111
+				}
+			}
+		}
+	}
+
+	drop_weight = {
+		weight = 0
+	}
+
+	resources = {
+		category = planet_deposits
+		cost = {
+			alloys = 1500
+		}
+	}
+}
+
+d_tec_rw_major_structural_damage = {
+	is_for_colonizable = yes
+	category = deposit_cat_rare_blocker
+
+	potential = { always = no }
+	time = 1200
+
+	can_be_cleared = {
+		custom_tooltip = {
+			fail_text = tec_rw_requires_clearing_minor_damage
+			this = {
+				NOT = {
+					has_deposit = d_tec_rw_minor_structural_damage
+				}
+			}
+		}
+		custom_tooltip = {
+			fail_text = tec_rw_requires_clearing_minor_tech
+			exists = owner
+			owner = {
+				has_technology = tech_housing_2
+			}
+		}
+	}
+
+	planet_modifier = {
+		planet_max_buildings_add = -22
+	}
+
+	on_cleared = {
+		if = {
+			limit = {
+				owner = {
+					has_origin = origin_shattered_ring
+				}
+			}
+			hidden_effect = {
+				planet_event = {
+					id = tec_rebalance.10112
+				}
+			}
+		}
+	}
+
+	drop_weight = {
+		weight = 0
+	}
+
+	resources = {
+		category = planet_deposits
+		cost = {
+			alloys = 2250
+		}
+	}
+}
