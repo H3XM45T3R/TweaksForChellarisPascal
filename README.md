@@ -24,11 +24,11 @@
 	- Allow Galatron CB for Assimilators
 ### defines
 - zzz_defines
-	- Change galcome cooldowns
+	- Change galcom cooldowns
 	- Change min and max trade deal length
 	- Remove 1/species rights change cooldowns
-	- Cap upkeep reduction
-	- Reduced maximum naval cap
+	- Cap upkeep reduction to 40%
+	- Reduced maximum naval cap to 1k
 ### diplomatic_actions
 - zzzz_diplo
 	- Allow Assimilators to have rivals
@@ -37,6 +37,8 @@
 ### edicts
 - zzzz_veru_event_edicts
 	- Disable the vassal management edict
+ - retire_ruler_edict
+  	- Added an edict that allows an empire to retire their ruler in various ways, announcing the outcome to the galaxy
 ### game_rules
 - zzz_xeno_compat
 	- Move check for xeno compat here instead of inside the AP
@@ -83,7 +85,7 @@
 	- Allow aggressive interference for Exploration Protocol
 	- Allow animosity diplo stance for subjects
 - zzzzzz_trade
-	- Add pop CG upkeep rreduction to trade league and consumer benefits
+	- Add pop CG upkeep reduction to trade league and consumer benefits
 ### pop_categories
 - Compat for species diversity and evolved
 - Add additional amenities usage to gestalts
@@ -127,9 +129,9 @@
 	- Civic slot modifiers
 - !!branch_office_value
 	- Reduce energy produced by branch offices
-###	strategic resources
+### strategic resources
 - !!_strategic_resources
-	-Removed Alloys, Strategic and Rare resources from the Galactic Market. Made research tradeable. 
+	-Removed Alloys, Strategic and Rare resources from the Galactic Market. #Made research tradeable. 
 ### technology
 - zzz_nanites
 	- Scavenger bot techs are available as rare techs after reseraching nanite production
@@ -143,8 +145,8 @@
 
 ### tradeable actions
  - added leader transfer (Legendary Paragons like the scientist do not work.. yet because of their baggage)
- - added fleet leasing 
- - added seperate peace (Causes giving person to drop out of all wars with the other person, as long as they themselves aren't war leader)
+ - #added fleet leasing 
+ - #added seperate peace (Causes giving person to drop out of all wars with the other person, as long as they themselves aren't war leader)
 
 ### traditions
 - zzzzzz_diplomacy
