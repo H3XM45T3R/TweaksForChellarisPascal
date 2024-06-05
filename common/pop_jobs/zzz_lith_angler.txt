@@ -42,7 +42,7 @@ tec_reef_miner = {			# Aquatic
 			#}
 		# /
 		inline_script = {
-			script = jobs/resources/inline_evolved_material_miner_requisition_resources
+			script = jobs/resources/tec_material_miner_requisition_resources
 			minerals = @requisitorium_minerals_reduction
 			mult = 1
 		}
@@ -68,7 +68,7 @@ tec_reef_miner = {			# Aquatic
 		mult = value:scripted_modifier_mult|MODIFIER|pop_job_trade_mult|
 	}
 
-	inline_script = jobs/effects/type/inline_evolved_miner_effect
+	inline_script = jobs/effects/type/tec_miner_effect
 
 	weight = {
 		weight = @worker_job_weight

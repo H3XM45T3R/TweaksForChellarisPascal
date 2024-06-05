@@ -1,4 +1,4 @@
-# governments/conditions/inline_evolved_oligarchic_not_blocked
+# governments/conditions/tec_oligarchic_not_blocked
 
 #ethics = {
 #	NOR = {

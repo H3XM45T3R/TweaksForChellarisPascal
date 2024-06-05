@@ -46,7 +46,7 @@ maintenance_drone = {
 		mult = value:scripted_modifier_mult|MODIFIER|pop_job_amenities_mult|
 	}
 
-	inline_script = jobs/effects/type/inline_evolved_maintenance_drone_effect
+	inline_script = jobs/effects/type/tec_maintenance_drone_effect
 
 	weight = {
 		weight = @maintenance_drone_job

@@ -1,4 +1,4 @@
-# governments/conditions/inline_evolved_autocratic_not_blocked
+# governments/conditions/tec_autocratic_not_blocked
 
 # Twice to show custom text and the actual values
 ethics = {

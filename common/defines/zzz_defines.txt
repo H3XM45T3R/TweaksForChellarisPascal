@@ -38,7 +38,7 @@ NGameplay = {
 	MIN_TRADE_DEAL_LENGTH_YEARS	= 1		# Minimum length of a trade deal in years.
 	MAX_TRADE_DEAL_LENGTH_YEARS	= 50	# Maximum length of a trade deal in years.
 	
-	POLICY_YEARS						= 0	# Years a set policy can not be changed for
+	POLICY_YEARS						= 5	# Years a set policy can not be changed for
 	SPECIES_POLICY_YEARS				= 0
 	
 	NAVAL_CAPACITY_MAX	= 1000

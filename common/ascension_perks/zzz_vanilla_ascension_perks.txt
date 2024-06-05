@@ -118,7 +118,7 @@ ap_archaeoengineers = {
 		}
 
 		# Disablers
-		inline_script = ascension_perks/weights/inline_evolved_force_main_path
+		inline_script = ascension_perks/weights/tec_force_main_path
 	}
 }
 
@@ -182,7 +182,7 @@ ap_lord_of_war = {
 			}
 		}
 		# Disablers
-		inline_script = ascension_perks/weights/inline_evolved_force_main_path
+		inline_script = ascension_perks/weights/tec_force_main_path
 		modifier = {
 			factor = 0
 			is_pacifist = yes
@@ -264,7 +264,7 @@ ap_enigmatic_engineering = {
 		}
 		
 		# Disablers
-		inline_script = ascension_perks/weights/inline_evolved_force_main_path
+		inline_script = ascension_perks/weights/tec_force_main_path
 	}
 }
 
@@ -345,7 +345,7 @@ ap_nihilistic_acquisition = {
 		}
 
 		# Disablers
-		inline_script = ascension_perks/weights/inline_evolved_force_main_path
+		inline_script = ascension_perks/weights/tec_force_main_path
 		modifier = {
 			factor = 0
 			has_valid_civic = civic_barbaric_despoilers
@@ -399,7 +399,7 @@ ap_interstellar_dominion = {
 		}
 
 		# Disablers
-		inline_script = ascension_perks/weights/inline_evolved_force_main_path
+		inline_script = ascension_perks/weights/tec_force_main_path
 		modifier = {
 			factor = 0
 			is_pacifist = yes
@@ -513,7 +513,7 @@ ap_grasp_the_void = {
 		add = value:tec_production_starbase_count|FACTOR|2|
 
 		# Disablers
-		inline_script = ascension_perks/weights/inline_evolved_force_main_path
+		inline_script = ascension_perks/weights/tec_force_main_path
 	}
 }
 
@@ -619,7 +619,7 @@ ap_eternal_vigilance = {
 		}
 		add = value:tec_fortress_starbase_count|FACTOR|2|
 		# Disablers
-		inline_script = ascension_perks/weights/inline_evolved_force_main_path
+		inline_script = ascension_perks/weights/tec_force_main_path
 		
 		modifier = {
 			factor = 0
@@ -702,7 +702,7 @@ ap_technological_ascendancy = {
 	ai_weight = {
 		weight = @tec_base_ap_weight
 		# Disable base weight if has a perk of this style
-		inline_script = ascension_perks/weights/inline_evolved_has_base_perk
+		inline_script = ascension_perks/weights/tec_has_base_perk
 		modifier = {
 			add = 3
 			has_ethic = ethic_materialist
@@ -732,7 +732,7 @@ ap_technological_ascendancy = {
 			years_passed < 20
 		}
 		# disablers
-		inline_script = ascension_perks/weights/inline_evolved_force_main_path
+		inline_script = ascension_perks/weights/tec_force_main_path
 	}
 }
 
@@ -800,9 +800,9 @@ ap_one_vision = {
 	ai_weight = {
 		weight = @tec_base_ap_weight
 		# Disable base weight if has a perk of this style
-		inline_script = ascension_perks/weights/inline_evolved_has_base_perk
+		inline_script = ascension_perks/weights/tec_has_base_perk
 		# additional weights
-		inline_script = ascension_perks/weights/inline_evolved_amenity_ap_weights
+		inline_script = ascension_perks/weights/tec_amenity_ap_weights
 		modifier = {
 			add = 4
 			has_ethic = ethic_spiritualist
@@ -821,7 +821,7 @@ ap_one_vision = {
 		}
 
 		# disablers
-		inline_script = ascension_perks/weights/inline_evolved_force_main_path
+		inline_script = ascension_perks/weights/tec_force_main_path
 	}
 }
 
@@ -849,7 +849,7 @@ ap_consecrated_worlds = {
 		factor = @tec_situational_ap_weight
 
 		# disablers
-		inline_script = ascension_perks/weights/inline_evolved_force_main_path
+		inline_script = ascension_perks/weights/tec_force_main_path
 	}
 }
 
@@ -877,7 +877,7 @@ ap_imperial_prerogative = {
 		add = trigger:num_owned_planets
 
 		# disablers
-		inline_script = ascension_perks/weights/inline_evolved_force_main_path
+		inline_script = ascension_perks/weights/tec_force_main_path
 	}
 
 	on_enabled = {
@@ -933,7 +933,7 @@ ap_executive_vigor = {
 			}
 		}
 		# disablers
-		inline_script = ascension_perks/weights/inline_evolved_force_main_path
+		inline_script = ascension_perks/weights/tec_force_main_path
 	}
 }
 
@@ -1007,7 +1007,7 @@ ap_transcendent_learning = {
 			num_owned_planets > 5
 		}
 		# disablers
-		inline_script = ascension_perks/weights/inline_evolved_force_main_path
+		inline_script = ascension_perks/weights/tec_force_main_path
 	}
 }
 
@@ -1072,7 +1072,7 @@ ap_shared_destiny = {
 			}
 		}
 		# disablers
-		inline_script = ascension_perks/weights/inline_evolved_force_main_path
+		inline_script = ascension_perks/weights/tec_force_main_path
 		modifier = {
 			factor = 0
 			count_subject = { count = 0 }
@@ -1145,8 +1145,8 @@ ap_galactic_force_projection = {
 		}
 		# Not available unless started (at least) one ascension path
 		# Disablers
-		inline_script = ascension_perks/weights/inline_evolved_force_main_path
-		inline_script = ascension_perks/weights/inline_evolved_force_arcology_path
+		inline_script = ascension_perks/weights/tec_force_main_path
+		inline_script = ascension_perks/weights/tec_force_arcology_path
 	}
 }
 
@@ -1194,7 +1194,7 @@ ap_master_builders = {
 		}
 
 		# disablers
-		inline_script = ascension_perks/weights/inline_evolved_force_main_path
+		inline_script = ascension_perks/weights/tec_force_main_path
 	}
 }
 
@@ -1271,7 +1271,7 @@ ap_galactic_wonders_utopia = {
 			has_ethic = ethic_fanatic_materialist
 		}
 		# disablers
-		inline_script = ascension_perks/weights/inline_evolved_force_main_path
+		inline_script = ascension_perks/weights/tec_force_main_path
 	}
 }
 
@@ -1344,7 +1344,7 @@ ap_galactic_wonders_megacorp = {
 		}
 
 		# disablers
-		inline_script = ascension_perks/weights/inline_evolved_force_main_path
+		inline_script = ascension_perks/weights/tec_force_main_path
 	}
 }
 
@@ -1428,7 +1428,7 @@ ap_galactic_wonders_utopia_and_megacorp = {
 			has_ethic = ethic_fanatic_materialist
 		}
 		# disablers
-		inline_script = ascension_perks/weights/inline_evolved_force_main_path
+		inline_script = ascension_perks/weights/tec_force_main_path
 	}
 }
 
@@ -1491,7 +1491,7 @@ ap_universal_transactions = {
 		}
 
 		# disablers
-		inline_script = ascension_perks/weights/inline_evolved_force_main_path
+		inline_script = ascension_perks/weights/tec_force_main_path
 		modifier = { # take that first tbh
 			factor = 0
 			has_ascension_perk = ap_tec_influential
@@ -1550,7 +1550,7 @@ ap_detox = {
 			mult = 3
 		}
 		# disablers
-		inline_script = ascension_perks/weights/inline_evolved_force_main_path
+		inline_script = ascension_perks/weights/tec_force_main_path
 		modifier = {
 			factor = 0
 			NOT = { 

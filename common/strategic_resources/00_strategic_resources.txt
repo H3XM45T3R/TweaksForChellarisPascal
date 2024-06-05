@@ -6,6 +6,7 @@
 # fixed_max_amount = yes/no		# default no, if yes maximum storage capacity of the resource is fixed to the amount specified in max = INT
 # special_max_amount = yes/no	# default no, if yes maximum storage capacity of the resource is fixed to the amount specified in max = INT + country_resource_max_RESOURCE_NAME_add modifiers + dynamic_capacity
 #								This explicitly ignores MOD_COUNTRY_RESOURCE_MAX_ADD modifiers.
+# tradable_in_market = {}		# default yes, trigger for blocking a resource from the market but still leaving it open for trade agreements								
 
 time = {
 	# Must be present here, but really: do not add a Deficit situation for Time.
@@ -59,37 +60,18 @@ food = {
 
 	ai_weight = {
 		weight = 1
+		modifier = {
+			factor = 0.1
+			country_uses_food = no
+		}
 	}
 
 	ai_wants = {
 		base = 500
-	}
-}
-
-unity = {
-	category = other
-	deficit_modifier = unity_deficit #found in static modifiers
-
-	ai_weight = {
-		weight = 1
-	}
-}
-
-consumer_goods = {
-	tradable = yes
-	category = advanced
-	market_amount = 50
-	market_price = 100
-	max = 15000
-
-	deficit_situation = situation_consumer_goods_deficit
-
-	ai_weight = {
-		weight = 5
-	}
-
-	ai_wants = {
-		base = 500
+		modifier = {
+			factor = 0.1
+			country_uses_food = no
+		}
 	}
 }
 
@@ -136,13 +118,56 @@ influence = {
 	}
 }
 
+unity = {
+	category = other
+	deficit_modifier = unity_deficit #found in static modifiers
+
+	ai_weight = {
+		weight = 1
+	}
+}
+
 ##########################
 ### Advanced Resources ###
 ##########################
 
+consumer_goods = {
+	tradable = yes
+	category = advanced
+	market_amount = 50
+	market_price = 100
+	max = 15000
+
+	deficit_situation = situation_consumer_goods_deficit
+
+	ai_weight = {
+		weight = 5
+		modifier = {
+			factor = 0.1
+			country_uses_consumer_goods = no
+		}
+	}
+
+	ai_wants = {
+		base = 500
+		modifier = {
+			factor = 0.1
+			country_uses_consumer_goods = no
+		}
+	}
+
+	tradable_in_market = {
+		NOT = {
+			has_valid_civic = civic_machine_obsessional_directive
+		}
+	}
+}
+
 alloys = {
 	tradable = yes
 	category = advanced
+	market_amount = -1
+	market_price = 100
 	max = 15000
 
 	deficit_situation = situation_alloys_deficit
@@ -163,6 +188,8 @@ alloys = {
 volatile_motes = {
 	tradable = yes
 	category = strategic
+	market_amount = -1
+	market_price = 100
 	max = 15000
 
 	prerequisites = { "tech_mine_volatile_motes" }
@@ -181,7 +208,10 @@ volatile_motes = {
 exotic_gases = {
 	tradable = yes
 	category = strategic
+	market_amount = -1
+	market_price = 100
 	max = 15000
+	 
 
 	prerequisites = { "tech_mine_exotic_gases" }
 
@@ -199,6 +229,8 @@ exotic_gases = {
 rare_crystals = {
 	tradable = yes
 	category = strategic
+	market_amount = -1
+	market_price = 100
 	max = 15000
 
 	prerequisites = { "tech_mine_rare_crystals" }
@@ -223,6 +255,8 @@ rare_crystals = {
 sr_living_metal = {
 	tradable = yes
 	category = rare
+	market_amount = -1
+	market_price = 100
 	max = 15000
 
 	prerequisites = { "tech_mine_living_metal" }
@@ -242,7 +276,10 @@ sr_living_metal = {
 sr_zro = {
 	tradable = yes
 	category = rare
+	market_amount = -1
+	market_price = 100
 	max = 15000
+	 
 
 	prerequisites = { "tech_mine_zro" }
 	visibility_prerequisite = { always = yes }
@@ -261,7 +298,10 @@ sr_zro = {
 sr_dark_matter = {
 	tradable = yes
 	category = rare
+	market_amount = -1
+	market_price = 100
 	max = 15000
+	 
 
 	prerequisites = { "tech_mine_dark_matter" }
 	visibility_prerequisite = { always = yes }
@@ -280,7 +320,7 @@ sr_dark_matter = {
 nanites = {
 	tradable = yes
 	category = rare
-	max = 15000
+	 
 
 	visibility_prerequisite = { always = yes }
 	deficit_modifier = nanites_deficit #found in static modifiers
@@ -300,6 +340,7 @@ minor_artifacts = {
 	category = rare
 	max = 2000
 	special_max_amount = yes
+	 
 
 	visibility_prerequisite = { has_ancrel = yes }
 
@@ -315,6 +356,7 @@ minor_artifacts = {
 # Astral Thread
 astral_threads = {
 	tradable = yes
+	 
 	category = rare
 	max = 500
 	special_max_amount = yes
@@ -338,11 +380,20 @@ astral_threads = {
 	}
 }
 
-###############
-###	Nemesis	###
-###############
+########################
+###	Crisis Resources ###
+########################
 
 menace = {
+	tradable = no
+	category = other
+
+	ai_weight = {
+		weight = 1
+	}
+}
+
+advanced_logic = {
 	tradable = no
 	category = other
 

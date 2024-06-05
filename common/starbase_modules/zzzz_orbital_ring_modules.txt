@@ -45,7 +45,7 @@ orbital_ring_anchorage = {
 		pop_job_naval_mult = 0.15
 	}
 
-	inline_script = starbase/effects/inline_evolved_tec_corporate_navaltraders
+	inline_script = starbase/effects/tec_tec_corporate_navaltraders
 
 	ai_weight = {
 		weight = 100

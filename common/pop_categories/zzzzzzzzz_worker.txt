@@ -77,7 +77,7 @@ worker = {
 		unemployment_resources = {
 			category = unemployment_resources
 
-			inline_script = pop_categories/inline_evolved_pop_regular_unemployment_resources
+			inline_script = pop_categories/tec_pop_regular_unemployment_resources
 		}
 
 
@@ -85,9 +85,9 @@ worker = {
 
 	# Pop planet modifiers
 		# Per pop
-		inline_script = pop_categories/inline_evolved_pop_modifiers
-		inline_script = pop_categories/inline_evolved_pop_regular_modifiers
-		inline_script = pop_categories/inline_evolved_pop_worker_modifiers
+		inline_script = pop_categories/tec_pop_modifiers
+		inline_script = pop_categories/tec_pop_regular_modifiers
+		inline_script = pop_categories/tec_pop_worker_modifiers
 	# /
 
 	# moved clerk effect to clerk job cause this will be hella expensive
@@ -101,7 +101,7 @@ worker = {
 			mult = value:tec_pop_lifestyle_trade_value|CATEGORY|worker|
 		}
 
-		inline_script = pop_categories/inline_evolved_pop_trade
+		inline_script = pop_categories/tec_pop_trade
 	# /
 	
 	triggered_planet_modifier = {
@@ -114,12 +114,12 @@ worker = {
 	resources = {
 		category = pop_category_workers
 		# Regular food, mineral and energy upkeep.
-			inline_script = "pop_categories/inline_evolved_pop_upkeep"
+			inline_script = "pop_categories/tec_pop_upkeep"
 		# Additional energy upkeep for cyborgs.
 			# Note : The vanilla ones work diff than evolved so
 			# inline_script = "pop_categories/cyborg_upkeep"
 		# Production traits
-			inline_script = "pop_categories/inline_evolved_pop_production"
+			inline_script = "pop_categories/tec_pop_production"
 		# Instrument of Desire Upkeep
 			inline_script = "pop_categories/instrument_upkeep"
 			

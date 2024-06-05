@@ -22,7 +22,7 @@ ap_future_society = {
 	
 	ai_weight = {
 		weight = @tec_force_ap_weight 
-		inline_script = ascension_perks/weights/inline_evolved_force_main_path
+		inline_script = ascension_perks/weights/tec_force_main_path
 	}
 }
 
@@ -93,9 +93,9 @@ ap_tec_one_mind = {
 		weight = @tec_base_ap_weight
 
 		# Disable base weight if has a perk of this style
-		inline_script = ascension_perks/weights/inline_evolved_has_base_perk
+		inline_script = ascension_perks/weights/tec_has_base_perk
 		# additional weights
-		inline_script = ascension_perks/weights/inline_evolved_amenity_ap_weights
+		inline_script = ascension_perks/weights/tec_amenity_ap_weights
 		modifier = {
 			add = 5
 			has_ethic = ethic_gestalt_introspective
@@ -106,7 +106,7 @@ ap_tec_one_mind = {
 		}
 
 		# disablers
-		inline_script = ascension_perks/weights/inline_evolved_force_main_path
+		inline_script = ascension_perks/weights/tec_force_main_path
 		
 	}
 }
@@ -223,7 +223,7 @@ ap_tec_castling = {
 		}
 	
 		# disablers
-		inline_script = ascension_perks/weights/inline_evolved_force_main_path
+		inline_script = ascension_perks/weights/tec_force_main_path
 		modifier = {
 			factor = 0
 			has_country_flag = tec_empire_aggro_skilled

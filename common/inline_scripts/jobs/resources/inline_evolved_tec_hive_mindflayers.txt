@@ -1,4 +1,4 @@
-# jobs/resources/inline_evolved_tec_hive_mindflayers
+# jobs/resources/tec_tec_hive_mindflayers
 # Mindflayer
 produces = {
 	trigger = {

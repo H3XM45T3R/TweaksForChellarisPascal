@@ -91,7 +91,7 @@ ap_become_the_crisis = {
 		}
 
 		# Disablers
-		inline_script = ascension_perks/weights/inline_evolved_force_main_path
+		inline_script = ascension_perks/weights/tec_force_main_path
 		modifier = {
 			factor = 0
 			galaxy_percentage < 0.1
