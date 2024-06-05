@@ -1,0 +1,64 @@
+tec_mental_servant = {		# Thought Harvesters
+	category = simple_drone
+	is_capped_by_modifier = no
+	building_icon = building_research_lab_1
+	clothes_texture_index = 2
+	icon = telepath
+	
+	can_set_priority = yes
+	ignores_favorite = no
+
+	possible_pre_triggers = {
+		is_sapient = yes
+		is_enslaved = yes
+		is_robot_pop = no
+	}
+
+	possible = {
+		NOT = {
+			species = {
+				is_same_value = root.owner
+			}
+		}
+		has_slavery_type = {
+			type = slavery_domestic
+		}
+		is_organic_species = yes
+		exists = owner
+		owner = {
+			has_valid_civic = civic_tec_hive_mindflayers	
+		}
+	}
+	
+	resources = {
+		category = planet_livestock
+		produces = {
+			physics_research = 2
+			society_research = 2
+			engineering_research = 2
+			unity = 1
+		}
+		produces = {
+			trigger = {
+				tec_is_any_psionic_species = yes
+			}
+			physics_research = 1
+			society_research = 1
+			engineering_research = 1
+			unity = 0.5
+		}
+		upkeep = {
+			energy = 2
+		}
+	}
+	
+	pop_modifier = {
+		pop_housing_usage_add = -0.5
+		pop_amenities_usage_mult = 0.25
+		pop_political_power = -0.75
+	}
+			
+	weight = {
+		weight = 1000
+	}
+}

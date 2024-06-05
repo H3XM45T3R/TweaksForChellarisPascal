@@ -1,0 +1,153 @@
+tec_brood_drone = {
+	rank = 3
+	clothes_texture_index = 2
+	keep_from_former_job = no
+	change_job_threshold = 10
+		
+	assign_to_pop = {
+		exists = owner
+		owner = {
+			has_valid_civic = civic_tec_hive_eusocial
+		}
+		species = {
+			is_same_value = owner_main_species 
+		}
+		OR = {
+			has_job = tec_broodlord_drone
+			has_job = tec_broodqueen_drone
+		}
+	}
+
+	weight = {
+		weight = 2
+	}
+
+	pop_modifier = {
+		pop_housing_usage_base = 2
+		pop_amenities_usage_no_happiness_base = 2
+	}
+
+	# Resettlement
+		# scope: pop to be resettled
+		allow_resettlement = {
+			always = yes
+		}
+
+		resettlement_cost = {
+			trigger = {
+				NOT = {
+					has_trait = @trait_tec_psionic_teleport
+				}
+			}
+			energy = 250
+		}
+
+		resettlement_cost = {
+			trigger = {
+				NOR = {
+					AND = {
+						exists = owner
+						owner = {
+							OR = {
+								has_valid_civic = civic_machine_ota_updates
+								has_valid_civic = civic_hive_subsumed_will
+							}
+						}
+					}
+					has_trait = @trait_tec_psionic_teleport
+				}
+			}
+			unity = 25
+		}
+	# /
+
+	# Unemployment
+		unemployment_resources = {
+			category = unemployment_resources
+		}
+	# /
+
+	# Pop modifiers
+		# Per pop
+		inline_script = pop_categories/tec_pop_modifiers
+	# /
+
+	resources = {
+		category = pop_category_drones
+		# Regular food, mineral and energy upkeep.
+			inline_script = "pop_categories/tec_pop_upkeep"
+		# Additional energy upkeep for cyborgs.
+			# Note : The vanilla ones work diff than evolved so
+			# inline_script = "pop_categories/cyborg_upkeep"
+		# Production traits
+			inline_script = "pop_categories/tec_pop_production"
+		# Instrument of Desire Upkeep
+			inline_script = "pop_categories/instrument_upkeep"
+			
+		# Bio-Synth Upkeep
+			inline_script = "pop_categories/biosynth_traits"
+	}
+}
+
+tec_prime_drone = {
+	rank = 3
+	clothes_texture_index = 2
+	keep_from_former_job = no
+	change_job_threshold = 10
+
+	assign_to_pop = {
+		exists = species
+		species = {
+			is_same_value = owner_main_species 
+			has_trait = trait_machine_unit
+		}
+	}
+
+	weight = {
+		weight = 1
+	}
+
+	pop_modifier = {
+		pop_housing_usage_base = 2
+		pop_amenities_usage_no_happiness_base = 4
+	}
+
+	# Resettlement
+		# scope: pop to be resettled
+		allow_resettlement = {
+			always = yes
+		}
+		
+		resettlement_cost = {
+			trigger = {
+				NOT = {
+					has_trait = @trait_tec_psionic_teleport
+				}
+			}
+			energy = 250
+		}
+		
+		resettlement_cost = {
+			trigger = {
+				NOR = {
+					AND = {
+						exists = owner
+						owner = {
+							OR = {
+								has_valid_civic = civic_machine_ota_updates
+								has_valid_civic = civic_hive_subsumed_will
+							}
+						}
+					}
+					has_trait = @trait_tec_psionic_teleport
+				}
+			}
+			unity = 25
+		}
+	# /
+
+	# Unemployment
+		unemployment_resources = {
+			category = unemployment_resources
+		}
+	# /

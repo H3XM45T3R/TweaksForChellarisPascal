@@ -1,0 +1,6 @@
+on_ascension_perk_picked = {
+	events = {
+		esti_civic.1
+		esti_civic.2
+	}
+}

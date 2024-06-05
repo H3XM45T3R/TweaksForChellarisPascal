@@ -1,0 +1,14 @@
+﻿l_english:
+
+# Misc
+ # ------------------------------------------------- Info
+	trade_action_leave_war:"Sign a seperate peace treaty"
+	seperate_peace:"As previously arranged, we are now at the signing of the peace treaty demanding the immediate cessation of hostilities between the two parties in any and all wars in which the two parties aren't both war leaders. With this purely formal signature, it will be official."
+	seperate_peace_signed:"There is no turning back now. Sign it."
+	seperate_peace_waiting_approval:"We must await our Overlord's approval."
+	seperate_peace_subject:"One of our Subjects is requesting we allow them to sign a seperate peace treaty with our enemies."
+	seperate_peace_allow_subject:"Our Subject may withdraw from our wars."
+	seperate_peace_disallow_subject:"Our Subject will NOT withdraw."
+	seperate_peace_subject_denied:"Our Overlord has denied our request for withdrawing from the war, seemingly dissapointed we would even request such a thing."
+	denied_seperate_treaty:"It seems we must continue the bloodshed."
+ # /

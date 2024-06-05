@@ -1,0 +1,92 @@
+maintenance_drone = {
+	category = simple_drone
+	condition_string = DRONE_JOB_TRIGGER
+	building_icon = building_maintenance_depot
+
+	possible_pre_triggers = {
+		has_owner = yes
+		#is_enslaved = no
+		is_being_purged = no
+		is_being_assimilated = no
+		is_sapient = yes
+	}
+
+	possible_precalc = can_fill_drone_job
+
+	resources = {
+		category = planet_maintenancedrones
+		produces = {
+			unity = 1
+		}
+		upkeep = {
+			trigger = {
+				is_machine = yes
+			}
+			energy = 1
+		}
+		upkeep = {
+			trigger = {
+				is_lithoid = no
+			}
+			food = 1
+		}
+		upkeep = {
+			trigger = {
+				is_lithoid = yes
+			}
+			minerals = 1
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			always = yes
+		}
+		planet_amenities_no_happiness_add = 4
+		mult = value:scripted_modifier_mult|MODIFIER|pop_job_amenities_mult|
+	}
+
+	inline_script = jobs/effects/type/tec_maintenance_drone_effect
+
+	weight = {
+		weight = @maintenance_drone_job
+		mult = value:scripted_modifier_job_weight_mult|MODIFIER|pop_job_amenities_mult|
+		modifier = {
+			factor = 1.1
+			has_job = maintenance_drone
+		}
+
+		modifier = {
+			mult = value:job_weights_modifier|JOB|maintenance_drone|RESOURCE|unity|FACTOR|0.25|
+			exists = owner
+			owner = {
+				has_valid_civic = civic_machine_maintenance_protocols
+			}
+		}
+
+		modifier = {
+			factor = 1.1
+			exists = owner
+			years_passed < 1
+			owner = { has_valid_civic = civic_machine_assimilator }
+			tec_is_cyborg_species = yes
+		}
+
+		# Lets test if this works as it should
+		modifier = {
+			factor = 100 # <- hive mind amenities jobs are non specialist so they have base weight 1 instead of 1000 but we still want them
+			NOT = { has_job = maintenance_drone }
+			planet = {
+				free_amenities < 3
+			}
+		}
+
+		modifier = {
+			factor = 100 # <- hive mind amenities jobs are non specialist so they have base weight 1 instead of 1000 but we still want them
+			has_job = maintenance_drone
+			planet = {
+				free_amenities < 8
+			}
+		}
+	}
+}

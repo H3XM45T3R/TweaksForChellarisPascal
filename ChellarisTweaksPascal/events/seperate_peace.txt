@@ -1,0 +1,121 @@
+namespace = seperate_peace
+
+country_event ={
+	id = seperate_peace.1
+	title = "Seperate Peace!"
+	desc = seperate_peace
+	picture = GFX_evt_signing
+	is_triggered_only = yes
+
+	immediate = {
+	
+	if = {
+		limit = {
+		is_subject = no
+		}
+		
+		every_war = {
+			limit = {
+				NAND = {
+					event_target:seperate_peace_peaced_out = {
+						is_at_war_with = event_target:seperate_peace_stay_in_war
+						is_war_leader = yes
+					}
+				}
+			}
+				every_war_participant = {
+					set_truce = {
+						target = event_target:seperate_peace_peaced_out
+						type = war
+					}
+		}
+					
+					every_war = {
+						limit = {
+							NAND = {
+							event_target:seperate_peace_peaced_out = {
+							is_at_war_with = event_target:seperate_peace_stay_in_war
+							is_war_leader = yes
+							}
+						}
+					}
+						remove_war_participant = event_target:seperate_peace_peaced_out
+				}
+		}
+	}
+		
+	else = {
+		hidden effect = {
+			root.overlord = {
+			country_event = seperate_peace.2
+			}
+		}
+	}
+	
+	option = {
+ 		name = seperate_peace_signed
+		default_hide_option = yes
+		trigger = {
+		is_subject = no
+		}
+	}
+	
+	option = {
+ 		name = seperate_peace_waiting_approval
+		default_hide_option = yes
+		trigger = {
+		is_subject = yes
+		}
+	}
+	
+	country_event ={
+	id = seperate_peace.2
+	title = "Our Subject wishes for a seperate peace!"
+	desc = seperate_peace_subject
+	picture = GFX_evt_bribery
+	is_triggered_only = yes
+	
+	option = {
+ 		name = seperate_peace_allow_subject
+		default_hide_option = yes
+		trigger = {always = yes}
+		hidden_effect = {
+			every_war = {
+				limit = {
+					NAND = {
+						event_target:seperate_peace_peaced_out = {
+							is_at_war_with = event_target:seperate_peace_stay_in_war
+							is_war_leader = yes
+						}
+					}
+				}
+				every_war_participant = {
+					set_truce = {
+						target = event_target:seperate_peace_peaced_out
+						type = war
+					}
+						remove_war_participant = event_target:seperate_peace_peaced_out
+				}
+			}
+		}
+	
+	option = {
+ 		name = seperate_peace_disallow_subject
+		default_hide_option = no
+		trigger = {always = yes}
+		event_target:seperate_peace_peaced_out = {country_event = seperate_peace.3}
+	}
+	
+	country_event ={
+	id = seperate_peace.3
+	title = "Overlord denies seperate treaty"
+	desc = seperate_peace_subject_denied
+	picture = GFX_evt_imperial_vassal
+	is_triggered_only = yes
+	
+	option = {
+ 		name = denied_seperate_treaty
+		default_hide_option = yes
+		trigger = {always = yes}
+	}
+}

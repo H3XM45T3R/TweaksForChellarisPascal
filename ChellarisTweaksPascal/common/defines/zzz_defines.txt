@@ -1,0 +1,50 @@
+NGameplay = {
+	RESOLUTION_VOTE_TIMER = 720				#default: 1440				
+		# number of days a resolution will be on the senate floor before being passed/failed
+		
+	RESOLUTION_VOTE_PREMATURE_TIMER = 360	#default: 720	
+		# number of days until the custodian/emperor can prematurely end the senate session
+		
+	SENATE_RECESS_TIMER = 360				#default: 720					
+		# number of days until the next proposed resolution will be put on the floor after the current vote
+		
+	CHANGE_VOTE_COOLDOWN = 10				#default: 120					
+		# number of days after voting in a resolution before you can change your vote
+		
+	CATEGORY_VOTE_COOLDOWN = 1440			#default: 2520				
+		# time before another resolution in a given category can proposed again
+		
+	TYPE_VOTE_COOLDOWN = 3600				#default: 5040						
+		# time before a referendum of a given type can be proposed again
+		
+	VETO_COOLDOWN =	1440 					#default: 1800							
+		# time before a country can enact another veto
+		
+	EMERGENCY_MEASURES_COOLDOWN = 4800		#default: 7200				
+		# time before a country can propose another emergency measure
+		
+	LEFT_COMMUNITY_MODIFIER_TIMER = 1800	#default: 7200			
+		# how many days the left_community_modifier will affect the leaving country
+		
+	COUNCIL_ELECTION_TIMER = 5400			#default: 7200				
+		# time between galactic council elections
+		
+	COMMUNITY_FREEZE_RESOLUTION_MONTHS = 24	#default: 48		
+		# The time period a resolution is frozen by the Custodian/Emperor
+		
+	CUSTODIAN_TERM_LIMIT_DAYS = 10800		#default		
+		# The time period that a Custodian keeps their position
+		
+	MIN_TRADE_DEAL_LENGTH_YEARS	= 1		# Minimum length of a trade deal in years.
+	MAX_TRADE_DEAL_LENGTH_YEARS	= 50	# Maximum length of a trade deal in years.
+	
+	POLICY_YEARS						= 5	# Years a set policy can not be changed for
+	SPECIES_POLICY_YEARS				= 0
+	
+	NAVAL_CAPACITY_MAX	= 1000
+}
+
+NEconomy = {
+	MIN_ECONOMIC_MODIFIER_MULT = -0.4 #Cost, upkeep and production modifiers generated through the economic system (common/economic_categories) cannot go beyond this point
+	MARKET_TRADE_FEE_BASE = 0.5	# Base procentage for market trade fee
+}

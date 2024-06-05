@@ -1,0 +1,28 @@
+﻿l_english:
+
+# Misc
+ # ------------------------------------------------- Info
+    trade_action_transfer_leader:"Trade Leader"
+    ptl_class:"Pick the class the leader you want to transfer belongs to"
+    Offical_ptl:"§HOfficial"
+    Commander_ptl:"§PCommander"
+    Scientist_ptl:"§BScientist"
+    ptl_class_official:"Select the §HOffical§! you want to transfer"
+    ptl_class_commander:"Select the §PCommander§! you want to transfer"
+    ptl_class_scientist:"Select the §BScientist§! you want to transfer"
+    name_of_transfer_leader_1:"[transfer_leader_1.GetName]"
+    name_of_transfer_leader_2:"[transfer_leader_2.GetName]"
+    name_of_transfer_leader_3:"[transfer_leader_3.GetName]"
+    name_of_transfer_leader_4:"[transfer_leader_4.GetName]"
+    name_of_transfer_leader_5:"[transfer_leader_5.GetName]"
+    name_of_transfer_leader_6:"[transfer_leader_6.GetName]"
+    name_of_transfer_leader_7:"[transfer_leader_7.GetName]"
+    name_of_transfer_leader_8:"[transfer_leader_8.GetName]"
+    name_of_transfer_leader_9:"[transfer_leader_9.GetName]"
+    name_of_transfer_leader_10:"[transfer_leader_10.GetName]"
+    u_sure_about_this_leader:"[§Ptransfer_this_leader.GetName]will be transferred. Is that okay?"
+    sure_about_this_leader:"§GYes I am sure I want to trade this leader"
+    not_sure_about_this_leader:"§RNo, return me to selection"
+    changed_mind_ptl:"I've changed my mind."
+        
+ # /

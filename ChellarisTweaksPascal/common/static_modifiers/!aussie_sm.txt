@@ -1,0 +1,3 @@
+extra_influence = {
+	country_base_influence_produces_add = 5
+}

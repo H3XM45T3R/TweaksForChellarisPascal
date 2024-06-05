@@ -1,0 +1,54 @@
+origin_pd_hive = {	# allow for non-devouring hives
+	is_origin = yes
+	icon = "gfx/interface/icons/origins/origin_pd_hive_start.dds"
+	picture = GFX_origin_pd_hive_start
+	description = "origin_tooltip_pd_hive_start_effects"
+	starting_colony = pc_hive
+	habitability_preference = pc_hive
+	max_once_global = yes
+	random_weight = { base = 1 }
+	possible = { 
+		authority = { 
+			OR = {
+				value = auth_hive_mind 
+				value = auth_tec_hive_cybernetic
+			}
+		}
+		civics = {
+			#value = civic_hive_devouring_swarm
+			NOR = {
+				text = civic_tooltip_not_idyllic_bloom
+				value = civic_hive_idyllic_bloom
+			}
+		} 
+	}
+	#flags = { custom_start_screen }
+	#advanced_start = yes
+}
+origin_techno_world = {	# allow for hives
+	is_origin = yes
+	icon = "gfx/interface/icons/origins/origins_pdtechno.dds"
+	picture = GFX_origin_pd_techno
+	starting_colony = pc_technoorganic
+	habitability_preference = pc_technoorganic
+	preferred_planet_class_neighbor = no
+	description = "origin_tooltip_techno_world_effects"
+	#random_weight = { base = 0 }
+	initializers = { pd_origin_init_technoorganic }
+	traits = { trait = trait_organic_fourschildren }
+	possible = { 
+		authority = { 
+			NOT = { value = auth_machine_intelligence }
+		} 
+		civics = { 
+			NOT = { value = civic_fanatic_purifiers } 
+			NOT = { value = civic_barbaric_despoilers }
+			NOT = { value = civic_hive_devouring_swarm }
+		}
+		species_archetype = {
+			NOT = { value = LITHOID }
+		}
+	}
+	flags = { custom_start_screen }
+	#max_once_global = yes
+}

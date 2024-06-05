@@ -1,0 +1,117 @@
+tec_reef_miner = {			# Aquatic
+	category = worker
+	icon = tec_reef_drone
+	condition_string = WORKER_JOB_TRIGGER
+	building_icon = building_mineral_purification_plant
+	clothes_texture_index = 2
+
+	possible_pre_triggers = {
+		has_owner = yes
+		is_being_purged = no
+		is_being_assimilated = no
+		is_sapient = yes
+	}
+
+	possible_precalc = can_fill_worker_job
+	possible = {
+		hidden_trigger = { exists = owner }
+		owner = {
+			is_gestalt = no
+		}
+	}
+
+	resources = {
+		category = planet_miners
+		produces = {
+			minerals = 6
+		}
+		produces = {
+			trigger = {
+				has_councilor = { COUNCILOR = "councilor_anglers" } 
+			}
+
+			minerals = @councilor_anglers_angler_food_bonus
+			mult = value:councilor_level|TYPE|councilor_anglers|
+		}
+		# Species bonuses/maluses
+			#produces = {
+			#	trigger = {
+			#		is_lithoid = yes
+			#	}
+			#	minerals = 1
+			#}
+		# /
+		inline_script = {
+			script = jobs/resources/tec_material_miner_requisition_resources
+			minerals = @requisitorium_minerals_reduction
+			mult = 1
+		}
+	}
+
+	overlord_resources = {
+		category = planet_requisitioned_minerals
+		produces = {
+			trigger = {
+				planet = {
+					has_planet_flag = has_material_requisitorium
+				}
+			}
+			minerals = @requisitorium_minerals_overlord
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			always = yes
+		}
+		trade_value_add = 2
+		mult = value:scripted_modifier_mult|MODIFIER|pop_job_trade_mult|
+	}
+
+	inline_script = jobs/effects/type/tec_miner_effect
+
+	weight = {
+		weight = @worker_job_weight
+		mult = value:job_weights_modifier|JOB|tec_reef_miner|RESOURCE|minerals|
+		mult = value:scripted_modifier_job_weight_mult|MODIFIER|pop_job_trade_mult|
+
+
+		modifier = {
+			factor = 10
+			is_enslaved = yes
+			can_take_servant_job = no
+		}
+		modifier = {
+			factor = 0.25
+			can_take_servant_job = yes
+		}
+
+		#Prioritize serving species
+		modifier = {
+			factor = 3
+			OR = {
+				tec_has_stapled_trait ={ cached = yes }
+			}
+		}
+
+		# low income modifier
+		modifier = {
+			factor = 1.1
+
+			OR = {
+				is_unemployed = yes
+				has_job = tec_reef_miner
+			}
+			exists = planet
+			planet = {
+				has_available_jobs = tec_reef_miner
+			}
+			owner = {
+				has_monthly_income = {
+					resource = minerals
+					value < 30
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,164 @@
+namespace = action
+
+#on_monthly_pulse_country: give favours for envoys
+country_event = {
+	id = action.325
+	is_triggered_only = yes
+	hide_window = yes
+
+	immediate = {
+		country_event = { id = action.326 days = 0 random = 30 }
+		country_event = { id = action.327 days = 0 random = 30 }
+		country_event = { id = action.328 days = 0 random = 30 }
+	}
+}
+
+country_event = {
+	id = action.326
+	is_triggered_only = yes
+	hide_window = yes
+	
+	trigger = {
+		any_owned_megastructure = {
+			is_megastructure_type = interstellar_assembly_2
+		}
+	}
+	
+	immediate = {
+		every_envoy = {
+			limit = {
+				has_envoy_task = { task = improve_relations }
+				root = {
+					num_favors = {
+						target = prev.envoy_location_country
+						value < 10
+					}
+				}
+			}
+			random_list = {
+				1 = {
+					root = {
+						add_favors = {
+							target = prev.envoy_location_country
+							value = 1
+						}
+						create_message = {
+							type = MESSAGE_FAVOR_GAINED_TRADITION
+							localization = MESSAGE_FAVOR_GAINED_TRADITION_DESC
+							days = 30
+							target = prev.envoy_location_country.capital_scope
+							variable = {
+								type = name
+								localization = WHO
+								scope = prev.envoy_location_country
+							}
+						}
+					}
+				}
+				99 = {}
+			}
+		}
+	}
+
+}
+
+country_event = {
+	id = action.326
+	is_triggered_only = yes
+	hide_window = yes
+	
+	trigger = {
+		any_owned_megastructure = {
+			is_megastructure_type = interstellar_assembly_3
+		}
+	}
+	
+	immediate = {
+		every_envoy = {
+			limit = {
+				has_envoy_task = { task = improve_relations }
+				root = {
+					num_favors = {
+						target = prev.envoy_location_country
+						value < 10
+					}
+				}
+			}
+			random_list = {
+				15 = {
+					root = {
+						add_favors = {
+							target = prev.envoy_location_country
+							value = 1
+						}
+						create_message = {
+							type = MESSAGE_FAVOR_GAINED_TRADITION
+							localization = MESSAGE_FAVOR_GAINED_TRADITION_DESC
+							days = 30
+							target = prev.envoy_location_country.capital_scope
+							variable = {
+								type = name
+								localization = WHO
+								scope = prev.envoy_location_country
+							}
+						}
+					}
+				}
+				985 = {}
+			}
+		}
+	}
+
+}
+
+country_event = {
+	id = action.326
+	is_triggered_only = yes
+	hide_window = yes
+	
+	trigger = {
+		any_owned_megastructure = {
+			OR = {
+				is_megastructure_type = interstellar_assembly_4
+				is_megastructure_type = interstellar_assembly_restored
+			}
+		}
+	}
+	
+	immediate = {
+		every_envoy = {
+			limit = {
+				has_envoy_task = { task = improve_relations }
+				root = {
+					num_favors = {
+						target = prev.envoy_location_country
+						value < 10
+					}
+				}
+			}
+			random_list = {
+				2 = {
+					root = {
+						add_favors = {
+							target = prev.envoy_location_country
+							value = 1
+						}
+						create_message = {
+							type = MESSAGE_FAVOR_GAINED_TRADITION
+							localization = MESSAGE_FAVOR_GAINED_TRADITION_DESC
+							days = 30
+							target = prev.envoy_location_country.capital_scope
+							variable = {
+								type = name
+								localization = WHO
+								scope = prev.envoy_location_country
+							}
+						}
+					}
+				}
+				98 = {}
+			}
+		}
+	}
+
+}

@@ -1,0 +1,300 @@
+trade_policy = {
+	potential = {
+		tec_uses_trade_value = yes
+	}
+
+	option = {
+		name = "trade_policy_default"
+
+		AI_weight = {
+			factor = 0
+		}
+	}
+
+	option = {
+		name = "trade_policy_consumer_goods"
+		potential = {
+			OR = {
+				has_federation = no
+				AND = {
+					has_federation = yes
+					federation = {
+						NOT = {
+							has_federation_perk = trade_federation_passive 
+						}
+					}
+				}
+			}
+			has_tradition = tr_mercantile_adaptive_economic_policies
+		}
+		
+		valid = {
+			tec_is_default_country = yes
+			#	NOR = {
+			#		has_policy_flag = "economic_stance_market"
+			#		has_ethic = "ethic_fanatic_socialism"
+			#	}
+		}
+
+		policy_flags = {
+			trade_conversion_consumer_goods
+		}
+
+		modifier = {
+			planet_pops_consumer_goods_upkeep_mult = -0.5
+		}
+
+		AI_weight = {
+			factor = 1
+			modifier = {
+				mult = 0
+				is_regular_empire = yes
+				tec_is_aquatic_empire = yes
+			}
+		}
+	}
+
+	option = {
+		name = "trade_policy_unity"
+		potential = {
+			OR = {
+				has_federation = no
+				AND = {
+					has_federation = yes
+					federation = {
+						NOR = {
+							has_federation_perk = trade_federation_passive
+							has_federation_perk = unity_trade_1
+						}
+					}
+				}
+			}
+			has_tradition = tr_mercantile_adaptive_economic_policies
+		}
+
+		policy_flags = {
+			trade_conversion_unity
+		}
+		
+		valid = {
+			tec_is_default_country = yes
+		#	NOR = {
+		#		has_policy_flag = "economic_stance_market"
+		#		has_policy_flag = "economic_stance_planned"
+		#	}
+		}
+
+		modifier = {}
+
+		AI_weight = {
+			factor = 0
+			modifier = {
+				add = 1
+				is_regular_empire = yes
+				tec_is_aquatic_empire = yes
+			}
+		}
+	}
+
+	option = {
+		name = "trade_policy_trade_league"
+		potential = {
+			has_federation = yes
+			federation = {
+				has_federation_perk = trade_federation_passive 
+			}
+		}
+
+		policy_flags = {
+			trade_conversion_trade_league
+		}
+
+		modifier = {
+			planet_pops_consumer_goods_upkeep_mult = -0.4
+		}
+
+		AI_weight = {
+			factor = 1000
+		}
+	}
+	
+	option = {
+		name = "trade_policy_holy_covenant"
+		potential = {
+			has_federation = yes
+			federation = { has_federation_perk = unity_trade_1 }
+		}
+
+		policy_flags = {
+			trade_conversion_holy_covenant
+		}
+
+		modifier = {
+		}
+
+		AI_weight = {
+			factor = 1000
+		}
+	}
+
+	option = {
+		name = "trade_policy_mutual_aid"
+		potential = {
+			is_worker_coop_empire = yes
+		}
+
+		policy_flags = {
+			trade_conversion_mutual_aid
+		}
+
+		modifier = {
+		}
+
+		AI_weight = {
+			factor = 1000
+		}
+	}
+
+	#Social Development
+	option = {
+		name = "trade_policy_social"
+		
+		policy_flags = {
+			trade_conversion_social
+		}
+		
+		valid = {
+			tec_is_default_country = yes
+			is_socialism = yes
+		}
+		
+		modifier = {
+			planet_colony_development_speed_mult = 0.25
+		}
+		
+		AI_weight = {
+			factor = 0
+		}
+	}
+
+	#Infrastructure Development
+	option = {
+		name = "trade_policy_infrastructure"
+
+		policy_flags = {
+			trade_conversion_infrastructure
+		}
+
+		modifier = {
+			planet_building_build_speed_mult = 0.20
+			starbase_shipyard_build_speed_mult = 0.10
+		}
+
+		AI_weight = {
+			factor = 0
+		}
+	}
+
+	#Innovation
+	option = {
+		name = "trade_policy_innovation"
+		
+		potential = {
+			OR = {
+				custom_tooltip = "civic_tooltip_materialist"
+				is_materialist = yes
+				is_gestalt = yes
+			}
+		}
+
+		policy_flags = {
+			trade_conversion_innovation
+		}
+
+		valid = {
+			tec_is_default_country = yes
+			OR = {
+				custom_tooltip = "civic_tooltip_materialist"
+				is_materialist = yes
+				is_gestalt = yes
+			}
+			NOR = {
+				has_valid_civic = civic_tec_regular_immutable_hierarchy
+			}
+			#	NOR = {
+			#		has_policy_flag = "economic_stance_market"
+			#		has_policy_flag = "economic_stance_planned"
+			#	}
+		}
+		
+		modifier = {
+		}
+		
+		AI_weight = {
+			factor = 0
+		}
+	}
+
+	#Agricultural dev
+	option = {
+		name = "trade_policy_food"
+		
+		policy_flags = {
+			trade_conversion_food
+		}
+
+		potential = {
+			OR = {
+				custom_tooltip = "civic_tooltip_ecologist"
+				is_ecologist = yes
+				has_ethic = ethic_gestalt_preservation
+			}
+		}
+
+		valid = {
+			tec_is_default_country = yes
+			OR = {
+				custom_tooltip = "civic_tooltip_ecologist"
+				is_ecologist = yes
+				has_ethic = ethic_gestalt_preservation
+			}
+		}
+		
+		AI_weight = {
+			factor = 0
+		}
+	}
+
+	# Food
+	option = {
+		name = "trade_policy_mining"
+
+		policy_flags = {
+			trade_conversion_mining
+		}
+
+		modifier = {
+		}
+
+		potential = {
+			OR = {
+				custom_tooltip = "civic_tooltip_industrialist"
+				is_industrialist = yes
+				has_ethic = ethic_gestalt_disregard
+			}
+		}
+
+		valid = {
+			tec_is_default_country = yes
+			OR = {
+				custom_tooltip = "civic_tooltip_industrialist"
+				is_industrialist = yes
+				has_ethic = ethic_gestalt_disregard
+			}
+		}
+
+		AI_weight = {
+			factor = 0
+		}
+	}
+}

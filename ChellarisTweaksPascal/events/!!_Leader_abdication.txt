@@ -1,0 +1,150 @@
+namespace = leader_abdication
+
+country_event = {
+	id = leader_abdication.1
+	title = "Tragedy Strikes..?"
+	desc = leader_abdication_1
+	picture = GFX_evt_board_meeting
+	is_triggered_only = yes
+	
+	immediate = {
+		ROOT = { save_event_target_as = la_country }
+		ruler = { save_event_target_as = la_ruler }
+	}
+	
+	option = {
+				name = la_sick
+				hidden_effect = {
+					ruler = {
+						kill_leader = {
+						fire = no
+						}
+					}
+					every_country = {
+					limit = {has_communications = ROOT}
+						country_event = {
+							id = leader_abdication.2
+						}
+					}
+				}
+	}
+		option = {
+			name = la_natural
+				hidden_effect = {	
+					ruler = {
+						kill_leader = {
+						fire = no
+						}
+					}
+					every_country = {
+					limit = {has_communications = ROOT}
+						country_event = {
+							id = leader_abdication.3
+						}
+					}
+				}
+		}
+
+		option = {
+			name = la_assassinate
+			hidden_effect = {	
+					ruler = {
+						kill_leader = {
+						fire = no
+						}
+					}
+					every_country = {
+					limit = { has_communications = ROOT }
+						country_event = {
+							id = leader_abdication.4
+						}
+					}
+			}
+		}
+
+		option = {
+			name = la_abdicate
+			hidden_effect = {
+					ruler = {
+						kill_leader = {
+						fire = yes
+						}
+					}
+					every_country = {
+					limit = {has_communications = ROOT}
+						country_event = {
+							id = leader_abdication.5
+						}
+					}
+				}
+		}
+
+		option = {
+			name = la_false_alarm
+			default_hide_option = yes
+			trigger = {always = yes}
+		}
+}
+
+country_event = {
+	id = leader_abdication.2
+	title = "Tragedy Strikes!"
+	desc = leader_abdication_2
+	picture = GFX_evt_emergency_workers
+	is_triggered_only = yes
+	
+	option = {
+ 		name = la_unfortunate
+		default_hide_option = yes
+		trigger = {
+		always = yes
+		}
+	}
+}
+country_event = {
+	id = leader_abdication.3
+	title = "Tragedy Strikes!"
+	desc = leader_abdication_3
+	picture = GFX_evt_space_funeral
+	is_triggered_only = yes
+	
+	option = {
+ 		name = la_unfortunate
+		default_hide_option = yes
+		trigger = {
+		always = yes
+		}
+	}
+}
+	
+country_event = {
+	id = leader_abdication.4
+	title = "Tragedy Strikes!"
+	desc = leader_abdication_4
+	picture = GFX_evt_night_raid
+	is_triggered_only = yes
+	
+	option = {
+ 		name = la_unfortunate
+		default_hide_option = yes
+		trigger = {
+		always = yes
+		}
+	}
+}
+	
+country_event = {
+	id = leader_abdication.5
+	title = "Tragedy Strikes!"
+	desc = leader_abdication_5
+	picture = GFX_evt_throne_room
+	is_triggered_only = yes
+	
+	option = {
+ 		name = la_unfortunate
+		default_hide_option = yes
+		trigger = {
+		always = yes
+		}
+	}
+}

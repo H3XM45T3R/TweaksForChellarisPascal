@@ -1,0 +1,21 @@
+﻿l_english:
+
+# Misc
+ # ------------------------------------------------- Info
+   trade_action_transfer_fleet:"Lend out Fleet"
+   ftm_pick_fleet:"Pick the fleet to be leased out"
+   name_of_transfer_fleet_1:"[transfer_fleet_1.GetName]"
+   name_of_transfer_fleet_2:"[transfer_fleet_2.GetName]"
+   name_of_transfer_fleet_3:"[transfer_fleet_3.GetName]"
+   name_of_transfer_fleet_4:"[transfer_fleet_4.GetName]"
+   name_of_transfer_fleet_5:"[transfer_fleet_5.GetName]"
+   name_of_transfer_fleet_6:"[transfer_fleet_6.GetName]"
+   name_of_transfer_fleet_7:"[transfer_fleet_7.GetName]"
+   name_of_transfer_fleet_8:"[transfer_fleet_8.GetName]"
+   name_of_transfer_fleet_9:"[transfer_fleet_9.GetName]"
+   name_of_transfer_fleet_10:"[transfer_fleet_10.GetName]"
+   u_sure_about_this_fleet:"[§Ptransfer_this_fleet.GetName]will be transferred. Is that okay?"
+   sure_about_this_fleet:"§GYes I am sure I want to trade this fleet"
+   not_sure_about_this_fleet:"§RNo, return me to selection"
+   changed_mind_ftm:"I've changed my mind."
+ # /

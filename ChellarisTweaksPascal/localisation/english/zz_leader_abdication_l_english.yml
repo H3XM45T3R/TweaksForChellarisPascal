@@ -1,0 +1,17 @@
+﻿l_english:
+
+# Misc
+ # ------------------------------------------------- Info
+	leader_abdication_1:"The politicians have gathered, as they all sit down and wait for [la_ruler.GetName].."
+ 	leader_abdication_2:"We've just been informed that [la_ruler.GetName], the ruler of the [] has passed away due to §Ydisease.§!"
+	leader_abdication_3:"We've just been informed that [la_ruler.GetName], the ruler of the [] has passed away due to §vnatural causes.§!"
+	leader_abdication_4:"We've just been informed that [la_ruler.GetName], the ruler of the [] has been §Passassinated!§!"
+	leader_abdication_5:"We've just been informed that [la_ruler.GetName], the ruler of the [] has just §gabdicated§! from their position!"
+	la_sick:"But suddenly everyone's coms started going off one after another, informing them that [la_ruler.GetName]has died of the §Ydisease§! that has been plaguing them!"
+	la_natural:"However, their early talks are interrupted when [la_ruler.GetName]s doctor arrives to tell them that [la_ruler.GetName] has passed of §vnatural causes.§!"
+	la_assassinate:"A messenger bursts into the room, yelling that [la_ruler.GetName]has been §Passassinated!§!"
+	la_abdicate:"And the door finally opens, revealing the weary face of [la_ruler.GetName] before they take a good look around the room and announce their §gabdication!§!"
+	la_false_alarm:"[la_ruler.GetName] hurries into the room, giving a quick apology for their lateness before moving on to the business at hand."
+	la_unfortunate:"This could be a game changer.."
+	edict_la_abdicate_edict:"Ruler abdication and more"
+ # /

@@ -1,0 +1,6 @@
+﻿l_english:
+ TRAIT_TEC_MACHINE_AQUATIC_EFFECT: "$mod_planet_jobs_produces_mult$ on §YOcean§! Worlds: §G+5%§!\n$MOD_POP_AMENITIES_USAGE_MULT$ on §YOcean§! Worlds: §G-10%§!\n$MOD_POP_HOUSING_USAGE_MULT$ on §YOcean§! Worlds: §G-5%§!\nHabitability Cap on §YWet§! non-Ocean Worlds: §R70%§!\nHabitability Cap on §YCold§! Worlds: §R45%§!\nHabitability Cap on §YDry§! Worlds: §R20%§!\n\nSome §YRare or Unique§! worlds are considered Ocean Worlds!\n\nThe §H$ap_hydrocentric$§! Ascension Perk amplifies this trait's effects."
+ 
+ trait_aquatic_desc: "§LThis species is perfectly adapted to living in the depths of the ocean. However, on dry land, it is like a fish out of water.§!"
+ 
+ trait_aquatic_tooltip: "$mod_planet_jobs_produces_mult$ on §YOcean§! Worlds: §G+5%§!\n$MOD_POP_AMENITIES_USAGE_MULT$ on §YOcean§! Worlds: §G-10%§!\n$MOD_POP_HOUSING_USAGE_MULT$ on §YOcean§! Worlds: §G-5%§!\nHabitability Cap on §YWet§! non-Ocean Worlds: §R70%§!\nHabitability Cap on §YCold§! Worlds: §R45%§!\nHabitability Cap on §YDry§! Worlds: §R20%§!\n\nSome §YRare or Unique§! worlds are considered Ocean Worlds!\n\nThe §H$ap_hydrocentric$§! Ascension Perk amplifies this trait's effects."

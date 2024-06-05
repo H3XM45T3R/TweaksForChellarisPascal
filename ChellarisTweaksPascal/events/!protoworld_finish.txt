@@ -1,0 +1,792 @@
+namespace = tec_protoworld
+
+# Planet class change
+planet_event = {
+	id = tec_protoworld.20
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		uses_district_set = tec_protoworld
+		NOT = {
+			has_planet_flag = tec_proto_locked_terraform
+		}
+	}
+	# Protoworld terraform lotto
+	# Desert - Full energy
+	# Arid - Energy + minerals
+	# Savannah - Energy + food
+	# Continental	- Food + Energy
+	# Tropical	- Full food
+	# Ocean	- Food + minerals
+	# Alpine - Minerals + Energy
+	# Tundra - Minerals + food
+	# Arctic - Full minerals
+	immediate = {
+		set_planet_flag = tec_terraformed_by_@from
+		# Saves districts in variables
+		while = {
+			limit = {
+				num_districts = {
+					type = district_tec_proto_generator
+					value > 0
+				}
+			}
+			remove_district = district_tec_proto_generator
+			change_variable = {
+				which = tec_temp_generator_districts
+				value = 1
+			}
+		}
+		while = {
+			limit = {
+				num_districts = {
+					type = district_tec_proto_mining
+					value > 0
+				}
+			}
+			remove_district = district_tec_proto_mining
+			change_variable = {
+				which = tec_temp_mining_districts
+				value = 1
+			}
+		}
+		while = {
+			limit = {
+				num_districts = {
+					type = district_tec_proto_farming
+					value > 0
+				}
+			}
+			remove_district = district_tec_proto_farming
+			change_variable = {
+				which = tec_temp_farming_districts
+				value = 1
+			}
+		}
+		# Saves special deposits
+		
+		# Desert - Full energy
+		if = {
+			limit = {
+				OR = {
+					has_planet_flag = tec_protoworld_changing_hot_3
+					has_planet_flag = tec_protoworld_changing_hot_2
+				}
+				NOR = {
+					check_variable = {
+						which = tec_proto_wet
+						value > 3
+					}
+					check_variable = {
+						which = tec_proto_cold
+						value > 3
+					}
+				}
+			}
+			change_pc = pc_desert
+			reroll_deposits = yes
+			set_planet_entity = {
+				atmosphere_color = hsv { 0.05 0.75 0.9 }
+			}
+			
+			if = {
+				limit = {
+					check_modifier_value = {
+						modifier = district_generator_max
+						value < 13
+					}
+				}
+				
+				while = {
+					limit = {
+						check_modifier_value = {
+							modifier = district_generator_max
+							value < 13
+						}
+					}
+					add_deposit = d_searing_desert
+					calculate_modifier = yes
+				}
+			}
+						
+		}
+
+		# Arid - Energy + minerals
+		if = {
+			limit = {
+				OR = {
+					has_planet_flag = tec_protoworld_changing_hot_2
+					has_planet_flag = tec_protoworld_changing_hot_3
+				}
+				OR = {
+					has_planet_flag = tec_protoworld_changing_cold_1
+					check_variable = {
+						which = tec_proto_cold
+						value >= 3
+					}
+				}
+			}
+			change_pc = pc_arid
+			reroll_deposits = yes
+			set_planet_entity = {
+				atmosphere_color = hsv { 0.1 0.8 1.0 }
+			}
+
+			if = {
+				limit = {
+					check_modifier_value = {
+						modifier = district_generator_max
+						value < 9
+					}
+				}
+				while = {
+					limit = {
+						check_modifier_value = {
+							modifier = district_generator_max
+							value < 10
+						}
+					}
+					add_deposit = d_searing_desert
+					calculate_modifier = yes
+				}
+			}
+			
+			if = {
+				limit = {
+					check_modifier_value = {
+						modifier = district_mining_max
+						value < 6
+					}
+				}
+				while = {
+					limit = {
+						check_modifier_value = {
+							modifier = district_mining_max
+							value < 7
+						}
+					}
+					add_deposit = d_prosperous_mesa
+					calculate_modifier = yes
+				}
+			}
+		}
+
+		# Savannah - Energy + food
+		if = {
+			limit = {
+				OR = {
+					has_planet_flag = tec_protoworld_changing_hot_2
+					has_planet_flag = tec_protoworld_changing_hot_3
+				}
+				OR = {
+					has_planet_flag = tec_protoworld_changing_wet_1
+					check_variable = {
+						which = tec_proto_wet
+						value >= 3
+					}
+				}
+			}
+			change_pc = pc_savannah
+			reroll_deposits = yes
+			set_planet_entity = {
+				atmosphere_color = hsv { 0.1 0.6 1.0 }
+			}
+
+			if = {
+				limit = {
+					check_modifier_value = {
+						modifier = district_generator_max
+						value < 9
+					}
+				}
+				while = {
+					limit = {
+						check_modifier_value = {
+							modifier = district_generator_max
+							value < 10
+						}
+					}
+					add_deposit = d_searing_desert
+					calculate_modifier = yes
+				}
+			}
+			
+			if = {
+				limit = {
+					check_modifier_value = {
+						modifier = district_farming_max
+						value < 6
+					}
+				}
+				while = {
+					limit = {
+						check_modifier_value = {
+							modifier = district_farming_max
+							value < 7
+						}
+					}
+					add_deposit = d_fertile_lands
+					calculate_modifier = yes
+				}
+			}
+		}
+
+		# Tropical	- Full food
+		if = {
+			limit = {
+				OR = {
+					has_planet_flag = tec_protoworld_changing_wet_3
+					has_planet_flag = tec_protoworld_changing_wet_2
+				}
+				NOR = {
+					check_variable = {
+						which = tec_proto_hot
+						value > 3
+					}
+					check_variable = {
+						which = tec_proto_cold
+						value > 3
+					}
+				}
+			}
+			change_pc = pc_tropical
+			reroll_deposits = yes
+			set_planet_entity = {
+				atmosphere_color = hsv { 0.35 0.35 0.9 }
+			}
+
+			if = {
+				limit = {
+					check_modifier_value = {
+						modifier = district_farming_max
+						value < 12
+					}
+				}
+				while = {
+					limit = {
+						check_modifier_value = {
+							modifier = district_farming_max
+							value < 13
+						}
+					}
+					add_deposit = d_fertile_lands
+					calculate_modifier = yes
+				}
+			}
+						
+		}
+
+		# Continental	- Food + Energy
+		if = {
+			limit = {
+				OR = {
+					has_planet_flag = tec_protoworld_changing_wet_2
+					has_planet_flag = tec_protoworld_changing_wet_3
+				}
+				OR = {
+					has_planet_flag = tec_protoworld_changing_hot_1
+					check_variable = {
+						which = tec_proto_hot
+						value >= 3
+					}
+				}
+			}
+			change_pc = pc_continental
+			reroll_deposits = yes
+			set_planet_entity = {
+				atmosphere_color = hsv { 0.35 0.25 0.9 }
+			}
+
+			if = {
+				limit = {
+					check_modifier_value = {
+						modifier = district_farming_max
+						value < 9
+					}
+				}
+				while = {
+					limit = {
+						check_modifier_value = {
+							modifier = district_farming_max
+							value < 10
+						}
+					}
+					add_deposit = d_fertile_lands
+					calculate_modifier = yes
+				}
+			}
+			
+			if = {
+				limit = {
+					check_modifier_value = {
+						modifier = district_generator_max
+						value < 6
+					}
+				}
+				while = {
+					limit = {
+						check_modifier_value = {
+							modifier = district_generator_max
+							value < 7
+						}
+					}
+					add_deposit = d_searing_desert
+					calculate_modifier = yes
+				}
+			}
+		}
+		
+		# Ocean	- Food + minerals
+		if = {
+			limit = {
+				OR = {
+					has_planet_flag = tec_protoworld_changing_wet_2
+					has_planet_flag = tec_protoworld_changing_wet_3
+				}
+				OR = {
+					has_planet_flag = tec_protoworld_changing_cold_1
+					check_variable = {
+						which = tec_proto_cold
+						value >= 3
+					}
+				}
+			}
+			change_pc = pc_ocean
+			reroll_deposits = yes
+			set_planet_entity = {
+				atmosphere_color = hsv { 0.4 0.35 0.9 }
+			}
+
+			if = {
+				limit = {
+					check_modifier_value = {
+						modifier = district_farming_max
+						value < 9
+					}
+				}
+				while = {
+					limit = {
+						check_modifier_value = {
+							modifier = district_farming_max
+							value < 10
+						}
+					}
+					add_deposit = d_fertile_lands
+					calculate_modifier = yes
+				}
+			}
+			
+			if = {
+				limit = {
+					check_modifier_value = {
+						modifier = district_farming_max
+						value < 6
+					}
+				}
+				while = {
+					limit = {
+						check_modifier_value = {
+							modifier = district_mining_max
+							value < 7
+						}
+					}
+					add_deposit = d_prosperous_mesa
+					calculate_modifier = yes
+				}
+			}
+		}
+
+		# Alpine - Minerals + Energy
+		if = {
+			limit = {
+				OR = {
+					has_planet_flag = tec_protoworld_changing_cold_2
+					has_planet_flag = tec_protoworld_changing_cold_3
+				}
+				OR = {
+					has_planet_flag = tec_protoworld_changing_hot_1
+					check_variable = {
+						which = tec_proto_hot
+						value >= 3
+					}
+				}
+			}
+			change_pc = pc_alpine
+			reroll_deposits = yes
+			set_planet_entity = {
+				atmosphere_color = hsv { 0.55 0.35 0.9 }
+			}
+
+			if = {
+				limit = {
+					check_modifier_value = {
+						modifier = district_mining_max
+						value < 9
+					}
+				}
+				while = {
+					limit = {
+						check_modifier_value = {
+							modifier = district_mining_max
+							value < 10
+						}
+					}
+					add_deposit = d_prosperous_mesa
+					calculate_modifier = yes
+				}
+			}
+			
+			if = {
+				limit = {
+					check_modifier_value = {
+						modifier = district_generator_max
+						value < 6
+					}
+				}
+				while = {
+					limit = {
+						check_modifier_value = {
+							modifier = district_generator_max
+							value < 7
+						}
+					}
+					add_deposit = d_frozen_gas_lake
+					calculate_modifier = yes
+				}
+			}
+		}
+
+		# Tundra - Minerals + food
+		if = {
+			limit = {
+				OR = {
+					has_planet_flag = tec_protoworld_changing_cold_2
+					has_planet_flag = tec_protoworld_changing_cold_3
+				}
+				OR = {
+					has_planet_flag = tec_protoworld_changing_wet_1
+					check_variable = {
+						which = tec_proto_wet
+						value >= 3
+					}
+				}
+			}
+			change_pc = pc_tundra
+			reroll_deposits = yes
+			set_planet_entity = {
+				atmosphere_color = hsv { 0.5 0.6 0.9 }
+			}
+
+			if = {
+				limit = {
+					check_modifier_value = {
+						modifier = district_mining_max
+						value < 9
+					}
+				}
+				while = {
+					limit = {
+						check_modifier_value = {
+							modifier = district_mining_max
+							value < 10
+						}
+					}
+					add_deposit = d_prosperous_mesa
+					calculate_modifier = yes
+				}
+			}
+			
+			if = {
+				limit = {
+					check_modifier_value = {
+						modifier = district_farming_max
+						value < 6
+					}
+				}
+				while = {
+					limit = {
+						check_modifier_value = {
+							modifier = district_farming_max
+							value < 7
+						}
+					}
+					add_deposit = d_fertile_lands
+					calculate_modifier = yes
+				}
+			}
+		}
+
+		# Arctic - Full minerals
+		if = {
+			limit = {
+				OR = {
+					has_planet_flag = tec_protoworld_changing_cold_3
+					has_planet_flag = tec_protoworld_changing_cold_2
+				}
+				NOR = {
+					check_variable = {
+						which = tec_proto_hot
+						value > 3
+					}
+					check_variable = {
+						which = tec_proto_wet
+						value > 3
+					}
+				}
+			}
+			change_pc = pc_arctic
+			reroll_deposits = yes
+			set_planet_entity = {
+				atmosphere_color = hsv { 0.6 0.6 0.9 }
+			}
+
+			if = {
+				limit = {
+					check_modifier_value = {
+						modifier = district_mining_max
+						value < 12
+					}
+				}
+				while = {
+					limit = {
+						check_modifier_value = {
+							modifier = district_mining_max
+							value < 13
+						}
+					}
+					add_deposit = d_prosperous_mesa
+					calculate_modifier = yes
+				}
+			}
+						
+		}
+
+		# Gaian
+		# Are you even serious?
+		if = {
+			limit = {
+				has_planet_flag = tec_protoworld_changing_hot_3
+				has_planet_flag = tec_protoworld_changing_wet_3
+				has_planet_flag = tec_protoworld_changing_cold_3
+				check_variable = {
+					which = tec_proto_hot
+					value >= 3
+				}
+				check_variable = {
+					which = tec_proto_wet
+					value >= 3
+				}
+				check_variable = {
+					which = tec_proto_cold
+					value >= 3
+				}
+			}
+			change_pc = pc_gaia
+			
+			reroll_deposits = yes
+
+			if = {
+				limit = {
+					check_modifier_value = {
+						modifier = district_generator_max
+						value < 12
+					}
+				}
+				while = {
+					limit = {
+						check_modifier_value = {
+							modifier = district_generator_max
+							value < 13
+						}
+					}
+					add_deposit = d_rushing_waterfalls
+					calculate_modifier = yes
+				}
+			}
+			if = {
+				limit = {
+					check_modifier_value = {
+						modifier = district_mining_max
+						value < 12
+					}
+				}
+				while = {
+					limit = {
+						check_modifier_value = {
+							modifier = district_mining_max
+							value < 13
+						}
+					}
+					add_deposit = d_prosperous_mesa
+					calculate_modifier = yes
+				}
+			}
+			if = {
+				limit = {
+					check_modifier_value = {
+						modifier = district_farming_max
+						value < 12
+					}
+				}
+				while = {
+					limit = {
+						check_modifier_value = {
+							modifier = district_farming_max
+							value < 13
+						}
+					}
+					add_deposit = d_marvelous_oasis
+					calculate_modifier = yes
+				}
+			}
+						
+		}
+		
+		if = {
+			limit = {
+				has_planet_flag = tec_toxic_protoworld
+			}
+			random_list = {
+				5 = {
+					add_deposit = d_bubbling_swamp
+				}
+				3 = {
+					add_deposit = d_fuming_bog
+				}
+				2 = {
+					add_deposit = d_bubbling_swamp
+					add_deposit = d_fuming_bog
+				}
+			}
+		}
+
+
+		# Changes size to fixed amounts
+		#if = {
+		#	limit = {
+		#		check_variable = {
+		#			which = tec_prev_size
+		#			value >= 20
+		#			value <
+		#		}
+		#	}
+		#}
+
+		# Removes all the flags
+		remove_planet_flag = tec_protoworld_candidate
+
+		remove_planet_flag = tec_protoworld_started_terraform
+
+		remove_planet_flag = tec_protoworld_changing_city
+
+		remove_planet_flag = tec_protoworld_changing_perfect
+
+		remove_planet_flag = tec_protoworld_valid_forceform
+
+		remove_planet_flag = tec_protoworld_changing_hot_1
+		remove_planet_flag = tec_protoworld_changing_hot_2
+		remove_planet_flag = tec_protoworld_changing_hot_3
+
+		remove_planet_flag = tec_protoworld_changing_wet_1
+		remove_planet_flag = tec_protoworld_changing_wet_2
+		remove_planet_flag = tec_protoworld_changing_wet_3
+
+		remove_planet_flag = tec_protoworld_changing_cold_1
+		remove_planet_flag = tec_protoworld_changing_cold_2
+		remove_planet_flag = tec_protoworld_changing_cold_3
+		
+		# Re-Creates districts
+		while = {
+			limit = {
+				check_variable = {
+					which = tec_temp_generator_districts
+					value > 0
+				}
+			}
+			add_district = district_generator
+			change_variable = {
+				which = tec_temp_generator_districts
+				value = -1
+			}
+		}
+		while = {
+			limit = {
+				check_variable = {
+					which = tec_temp_mining_districts
+					value > 0
+				}
+			}
+			add_district = district_mining
+			change_variable = {
+				which = tec_temp_mining_districts
+				value = -1
+			}
+		}
+		while = {
+			limit = {
+				check_variable = {
+					which = tec_temp_farming_districts
+					value > 0
+				}
+			}
+			add_district = district_farming
+			change_variable = {
+				which = tec_temp_farming_districts
+				value = -1
+			}
+		}
+		clear_variable = tec_temp_generator_districts
+		clear_variable = tec_temp_mining_districts
+		clear_variable = tec_temp_farming_districts
+		remove_modifier = pm_tec_protoworld_modifier
+		if = {
+			limit = {
+				has_modifier = pm_tec_protoworld_modifier
+			}
+			while = {
+				limit = {
+					has_modifier = pm_tec_protoworld_modifier
+				}
+				remove_modifier = pm_tec_protoworld_modifier
+			}
+		}
+		if = {
+			limit = {
+				has_modifier = pm_tec_terra_proto_random
+			}
+			while = {
+				limit = {
+					has_modifier = pm_tec_terra_proto_random
+				}
+				remove_modifier = pm_tec_terra_proto_random
+			}
+		}
+	}
+
+	after = {
+		# Creates indication for owner
+		owner = {
+			create_message = {
+				type = TERRAFORM_MESSAGE_TYPE
+				localization = MESSAGE_TEC_TERRAFORMATION
+				days = 30
+				target = root
+				variable = {
+					type = name
+					localization = PLANET
+					scope = root
+				}
+			#	variable = {
+			#		type = name
+			#		localization = PLANET_CLASS
+			#		scope = root.planet_class
+			#	}
+			}
+			change_variable = {		# faction variable
+				which = tec_terraformed_worlds
+				value = 1
+			}
+		}
+	}
+}

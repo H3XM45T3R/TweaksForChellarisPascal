@@ -1,0 +1,4 @@
+# Scales with planet trade value
+branch_office_value = {
+	planet_branch_offices_energy_produces_add = 0.5
+}

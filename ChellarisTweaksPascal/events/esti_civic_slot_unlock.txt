@@ -1,0 +1,46 @@
+namespace = esti_civic
+
+# add first civic slot modifier on 4th ascension perk
+country_event = {
+	id = esti_civic.1
+	is_triggered_only = yes
+	hide_window = yes
+	
+	trigger = {
+		num_ascension_perks > 3
+		NOR = { 
+			has_modifier = "esti_civic_1" 
+			has_modifier = "esti_civic_2" 
+		}
+	}
+	
+	immediate = {
+		add_modifier = {
+			modifier = "esti_civic_1"
+			days = -1
+		}
+	}
+}
+
+# remove first civic slot modifier and add second civic slot modifier on 6th ascension perk
+country_event = {
+	id = esti_civic.2
+	is_triggered_only = yes
+	hide_window = yes
+	
+	trigger = {
+		num_ascension_perks > 5
+		NOT = { has_modifier = "esti_civic_2" }
+	}
+	
+	immediate = {
+		if = {
+			limit = { has_modifier = "esti_civic_1"  }
+			remove_modifier = "esti_civic_1"
+		}
+		add_modifier = {
+			modifier = "esti_civic_2"
+			days = -1
+		}
+	}
+}

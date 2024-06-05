@@ -1,0 +1,178 @@
+# disallow for servitor (busted unity)
+civic_tec_machine_alpha_directive = {
+	icon = gfx/interface/icons/governments/civics/gestalt_civics/civic_tec_machine_alpha_directive.dds
+	description = "civic_tec_machine_alpha_directive_tooltip"
+
+	potential = {
+		inline_script = governments/conditions/is_machine_intelligence
+	}
+
+	possible = {
+		civics = {
+			NOR = {
+				value = civic_tec_machine_prime_directive
+				#value = civic_tec_machine_alpha_directive
+				value = civic_tec_machine_delta_directive
+				value = civic_tec_machine_epsilon_directive
+				value = civic_tec_machine_zeta_directive
+				value = civic_tec_machine_iota_directive
+				value = civic_tec_machine_lambda_directive
+				value = civic_tec_machine_omicron_directive
+				value = civic_tec_machine_rho_directive
+				value = civic_tec_machine_upsilon_directive
+				value = civic_tec_machine_omega_directive
+				
+				value = civic_machine_servitor
+			}
+		}
+	}
+
+	random_weight = { base = 5 }
+	modifier = {
+		
+	}
+}
+
+civic_tec_corporate_automatation = {
+	icon = gfx/interface/icons/governments/civics/megacorp_civics/civic_tec_corporate_automatation.dds
+	description = "civic_tec_corporate_automatation_tooltip"
+	potential = {
+		inline_script = governments/conditions/is_corporate
+	}
+
+	modification = no
+
+	possible = {
+	
+		ethics = {
+			OR = {
+				text = civic_tooltip_industrialist
+				inline_script = governments/conditions/ethic_industrial
+			}
+
+		}
+
+	}
+	random_weight = { base = 5 }
+	modifier = {
+		planet_jobs_robotic_produces_mult = 0.05
+		planet_pops_robotics_upkeep_mult = -0.1
+	}
+}
+
+civic_tec_hive_symbiotic = {
+	icon = gfx/interface/icons/governments/civics/gestalt_civics/civic_tec_hive_symbiotic.dds
+	description = "civic_tec_hive_symbiotic_tooltip"
+
+	modification = no
+	
+	potential = {
+		inline_script = governments/conditions/is_hive_mind
+	}
+
+	possible = {
+		ethics = {
+			NOT = {
+				value = ethic_gestalt_apathy
+			}
+		}
+		civics = {
+			NOR = {
+				text = civic_tooltip_tec_genocidal_block
+				value = civic_hive_devouring_swarm
+				value = civic_tec_hive_cyberhorror
+			}
+		}
+	}
+	random_weight = { base = 1 }
+	modifier = {
+		envoys_add = 1
+		empire_size_penalty_mult = 0.5
+	}
+}
+
+civic_tec_machine_cooperators = {
+	icon = gfx/interface/icons/governments/civics/gestalt_civics/civic_tec_machine_cooperators.dds
+	description = "civic_tec_machine_cooperators_tooltip"
+
+	modification = no
+
+	potential = {
+		inline_script = governments/conditions/is_machine_intelligence
+	}
+
+	possible = {
+		ethics = {
+			value = ethic_gestalt_empathy
+		}
+	}
+
+	modifier = {
+		envoys_add = 1
+		envoy_improve_relations_mult = 0.25
+		empire_size_penalty_mult = 0.5
+	}
+
+	random_weight = { base = 2 }
+}
+#Todo: Bake cookies for Kes, and tell them they did a great job with the mod, and look stunning today
+civic_machine_assimilator = {
+	potential = { authority = { value = auth_machine_intelligence } }
+	possible = {
+		civics = {
+			NOR = {
+				value = civic_machine_servitor
+				value = civic_machine_terminator
+				value = civic_machine_memorialist
+				value = civic_machine_exploration_protocol
+			}
+		}
+	}
+	modification = no
+	random_weight = {
+		base = @civic_default_random_weight
+		modifier = {
+			factor = 0
+			NOT = { host_has_dlc = "Synthetic Dawn Story Pack" }
+		}
+		modifier = {
+			# civic has no effect after galaxy generation, disable for random generation
+			factor = 0
+			has_global_flag = game_started
+		}
+		modifier = {
+			factor = 0
+			blocks_disruptive_gameplay = yes
+		}
+	}
+	description = civic_tooltip_machine_assimilator_effects
+	has_secondary_species = {	# see game_start.11
+		title = civic_machine_assimilator_secondary_species
+		traits = {
+			trait = trait_cybernetic
+		}
+	}
+	modifier = {
+		councilor_gestalt_growth_exp_gain = @gestalt_civic_node_xp_rate
+	}
+}
+
+civic_tec_regular_hoarder = {	# NOT DONE
+	icon = gfx/interface/icons/governments/civics/regular_civics/civic_tec_regular_hoarder.dds
+	description = "civic_tec_regular_hoarder_tooltip"
+
+	modification = no
+
+	potential = {
+		inline_script = governments/conditions/is_regular
+	}
+
+	possible = {
+		always = yes
+	}
+
+	modifier = {
+		starbase_defense_platform_capacity_add = 2
+		country_trust_growth = -0.2
+	}
+}

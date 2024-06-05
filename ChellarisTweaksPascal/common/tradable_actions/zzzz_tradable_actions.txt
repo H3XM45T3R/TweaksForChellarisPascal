@@ -1,0 +1,33 @@
+
+trade_action_transfer_leader = {
+	fire_and_forget = yes
+
+	potential = {
+
+		FROM = {
+			is_country_type = default
+		}
+	}
+
+
+on_traded_effect = {
+
+
+	FROM = {
+        save_event_target_as = transfer_leader_here
+	}
+
+
+	THIS = {
+		country_event = {
+        id = pick_transfer_leader.1
+		}
+	}
+    
+}
+
+	ai_weight = {
+		weight = 0
+	}
+
+}

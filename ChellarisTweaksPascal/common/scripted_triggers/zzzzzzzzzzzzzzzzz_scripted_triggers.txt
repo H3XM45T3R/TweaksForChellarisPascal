@@ -1,0 +1,74 @@
+is_despoiler = {
+	OR = {
+		has_valid_civic = civic_barbaric_despoilers
+		has_valid_civic = civic_corporate_despoilers
+		has_valid_civic = civic_machine_assimilator
+	}
+}
+
+has_total_war_cb = {
+	OR = {
+		#attacker checks
+		AND = {
+			OR = {
+				is_country_type = default
+				is_country_type = awakened_fallen_empire
+				is_country_type = fallen_empire
+			}
+			OR = {
+				is_country_type = awakened_fallen_empire
+				has_valid_civic = civic_hive_devouring_swarm
+				AND = {
+					has_valid_civic = civic_machine_terminator
+					from = {
+						NOR = {
+							has_country_flag = synthetic_empire
+							has_authority = auth_machine_intelligence
+						}
+					}
+				}
+				AND = {
+					has_valid_civic = civic_fanatic_purifiers
+					NOT = { is_same_species = from }
+				}
+			}
+		}
+		#end threat checks
+		AND = {
+			is_country_type = default
+			NOR = {
+				is_country_type = awakened_fallen_empire
+				has_valid_civic = civic_fanatic_purifiers
+				has_valid_civic = civic_hive_devouring_swarm
+				has_valid_civic = civic_machine_terminator
+			}
+			from = {
+				OR = {
+					is_country_type = awakened_fallen_empire
+					has_valid_civic = civic_fanatic_purifiers
+					has_valid_civic = civic_hive_devouring_swarm
+					has_valid_civic = civic_machine_terminator
+				}
+			}
+		}
+	}
+}
+
+species_can_be_necrophaged = {
+	NOR = {
+		is_archetype = MACHINE
+		is_archetype = ROBOT
+		is_archetype = PRESAPIENT
+		is_same_species = prev.owner_species
+		AND = {
+			has_slavery_type = { type = slavery_livestock country = prev.owner }
+			#prev.owner = { is_hive_empire = no }
+		}
+		has_citizenship_type = { type = citizenship_purge country = prev.owner }
+	}
+	OR = {
+		species_has_happiness_with_owner = prev.owner
+		has_trait = trait_tec_cyborg_mindless
+		prev.owner = { has_valid_civic = civic_tec_hive_mindflayers }
+	}
+}
